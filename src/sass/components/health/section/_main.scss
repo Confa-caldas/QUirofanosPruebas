@@ -1,0 +1,108 @@
+@import "breadcrumbs/_main.scss";
+/**
+* Genenral styles for section
+*/
+
+.cf-section {
+    background-size: cover;
+    background-position: center center;
+    padding: 15px 0px 0px 0px;
+    .cf-content-login,
+    .cf-content-section {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        .cf-content-header {
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6,
+            p {
+                font-family: $f-main;
+            }
+            p {
+                color: $bg-gray-2;
+                //font-size: 12px;
+            }
+            h1 {
+                color: $bg-gray-2;
+                font-size: 72px;
+            }
+            h1,
+            h2,
+            h3 {
+                font-weight: 700;
+                line-height: 1;
+            }
+            div {
+                font-family: $f-main;
+            }
+        }
+    }
+    .cf-content-section {
+        font-family: $f-main;
+        .cf-content-divider {
+            border-top: 4px solid $bg-gray-1;
+        }
+    }
+    .cf-content-inner {
+        font-family: $f-main;
+    }
+    .cf-note,
+    .cf-content-p {
+        h2,
+        p {
+            font-family: $f-main;
+            color: $bg-gray-2;
+        }
+    }
+}
+
+@media screen and (max-width: 1600px) {
+    
+    h1 {
+        font-size: 50px !important;
+    }
+
+    h2{
+        font-size: 30px !important;
+    }
+    h3{
+        font-size: 25px !important;
+    }
+    h4{
+        font-size: 22px !important;
+    }
+    h5{
+        font-size: 16px !important;
+    }
+
+    p{
+        font-size: 15px !important;
+    }
+    
+}
+
+
+@media screen and (max-width: 1200px) {
+    .cf-section {
+        h1 {
+            font-size: 62px !important;
+        }
+    }
+}
+@media screen and (max-width: 992px) {
+    .cf-section {
+        h1 {
+            font-size: 52px !important;
+        }
+    }
+}
+@media screen and (max-width: 768px) {
+    .cf-section {
+        h1 {
+            font-size: 32px !important;
+        }
+    }
+}

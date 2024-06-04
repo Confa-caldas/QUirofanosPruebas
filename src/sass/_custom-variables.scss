@@ -1,0 +1,75 @@
+//General
+$color-icon: #dee5e5;
+$primary-color: #e82776;
+$secondary-color: #5e807f;
+
+//Box variables
+$border-box: 5px;
+
+//Login page
+$background-color-login: #009688;
+
+//forms variables
+$background-color-form: #fff;
+
+//buttons
+$btn-border-radius: 0.25rem;
+$color-btn-primary: #e82776;
+$color-btn-warning: #ffca3a;
+$color-btn-danger: #ff595e;
+$color-btn-success: #2ba84a;
+$color-btn-info: #a0dde6;
+
+$btn-icon-border-radius: 50%;
+$btn-icon-size: 25px;
+$btn-icon-hover: $secondary-color;
+
+//Layout variables
+$width-menu: 200px;
+$width-menu-xs: 50px;
+$height-header: 50px;
+$bg-color-header: $primary-color;
+$bg-container: #e5e5e5;
+$bg-div-user: #bbb;
+$bg-user-menu: #bbb;
+$bg-menu: $secondary-color;
+
+$bg-black: #000000;
+$bg-white: #fff;
+$bg-gray: #eeeeee;
+$bg-gray-1: #cccccc;
+$bg-gray-2: #666666;
+$bg-gray-3: #9a9a9a;
+$bg-gray-4: #efefef;
+$bg-gray-5: #dddddd;
+$bg-gray-6: #333333;
+$bg-blue: #00aeef;
+$bg-green: #00aeef;
+$bg-green-1: #00aeef;
+
+//Canvas
+$width-canvas: 400px;
+$width-canvas-xs: 250px;
+$bg-canvas: #fff;
+$text-color-header-canvas: #fff;
+$height-canvas: 200px;
+
+//Lists
+$bg-hover-li: #eee;
+$color-hover-li: #09a2ff;
+
+//Tables
+$bg-table-header: $primary-color;
+
+//Pagination
+$page-border-radius: 7px;
+$page-active: $color-btn-primary;
+$page-margin: 0px 3px;
+
+//Fonts
+$f-main: "Ubuntu", "Poppins";
+$f-two: "Poppins", "Ubuntu";
+$f-three: "Arial", "Poppins", "Ubuntu";
+
+// Border radius
+$br-main: 8px;

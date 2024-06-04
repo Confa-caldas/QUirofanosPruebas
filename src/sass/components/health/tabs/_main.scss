@@ -1,0 +1,107 @@
+/**
+* Styles for tabs
+*/
+.cf-tabs {
+  box-shadow: 0 3px 3px rgba($bg-gray-1, 0.12), 0 2px 2px rgba($bg-gray-1, 0.24);
+  position: relative;
+  font-family: $f-main;
+  .cf-tabs {
+    box-shadow: none;
+  }
+  .nav {
+    &.nav-tabs {
+      position: relative;
+      top: -80px;
+      border-bottom-width: 0px;
+      border-bottom-color: $bg-gray;
+      li {
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-bottom: -4px;
+        a {
+          font-family: $f-main;
+          padding: 20px 0px;
+          border-width: 0px;
+          position: relative;
+          //border-bottom-width: 4px;
+          &:before {
+            content: "";
+            height: 4px;
+            width: 100%;
+            position: absolute;
+            bottom: 0px;
+            left: 0px;
+          }
+          &.active {
+            //border-bottom-width: 4px;
+          }
+        }
+        &:first-child {
+          margin-left: 0px;
+        }
+        &:last-child {
+          margin-right: 0px;
+        }
+      }
+      &:after {
+        content: "";
+        display: block;
+        width: 300%;
+        top: 70px;
+        left: -50%;
+        position: absolute;
+        border-bottom: 2px solid #eeeeee;
+      }
+    }
+  }
+  .tab-content {
+    position: relative;
+    top: -40px;
+  }
+
+  .cf-tab-link {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: -4px;
+    display: inline-block;
+    padding: 0px 10px;
+    padding-top: 25px;
+    padding-bottom: 30px;
+    position: relative;
+    //border-bottom-width: 4px;
+    &:before {
+      content: "";
+      height: 6px;
+      width: 100%;
+      position: absolute;
+      bottom: 4px;
+      left: 0px;
+      background-color: transparent;
+    }
+    &:first-child {
+      margin-left: 0px;
+    }
+    &:last-child {
+      margin-right: 0px;
+    }
+    &.router-link-active {
+      color: $bg-blue;
+      // background-color: $bg-blue;
+      &:before {
+        background-color: $bg-blue;
+      }
+    }
+
+    &.router-link-active-accomodation {
+      color: $bg-blue;
+      // background-color: $bg-blue;
+      &:before {
+        background-color: $primary-color;
+      }
+    }
+
+    &:hover {
+      color: $bg-blue !important;
+    }
+  }
+}

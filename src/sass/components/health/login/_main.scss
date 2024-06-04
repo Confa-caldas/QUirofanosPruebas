@@ -1,0 +1,84 @@
+/**
+* Main styles for login component health 
+*/
+
+.cf-login {
+    .cf-content-login {
+        padding: 25px 40px 25px 40px;
+        border-radius: $br-main;
+        &.bg-white {
+            background-color: $bg-white;
+            select,
+            input {
+                background-color: $bg-gray;
+                border: 1px solid $bg-gray-1;
+            }
+        }
+    }
+    .cf-form-group-disabled {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border-top: 1px solid $bg-gray-1;
+        border-bottom: 1px solid $bg-gray-1;
+        margin-bottom: -1px;
+        label {
+            margin-bottom: 0px;
+        }
+    }
+    .cf-message-login {
+        position: relative;
+        font-weight: 700;
+        color: rgba($bg-gray-3, 1) !important;
+        padding-left: 20px;
+        &:before {
+            content: "";
+            position: absolute;
+            width: 8px;
+            height: 100%;
+            left: 0px;
+            background-color: $bg-gray-2;
+            border-radius: 5px;
+        }
+    }
+}
+
+.cf-form-group-disabled {
+    &:last-child {
+        margin-bottom: 20px !important;
+    }
+}
+
+.cf-login-info {
+    .cf-login-data {
+        text-align: right;
+
+        .cf-login-name {
+            font-size: 22px;
+            color: $bg-gray-2;
+        }
+        .cf-login-id {
+            font-weight: 700;
+        }
+        & ~ div {
+            margin-left: 10px;
+        }
+    }
+    .cf-login-icon {
+        .cf-login-inner-icon {
+            img {
+                width: 40px;
+                height: 40px;
+                border-radius: 0px;
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 490px) {
+    .cf-login {
+        .cf-content-login {
+            padding: 40px 20px;
+        }
+    }
+}

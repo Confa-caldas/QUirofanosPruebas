@@ -1,0 +1,111 @@
+/**
+* Styles for input form
+*/
+
+%cf-form-input {
+    padding: 10px 20px !important;
+    height: auto !important;
+    font-family: "Ubuntu";
+    font-size: 16px !important;
+    &.ng-touched.ng-invalid {
+        background-color: rgba(red, 0.1) !important;
+        border-color: rgba(red, 0.5) !important;
+    }
+    &:focus {
+        box-shadow: none !important;
+    }
+}
+
+input:invalid,
+textarea:invalid {
+    background-color: rgba(red, 0.1) !important;
+    border-color: rgba(red, 0.5) !important;
+}
+
+.ng-select .ng-arrow-wrapper {
+    display: none !important;
+}
+
+.cf-form-input {
+    @extend %cf-form-input;
+}
+
+select {
+    &.cf-form-input {
+        position: relative;
+        &:after {
+            content: "";
+            position: absolute;
+            width: 40px;
+            height: 10px;
+            // background-color: red;
+        }
+    }
+}
+
+.cf-custom-select {
+    position: relative;
+    &:after {
+        /* right: 2px;
+        font: normal normal normal 14px/1 FontAwesome;
+        content: "\f078";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        display: block;
+        top: calc(50% + 1px);
+        transform: translateY(-50%); */
+        color: #00aeef;
+        position: absolute;
+        bottom: 0.15em;
+        padding: 5px;
+        //top: 1.18em;
+        right: 0.5rem;
+        content: "\f078";
+        pointer-events: none;
+        font: normal normal normal 14px/1 FontAwesome;
+        width: 20px;
+        height: 20px;
+        display: block;
+        /* top: calc(50% + 1px); */
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+    .custom-select {
+        //background: none !important;
+        //background-color: $bg-gray !important;
+    }
+}
+
+.cf-custom-datepicker {
+    .mydp,
+    .mydp .headertodaybtn {
+        border: 0px !important;
+        line-height: 1.5 !important;
+    }
+    .selectiongroup {
+        height: 44px;
+    }
+    .selbtngroup {
+        height: 100% !important;
+        top: 0px;
+        left: -10px;
+        button {
+            .mydpicon {
+                color: $bg-gray-2;
+            }
+        }
+    }
+    &.ng-touched.ng-invalid {
+        input {
+            background-color: rgba(red, 0.1) !important;
+            border-color: rgba(red, 0.5) !important;
+        }
+    }
+    input {
+        @extend %cf-form-input;
+    }
+    .btnclear {
+        background-color: transparent !important;
+    }
+}

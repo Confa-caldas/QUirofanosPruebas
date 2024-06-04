@@ -1,0 +1,51 @@
+<ng-template #recov>
+  <div class="p-40">
+    <div class="modal-header">
+      <span class="modal-title text-center">Reestrablece tu contraseña</span>
+      <button
+        type="button"
+        class="close pull-rigth"
+        aria-label="Close"
+        (click)="cerrar()"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body text-center">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+            <input
+              type="password"
+              class="form-control filter"
+              [(ngModel)]="password"
+              name="email"
+              placeholder="Escribe tu nueva contraseña"
+            />
+          </div>
+        </div>
+        <div class="col-md-12" *ngIf="viewPass">
+          <div class="form-group">
+            <input
+              type="password"
+              class="form-control filter"
+              [(ngModel)]="confirm"
+              name="password"
+              placeholder="Confirma tu nueva contraseña"
+            />
+          </div>
+        </div>
+
+        <div class="col">
+          <button
+            href="javascript:;"
+            class="btn btn-primary login-button filter"
+            (click)="recover()"
+          >
+            Continuar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

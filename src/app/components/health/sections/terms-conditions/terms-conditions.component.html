@@ -1,0 +1,270 @@
+<div id="_section-2">
+  <div class="cf-section bg-gray-4">
+    <div class="container">
+      <div class="row row d-flex align-items-center">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+          <app-attention-information
+            [widgetStyle]="1"
+          ></app-attention-information>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mt-md-0 mt-sm-4">
+          <ng-container *ngTemplateOutlet="termsButtons"></ng-container>
+        </div>
+
+        <div
+          class="col-xl-3 col-lg-3 col-md-12 col-sm-12 mt-md-0 mt-sm-5 d-flex align-items-center justify-content-center"
+        >
+          <img class="cf-img-full" src="{{ superSaludImg }}" alt="" />
+        </div>
+        <div
+          class="col-xl-3 col-lg-3 col-md-12 col-sm-12 mt-md-0 mt-sm-5 d-flex align-items-center justify-content-center"
+        >
+          <img class="cf-img-full" src="{{ superSub }}" alt="" />
+        </div>
+      </div>
+    </div>
+    <div class="spacer30"></div>
+  </div>
+</div>
+
+<!--begin:Template for terms buttons-->
+<ng-template #termsButtons>
+  <div class="cf-buttons-inline d-md-flex d-sm-block mb-lg-0 mb-md-4">
+    <button
+      class="btn btn-primary cf-btn cf-btn-primary cf-btn-block cf-btn-large-text btn-politicas"
+      (click)="openModal(modalPolicy)"
+    >
+      Autorización de tratamiento de datos
+    </button>
+    <button
+      class="btn btn-primary cf-btn cf-btn-primary cf-btn-block cf-btn-large-text"
+      (click)="openModal(modalConditions)"
+    >
+      Condiciones de Uso<span class="cf-text-hidden"> del servicio</span>
+    </button>
+  </div>
+</ng-template>
+<!--end:Template for terms buttons-->
+
+<!--begin:Template for modal policy-->
+<ng-template #modalPolicy>
+  <button
+    type="button"
+    class="close pull-right cf-modal-btn-close"
+    aria-label="Close"
+    (click)="closeModal()"
+  >
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <div class="modal-header" id="_modalPolicy">
+    <!-- <h4 class="modal-title pull-left">
+            
+        </h4> -->
+    <div>
+      <div class="cf-modal-header">
+        <div class="cf-widget cf-widget-1">
+          <div class="cf-widget-body">
+            <div class="cf-widget-thumbnail">
+              <img alt="" src="{{ politicaDatos }}" />
+            </div>
+            <div class="cf-widget-content">
+              <h5>Tómate un momento para leer nuestra</h5>
+              <h3 class="gray-color">
+                Autorización tratamiento de datos y de Habeas Data
+              </h3>
+
+              <p>
+                <span>
+                  Para leer nuestra politica completa
+                  <a
+                    href="https://56a.4c4.myftpupload.com/wp-content/uploads/2022/05/POLI%CC%81TICA-DE-TRATAMIENTO-DE-LA-INFORMACIO%CC%81N-1-1.pdf"
+                    target="_blank"
+                    class="link-politicas"
+                    >ingresa aqui.
+                  </a>
+                </span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-body">
+    <div class="cf-modal-body">
+      <div class="d-sm-block d-md-flex">
+        <img src="{{ logoConta }}" alt="Confa" />
+      </div>
+      <p style="font-weight: bold">Autorización de tratamiento de datos:</p>
+      <p>
+        Autorizo de manera previa, expresa e inequívoca a la Caja de
+        Compensación Familiar de Caldas–Confa, para que trate mis datos
+        personales y/o sensibles que llegase a recolectar. De igual manera
+        autorizo de manera previa, expresa e inequívoca para que se traten los
+        datos personales y/o sensibles del menor o de la persona sobre el cual
+        actúo en calidad de representante legal, para que sobre esta información
+        proceda a procesarla, recolectarla, almacenarla, usarla, circularla,
+        suprimirla, compartirla, actualizarla, transmitirla y transferirla de
+        acuerdo a las finalidades incorporadas en la Política de Tratamiento de
+        la Información publicada en
+        <a target="_blank" style="color: #007bff" class="link-politicas"
+          >www.confa.co </a
+        >, con el fin de hacer posible la prestación de los servicios propios,
+        reportes a autoridades de vigilancia y control, para uso de fines
+        administrativo, comercial, de publicidad y contacto frente a los
+        titulares de los mismos.
+      </p>
+      <p>
+        Declaro estar informado sobre la posibilidad de oponerse al tratamiento
+        de datos sensibles, salvo que sea necesario para el objeto de las
+        relaciones que se establecen y que en mi calidad de titular de la
+        información tengo derecho a consultar, conocer, actualizar y rectificar
+        los datos personales, ser informado sobre el uso que se ha dado a los
+        mismos en el momento que los solicite, presentar quejas, revocar la
+        autorización y/o solicitar la supresión de mis datos en los casos en que
+        sea procedente y acceder en forma gratuita a los mismos a través de las
+        líneas de atención 8783111 ext. 2772 o al correo
+        <a target="_blank" style="color: #007bff" class="link-politicas"
+          >proteccion.datos@confa.co. </a
+        >.
+      </p>
+    </div>
+    <div class="cf-modal-footer" *ngIf="calledByForm">
+      <div class="d-flex cf-buttons-inline">
+        <button
+          class="btn btn-primary cf-btn cf-btn-secondary-4 cf-btn-block"
+          (click)="closeModal()"
+        >
+          Cancelar
+        </button>
+        <button
+          class="btn btn-primary cf-btn cf-btn-primary cf-btn-block"
+          (click)="acceptTerms()"
+        >
+          Acepto
+          <span class="cf-text-hidden"
+            >pol&iacute;tica de tratamiento de datos</span
+          >
+        </button>
+      </div>
+    </div>
+  </div>
+</ng-template>
+<!--end:Template for modal policy-->
+
+<!--begin:Template for modal conditions-->
+<ng-template #modalConditions>
+  <button
+    type="button"
+    class="close pull-right cf-modal-btn-close"
+    aria-label="Close"
+    (click)="modalRef.hide()"
+  >
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <div class="modal-header" id="_modalConditions">
+    <!-- <h4 class="modal-title pull-left">
+            
+        </h4> -->
+    <div>
+      <div class="cf-modal-header">
+        <div class="cf-widget cf-widget-1">
+          <div class="cf-widget-body">
+            <div class="cf-widget-thumbnail">
+              <img alt="" src="{{ politicaDatos }}" />
+            </div>
+            <div class="cf-widget-content">
+              <h5>Tómate un momento para leer Vacunación covid-19</h5>
+              <h3 class="gray-color">Condiciones de uso del servicio</h3>
+              <p>
+                <span>
+                  Antes de programar tu cita para Vacunación contra covid-19,
+                  asegúrate que cumples los siguientes requisitos:
+                </span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-body">
+    <div class="cf-modal-body">
+      <div class="d-sm-block d-md-flex">
+        <img src="{{ logoConta }}" alt="Confa" />
+        <!--  <h4>Lorem ipsum <br> dolor sit amet</h4> -->
+      </div>
+
+      <ul>
+        <li>
+          Debes pertenecer a la etapa que actualmente se está vacunando, según
+          los lineamientos del Ministerio de Salud. Conoce más en
+          <a
+            class="link"
+            target="_blank"
+            href="https://mivacuna.sispro.gov.co/MiVacuna"
+            style="color: #00afeb"
+            >Mi Vacuna</a
+          >
+        </li>
+
+        <li>
+          Estar priorizado en “Mi vacuna”.
+          <a
+            class="link"
+            target="_blank"
+            href="https://mivacuna.sispro.gov.co/MiVacuna"
+            style="color: #00afeb"
+            >Consulta aquí</a
+          >
+        </li>
+
+        <li>
+          No haber sido diagnosticado como positivo para covid- 19 en los
+          últimos 30 días
+        </li>
+
+        <li>No estar en periodo de gestación o lactancia materna</li>
+
+        <li>No haber recibido otras vacunas en el último mes</li>
+
+        <li>No presentar sintomatología de covid- 19</li>
+        <li>No haber recibido transfusión sanguínea en los últimos 3 meses</li>
+        <li>
+          Si cuentas con patologías de base especiales, favor verificar con tu
+          médico tratante si encuentra indicada la vacunación
+        </li>
+        <li>Presentar tu documento de identidad</li>
+        <li>
+          Recuerda que el día de la vacuna debes autorizar la aplicación de la
+          misma, mediante la firma del consentimiento informado. Puedes conocer
+          su contenido
+          <a
+            class="link"
+            target="_blank"
+            href="https://www.dssa.gov.co/images/vacunacion/modelo_consentimiento_informado.pdf"
+            style="color: #00afeb"
+            >aquí</a
+          >
+        </li>
+      </ul>
+    </div>
+    <div class="cf-modal-footer" *ngIf="calledByForm">
+      <div class="d-flex cf-buttons-inline">
+        <button
+          class="btn btn-primary cf-btn cf-btn-secondary-4 cf-btn-block"
+          (click)="modalRef.hide()"
+        >
+          No cumplo los requisitos
+        </button>
+        <button
+          class="btn btn-primary cf-btn cf-btn-primary cf-btn-block"
+          (click)="acceptService('modalConditions')"
+        >
+          Sí cumplo los requisitos
+        </button>
+      </div>
+    </div>
+  </div>
+</ng-template>
+<!--end:Template for modal conditions-->

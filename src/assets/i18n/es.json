@@ -1,0 +1,140 @@
+{
+  "authentication": {
+    "login": "Iniciar sesión",
+    "logout": "Cerrar sesión",
+    "to_access": "Acceder"
+  },
+  "messages": {
+    "loading": "Estamos procesando tu solicitud"
+  },
+  "menu": {
+    "permissions": "Permisos",
+    "users": "Usuarios",
+    "profile": "Perfíl",
+    "documents": "Documentos",
+    "maps": "Mapas",
+    "details": "Detalles"
+  },
+  "forms": {
+    "email": "Correo electrónico",
+    "password": "Contraseña",
+    "remember_me": "Recordarme",
+    "forgot_password": "Olvidaste la contraseña?",
+    "login": "Iniciar sesión",
+    "role_name": "Nombre rol",
+    "permissions": "Permisos",
+    "users": "Usuarios",
+    "name": "Nombre",
+    "status": "Estado",
+    "role": "Rol",
+    "last_connection": "Última conexión",
+    "rows": "Filas",
+    "select_role": "Selecciona un rol",
+    "user_form": "Formulario usuario",
+    "profile": "Perfíl",
+    "upload_image": "Cargar imagen",
+    "confirm_password": "Confirmar contraseña",
+    "documents": "Documentos",
+    "title": "Título",
+    "original_name": "Nombre original",
+    "url_file": "URL archivo",
+    "click_drag": "Haga clic o arrastre imágenes aquí para cargar",
+    "maps": "Mapas",
+    "document": "Documento",
+    "vacational_center": "centro vacacional",
+    "document_type": "Tipo de documento",
+    "relationship": "Parentesco",
+    "capacity": "Capacidad",
+    "Type_unit": "Tipo Unidad"
+  },
+  "buttons": {
+    "new_role": "Nuevo rol",
+    "save_role": "Guardar rol",
+    "new_user": "Nuevo usuario",
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "new_document": "Nuevo documento",
+    "download_file": "Download file",
+    "search": "Buscar",
+    "add": "AGREGAR"
+  },
+  "alerts": {
+    "congratulations": "Felicitaciones!",
+    "confirm": "Confirmar",
+    "sure_to_delete": "Estás seguro de eliminar este registro?",
+    "yes": "Sí",
+    "cancel": "Volver",
+    "has_errors": "Ha ocurrido un error",
+    "are_you_sure": "¿Estás seguro?"
+  },
+  "links": {
+    "my_reservations": "Mis reservas"
+  },
+  "health": {
+    "login": {
+      "fields": {
+        "document": "Número de documento",
+        "document_type": "Selecciona el tipo de documento",
+        "birthday": "Fecha de nacimiento"
+      }
+    },
+    "schedule": {
+      "calendar_title": "Confa salud",
+      "fields": {
+        "userAgreements": "Convenios",
+        "userType": "Selecciona el sitio de vacunación",
+        "appoinmentsTypes": "Selecciona el tipo de población",
+        "service": "Selecciona el tipo de servicio",
+        "healthcareProfessional": "Selecciona el profesional",
+        "email": "Correo electrónico",
+        "phone": "Teléfono",
+        "cellphone": "Celular",
+        "address": "Dirección",
+        "confirm_email": "Confirmar correo electrónico"
+      }
+    },
+    "payment": {
+      "transction_sumary": "Resumen de la transacción",
+      "payment_details": "Detalles del pago",
+      "sumary": "Resumen",
+      "details": "Detalles",
+      "headline": "Titular",
+      "cellphone": "Celular",
+      "email": "Correo electrónico",
+      "address": "Dirección",
+      "bank": "Banco",
+      "status": "Estado",
+      "reserve_id": "Identificador de la reserva",
+      "No_authorization": "No autorización / CUS",
+      "date_time_transaction": "Fecha y hora de la transacción",
+      "value_transaction": "Valor de la transacción",
+      "value": "Valor"
+    }
+  },
+  "user": {
+    "my_reservations": "Mis reservas"
+  },
+  "confa": {
+    "welcome_to_confa": "Bienvenido a Mi Confa",
+    "my_appointments": "Mis citas",
+    "book_accommodation": "Reserva de alojamiento",
+    "frequent_questions": "Preguntas frecuentes",
+    "frequent_questions_desciption": "Queremos brindarte siempre el mejor servicio.",
+    "attention_numbers": "Si tienes alguna duda, también puedes llamarnos",
+    "buttons": {
+      "schedule_appointments": "Agendar citas",
+      "schedule_appointment": "Agendar cita",
+      "show_historical": "Ver histórico",
+      "cancel_appointment": "Anular cita",
+      "pay_appointment": "Pagar cita",
+      "show_details": "Ver resumen de la transacción"
+    }
+  },
+  "auth": {
+    "login": {
+      "title": "Ingresa para disfrutar de todos nuestros servicios"
+    },
+    "forgot_password_title": "Restrablece tu contraseña",
+    "validate_document_title": "Validar documento"
+  }
+}

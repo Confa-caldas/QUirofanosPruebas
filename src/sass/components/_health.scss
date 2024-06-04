@@ -1,0 +1,44 @@
+/*
+* General styles for componenth health
+*/
+@import "./health/general";
+
+/*
+* Styles for elements forms
+*/
+@import "./health/forms/input";
+@import "./health/forms/captcha";
+@import "./health/forms/buttons";
+@import "./health/forms/steps";
+
+/*
+* Styles for login
+*/
+@import "./health/login/main";
+
+/*
+* Styles for widgets
+*/
+@import "./health/widgets/main";
+
+/*
+* Styles for tabs
+*/
+@import "./health/tabs/main";
+
+/*
+* Styles for accordion
+*/
+@import "./health/accordion/main";
+
+/*
+* Styles for modals
+*/
+@import "./health/modal/main";
+
+/*
+* Styles for calendar
+*/
+@import "./health/calendar/main";
+
+@import "./themes/theme-1";

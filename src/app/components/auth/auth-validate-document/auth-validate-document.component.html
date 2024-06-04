@@ -1,0 +1,47 @@
+<ng-template #validateDocument>
+  <div class="p-40">
+    <div class="modal-header">
+      <span class="modal-title text-center">{{
+        "auth.validate_document_title" | translate
+      }}</span>
+      <button
+        type="button"
+        class="close pull-rigth"
+        aria-label="Close"
+        (click)="closeModal()"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body text-center">
+      <div class="row text-center">
+        <div class="col-md-12">
+          <div class="form-group">
+            <input
+              type="text"
+              (keyup)="validateDocumentregister()"
+              class="form-control filter"
+              [(ngModel)]="userlogin.document"
+              name="document"
+              placeholder="* Documento"
+              pattern="\d*"
+              maxlength="15"
+            />
+          </div>
+        </div>
+
+        <div class="col-md-12">
+          <button
+            href="javascript:;"
+            class="btn btn-primary login-button filter"
+            (click)="validteDocument()"
+          >
+          <i class="fa fa-spinner fa-spin fa fa-fw" *ngIf="spinLoader"></i>
+            <span class="sr-only"></span>
+            Validar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

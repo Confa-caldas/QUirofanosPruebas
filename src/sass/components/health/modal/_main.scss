@@ -1,0 +1,94 @@
+.cf-modal {
+  .cf-modal-header,
+  .cf-modal-body,
+  .cf-modal-footer {
+    padding: 2px 20px 10px 20px;
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+      font-family: $f-main;
+      line-height: 22px;
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-weight: 700;
+    }
+    h3,
+    h4,
+    h5 {
+      color: rgba($bg-black, 0.8);
+    }
+  }
+  .cf-modal-body {
+    h3,
+    h4,
+    h5 {
+      color: rgba($bg-gray-2, 0.8);
+    }
+    img {
+      max-width: 20%;
+      margin: auto;
+    }
+  }
+  .modal-header {
+    border-bottom: 2px solid $bg-gray;
+  }
+  .cf-modal-btn-close {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+  }
+
+  .error-header {
+    background-color: rgb(255, 39, 66);
+    color: #fff !important;
+    text-align: center;
+    justify-content: center;
+    & .fa {
+      margin-right: 5px;
+      color: #fff !important;
+    }
+  }
+}
+
+.cf-info-appointment {
+  .ct-widget-footer {
+    h5 {
+      font-size: 14px !important;
+      font-weight: 400 !important;
+    }
+    h4 {
+      font-size: 18px !important;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .cf-modal-header,
+  .cf-modal-body,
+  .cf-modal-footer {
+    padding: 1px 20px 15px 20px !important;
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: $f-main;
+      line-height: 30px !important;
+    }
+  }
+}
+
+.modal-backdrop {
+  width: 100% !important;
+  height: 100% !important;
+}

@@ -1,0 +1,320 @@
+<app-welcome [showHideUserhealth]="true"></app-welcome>
+<div class="spacer30 bg-gray"></div>
+<div id="_section-6" class="cf-section bg-gray">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-9 col-lg-9 col-md-8 col-sm-12">
+        <ng-container *ngTemplateOutlet="mainContent"></ng-container>
+      </div>
+      <div class="col-xl-3 col-lg-3 col-md-4 col-sm-12">
+        <div class="cf-sticky">
+          <app-attention-information
+            [parentWidgetStyle]="2"
+            [widgetStyle]="2"
+          ></app-attention-information>
+
+          <div
+            class="cf-widget cf-widget-4 d-flex align-items-center justify-content-between"
+          >
+            <div class="cf-widget-content flex-fill">
+              <div class="cf-widget-inner-content">
+                <div class="">
+                  <div class="cf-widget-buttons cf-buttons-inline"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="spacer30 gray-color"></div>
+</div>
+
+<app-download-app></app-download-app>
+
+<app-frequent-questions></app-frequent-questions>
+
+<!-- INIT TEMPLATES -->
+
+<!-- begin:Template for main content -->
+<ng-template #mainContent>
+  <ng-container *ngTemplateOutlet="scheduleAppointment"></ng-container>
+  <ng-container *ngTemplateOutlet="noScheduleAppointment"></ng-container>
+
+  <ng-container *ngTemplateOutlet="listAppointment"></ng-container>
+  <ng-container *ngTemplateOutlet="historicalAppointment"></ng-container>
+
+  <ng-container *ngTemplateOutlet="recommendationAppointment"></ng-container>
+</ng-template>
+<!-- end:Template for main content -->
+
+<!-- begin:Template for widget schedule appointment -->
+<ng-template #scheduleAppointment>
+  <div
+    class="cf-frame cf-frame-fill cf-frame-fill-image cf-div-image background-align"
+    [style.backgroundImage]="'url(' + bgimage + ')'"
+  >
+    <div class="cf-widget cf-widget-4">
+      <div class="cf-widget-body">
+        <div class="cf-widget-thumbnail">
+          <img alt="" src="{{ scheduleAppoiments }}" />
+        </div>
+        <div class="cf-widget-content flex-fill">
+          <div class="cf-widget-inner-content">
+            <div class="cf-widget-content-text">
+              <h3>Radicar la solicitud de procedimiento quirúrgico</h3>
+              <p>
+                Aquí podrás radicar la solicitud de procedimiento quirúrgico
+                diligenciando un formulario
+              </p>
+            </div>
+            <div class="cf-widget-buttons cf-buttons-block">
+              <button
+                [routerLink]="[scheduleAppointmentLink]"
+                class="btn btn-primary cf-btn cf-btn-primary"
+                tooltip="Te daremos un número de radicado con el que podrás hacerle seguimiento a tu solicitud."
+                triggers="hover focus"
+                containerClass="cf-tooltip"
+              >
+                Radicar solicitud
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+<!-- end:Template for widget schedule appointment -->
+
+<!-- begin:Template for widget not schedule appointment -->
+<!-- <ng-template #noScheduleAppointment>
+    <div class="cf-frame cf-frame-fill cf-frame-fill-white mt-4" *ngIf="appoinmentsList.length == 0">
+        <div class="cf-widget cf-widget-3">
+            <div class="cf-widget-body">
+                <div class="cf-widget-thumbnail"><img alt=""
+                        src="https://v2assets.zopim.io/5F9Tzx6kTh0OesmkkNNqNzFqJZvGdwQU-banner?1545159738183"></div>
+                <div class="cf-widget-content">
+                    <div class="cf-widget-inner-content">
+                        <h3 class="cf-frame-text-inverse gray-color"> Actualmente no cuentas con citas vigentes </h3>
+                        <p>
+                            Busca el tipo de cita que necesitas y agéndala de manera fácil y rápida
+                        </p>
+                    </div>
+                    <div class="cf-widget-buttons cf-buttons-block mt-4">
+                        <a [routerLink]="[scheduleAppointmentLink]"
+                            class="btn btn-primary cf-btn cf-btn-primary">{{'confa.buttons.schedule_appointment' | translate}}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template> -->
+<!-- end:Template for widget not schedule appointment -->
+
+<!-- begin:Template for widget historical appointment -->
+<!-- <ng-template #historicalAppointment>
+  <div class="cf-frame cf-frame-fill cf-frame-fill-blue mt-5">
+    <div class="cf-widget cf-widget-4">
+      <div class="cf-widget-body">
+        <div class="cf-widget-thumbnail">
+          <img alt="" src="{{ historialCitasBlank }}" />
+        </div>
+        <div class="cf-widget-content flex-fill">
+          <div class="cf-widget-inner-content">
+            <div class="cf-widget-content-text">
+              <h3>Tu historial de citas médicas</h3>
+              <p>Consulta las citas a las que has asistido</p>
+            </div>
+            <div class="cf-widget-buttons cf-buttons-block">
+              <a
+                [routerLink]="['/salud/citas/historico']"
+                routerLinkActive="router-link-active"
+                class="btn btn-primary cf-btn cf-btn-secondary-3"
+              >
+                {{ "confa.buttons.show_historical" | translate }}
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template> -->
+<!-- end:Template for widget historical appointment -->
+
+<!-- begin:Template for widget recommendation appointment -->
+<!-- <ng-template #recommendationAppointment>
+  <div class="cf-frame cf-frame-fill cf-frame-fill-white mt-5">
+    <div class="cf-widget cf-widget-4">
+      <div class="cf-widget-body">
+        <div class="cf-widget-thumbnail">
+          <img alt="" src="{{ citaSeresQueridos }}" />
+        </div>
+        <div class="cf-widget-content flex-fill">
+          <div class="cf-widget-inner-content">
+            <div class="cf-widget-content-text">
+              <h3>Solicita una cita para otro usuario</h3>
+              <p>
+                Si vas a agendar cita para otro usuario, debes cerrar la sesión
+                e ingresar los datos
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template> -->
+<!-- end:Template for widget recommendation appointment -->
+
+<!-- begin:Template for list appointments -->
+<!-- <ng-template #listAppointment>
+  <div
+    class="cf-content-p mt-5 mb-4"
+    id="_section-5"
+    *ngIf="appoinmentsList.length > 0"
+  >
+    <div class="row">
+      <div class="col-lx-10 col-lg-10 col-md-12 col-sm-12">
+        <h2>Citas Vigentes</h2>
+        <p>Estas son las citas que tienes programadas con nosotros.</p>
+      </div>
+    </div>
+  </div>
+  <ng-container *ngFor="let appoinment of appoinmentsList">
+    <ng-container
+      [ngTemplateOutletContext]="{ item: appoinment }"
+      [ngTemplateOutlet]="appointment"
+    >
+    </ng-container>
+  </ng-container>
+</ng-template> -->
+<!-- end:Template for list appointments -->
+
+<!-- begin:Template for widget appointment -->
+<!-- <ng-template #appointment let-item="item" let-parentItem="parentItem">
+  <div class="cf-frame cf-frame-fill cf-frame-fill-white mt-3">
+    <div class="cf-widget cf-widget-5">
+      <div class="cf-widget-body cf-widget-main-title">
+        <div class="cf-widget-content flex-fill">
+          <div class="cf-widget-inner-content">
+            <div class="cf-widget-content-text">
+              <h4 class="gray-color">{{ item.descripcionCita | titlecase }}</h4>
+            </div>
+            <div class="cf-widget-buttons cf-buttons-inline cf-widget-5-btn-1">
+              <div class="cf-widget-inner-buttons">
+                <button
+                  class="btn btn-primary cf-btn cf-btn-primary"
+                  (click)="ViewDetails(item.consecutivo)"
+                  *ngIf="
+                    item.estado == 'INTERNET' ||
+                    item.estado == 'EN_ESPERA' ||
+                    item.estado == 'NOT_AUTHORIZED' ||
+                    item.estado == 'EXPIRED' ||
+                    item.estado == 'FAILED' ||
+                    item.estado == 'PENDING' ||
+                    item.estado == 'BANK'
+                  "
+                >
+                  {{ "confa.buttons.show_details" | translate }}
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="cf-widget-body mt-3 cf-widget-main-text cf-widget-main-title-2"
+      >
+        <div class="cf-widget-content flex-fill">
+          <div class="cf-widget-inner-content">
+            <div class="cf-widget-content-text">
+              <h5>Profesional</h5>
+              <h4>{{ item.nombreMedico | titlecase }}</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ct-widget-footer mt-3 cf-widget-main-text">
+        <div class="row">
+          <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+            <div class="cf-widget-content-text">
+              <h5>Lugar</h5>
+              <h4>{{ item.lugarCitaDescripcion | titlecase }}</h4>
+            </div>
+          </div>
+          <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+            <div class="cf-widget-content-text">
+              <h5>Fecha y hora</h5>
+              <h4>
+                {{ item.fechaCita | date: "d MMMM y" }}/{{ item.horaCita }}
+              </h4>
+            </div>
+          </div>
+          <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+            <div class="cf-widget-content-text">
+              <h5>Valor</h5>
+              <h4>${{ item.valor | number }}</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cf-widget-body cf-widget-5-btn-2">
+        <div class="cf-widget-content flex-fill">
+          <div class="cf-widget-inner-content">
+            <div class="cf-widget-buttons cf-buttons-inline">
+              <div class="cf-widget-inner-buttons">
+                <button
+                  class="btn btn-primary cf-btn cf-btn-secondary-4"
+                  (click)="confirmCancelAppoinment(item)"
+                  *ngIf="
+                    item.estado === 'NO_PAGA' ||
+                    item.estado === 'NOT_AUTHORIZED' ||
+                    item.estado === 'EXPIRED' ||
+                    item.estado === 'FAILED'
+                  "
+                >
+                  {{ "confa.buttons.cancel_appointment" | translate }}
+                </button>
+
+                <button
+                  class="btn btn-primary cf-btn cf-btn-primary"
+                  (click)="confirmPayAppoinment(item)"
+                  *ngIf="
+                    item.estado === 'NO_PAGA' ||
+                    item.estado === 'NOT_AUTHORIZED' ||
+                    item.estado === 'EXPIRED' ||
+                    item.estado === 'FAILED'
+                  "
+                >
+                  {{ "confa.buttons.pay_appointment" | translate }}
+                </button>
+
+                <button
+                  class="btn btn-primary cf-btn cf-btn-primary"
+                  (click)="ViewDetails(item.consecutivo)"
+                  *ngIf="
+                    item.estado == 'INTERNET' ||
+                    item.estado == 'CONFA' ||
+                    item.estado == 'NOT_AUTHORIZED' ||
+                    item.estado == 'EXPIRED' ||
+                    item.estado == 'FAILED' ||
+                    item.estado == 'PENDING' ||
+                    item.estado == 'BANK'
+                  "
+                >
+                  {{ "confa.buttons.show_details" | translate }}
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template> -->
+<!-- end:Template for widget appointment -->
+
+<app-modal-messages></app-modal-messages>

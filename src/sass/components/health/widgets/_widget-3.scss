@@ -1,0 +1,40 @@
+/**
+* Styles for widget 3
+*/
+.cf-widget-3 {
+    .cf-widget-body {
+        display: flex;
+        align-items: start;
+        .cf-widget-content {
+            margin-left: 25px;
+        }
+    }
+    .ct-widget-footer {
+        .cf-widget-buttons {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .cf-widget-3 {
+        display: block !important;
+        .cf-widget-body {
+            display: block !important;
+            .cf-widget-thumbnail {
+                margin-bottom: 20px;
+            }
+            .cf-widget-content {
+                margin-left: 0px !important;
+                .cf-widget-inner-content {
+                    display: block !important;
+                    .cf-widget-buttons {
+                        margin-left: 0px !important;
+                    }
+                }
+            }
+        }
+    }
+}

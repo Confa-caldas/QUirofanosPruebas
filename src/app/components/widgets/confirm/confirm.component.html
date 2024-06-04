@@ -1,0 +1,36 @@
+<!--begin:Template for modal confirm-->
+<ng-template #modalConfirm>
+  <div class="modal-header" id="_modalErrors">
+    <div class="text-center">
+      <div class="cf-modal-header d-flex align-items-center text-center">
+        <h3 class="blue-color">{{title}}</h3>
+      </div>
+    </div>
+
+  </div>
+  <div class="modal-body">
+    <div class="cf-modal-body text-center " style="overflow-x:auto;" [innerHTML]="message">
+    </div>
+    <div class="cf-modal-body text-center " [innerHTML]="message2">
+    </div>
+
+    <div class="cf-modal-footer">
+      <!--<div class="cf-modal-header d-flex align-items-center justify-content-center gray-color">
+        <h2 class="">{{'alerts.are_you_sure' | translate}}</h2>
+        <h3 class="">¿Deseas radicar otra cirugia?</h3>
+      </div>-->
+
+      <div class="">
+        <div class="d-flex cf-buttons-inline">
+          <button class="btn btn-primary cf-btn cf-btn-primary cf-btn-block" (click)="confirmData()">
+            Aceptar</button>
+
+
+          <button class="btn btn-primary cf-btn cf-btn-primary cf-btn-block" (click)="closeModal()">
+            Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+<!--end:Template for modal errors-->

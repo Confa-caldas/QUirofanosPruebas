@@ -1,0 +1,223 @@
+@import "./section/main";
+
+.icon{
+    width: 25px;
+}
+.gray-color{
+    color: #666666!important;
+}
+
+/* .border-bottom{
+    border-bottom: solid 2px #66666638;
+    padding-bottom: 15px;
+} */
+
+body.modal-open {
+    overflow: hidden !important;
+}
+
+.cf-splashscreen {
+    img {
+        width: 15%;
+        min-width: 100px;
+    }
+    h2 {
+        font-family: $f-main;
+        font-weight: 300;
+    }
+}
+.badge {
+    font-family: $f-main;
+    font-weight: 400;
+    opacity: 0.8;
+    white-space: normal;
+}
+.bg-gray {
+    background-color: $bg-gray;
+}
+
+.bg-gray-1 {
+    background-color: $bg-gray-1;
+}
+
+.bg-gray-2 {
+    background-color: $bg-gray-2;
+}
+
+.bg-gray-3 {
+    background-color: $bg-gray-3;
+}
+
+.bg-gray-4 {
+    background-color: $bg-gray-4;
+}
+
+.bg-gray-5 {
+    background-color: $bg-gray-5;
+}
+
+.cf-border-bottom {
+    border-bottom: 1px solid rgba($bg-black, 0.1);
+}
+
+.transition {
+    transition: all 0.3s !important;
+}
+
+.cf-novisible {
+    opacity: 0;
+    visibility: hidden;
+    height: 0;
+    transition: opacity 0.3s !important;
+    transition-delay: 0.5s !important;
+    &.cf-visible {
+        opacity: 1;
+        height: auto;
+        visibility: visible;
+    }
+}
+.cf-sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 15px;
+}
+
+.cf-frame {
+    padding: 40px;
+    border: 4px solid rgba($bg-gray-1, 0.6);
+    border-radius: $br-main;
+    &:before {
+        border-radius: $br-main;
+    }
+    &.cf-frame-fill {
+        border: 0px solid rgba($bg-gray-1, 0);
+        background-color: rgba($bg-gray-1, 0.6);
+    }
+    &.cf-frame-fluid {
+        padding: 0px;
+        .cf-frame-header {
+            padding: 10px 40px;
+            border-bottom: 2px solid $bg-gray-1;
+            span {
+                color: $bg-black;
+            }
+        }
+        .cf-frame-footer {
+            padding: 10px 40px;
+        }
+    }
+}
+
+.cf-div-image {
+    position: relative;
+    & > div {
+        position: relative;
+        z-index: 1;
+    }
+    &:before {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        height: 100%;
+        width: 100%;
+        content: "";
+        //background-color: rgba($bg-black, 0.6);
+        z-index: 0;
+    }
+}
+
+.cf-scroll {
+    overflow-y: scroll;
+}
+.cf-max-height {
+    height: 320px;
+}
+
+.cf-img-full {
+    width: 100%;
+    height: 70px;
+}
+
+.not-border {
+    border: 0 !important;
+}
+
+.cf-tooltip {
+    color: $bg-white;
+    .tooltip-inner {
+        background-color: $bg-blue;
+    }
+    &.tooltip-right {
+        .tooltip-arrow {
+            &:before {
+                border-left-color: transparent;
+                border-top-color: transparent;
+                border-bottom-color: transparent;
+                border-right-color: $bg-blue;
+            }
+        }
+    }
+    &.tooltip-left {
+        .tooltip-arrow {
+            &:before {
+                border-top-color: transparent;
+                border-right-color: transparent;
+                border-bottom-color: transparent;
+                border-left-color: $bg-blue;
+            }
+        }
+    }
+    &.tooltip-top {
+        .tooltip-arrow {
+            &:before {
+                border-left-color: transparent;
+                border-right-color: transparent;
+                border-bottom-color: transparent;
+                border-top-color: $bg-blue;
+            }
+        }
+    }
+    &.tooltip-bottom {
+        .tooltip-arrow {
+            &:before {
+                border-top-color: transparent;
+                border-right-color: transparent;
+                border-left-color: transparent;
+                border-bottom-color: $bg-blue;
+            }
+        }
+    }
+}
+
+.ng-select-container{
+    height: 40px!important;
+    border-radius: 50px!important;
+    background: transparent!important;
+}
+.ng-select{
+    //background: transparent!important;
+    background: #fff!important;
+    border-radius: 50px;
+}
+
+@media screen and (max-width: 1200px) {
+    .cf-text-hidden {
+        display: none !important;
+    }
+}
+
+
+
+
+@media screen and (max-width: 768px) {
+    .cf-content-header-cflogin {
+        display: block !important;
+        .cf-login-info {
+            padding-top: 0px;
+            justify-content: space-between;
+            .cf-login-data {
+                text-align: left;
+            }
+        }
+    }
+}

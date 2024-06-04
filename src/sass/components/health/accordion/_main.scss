@@ -1,0 +1,89 @@
+/**
+* Styles for accordion
+*/
+.cf-accordion {
+    border-radius: 0px !important;
+    border: 0px !important;
+    .card-header,
+    .panel-heading {
+        .cf-panel-number {
+            display: block;
+            width: 35px;
+            height: 35px;
+            background-color: $bg-gray-2;
+            color: $bg-white;
+            text-align: center;
+            line-height: 35px;
+            border-radius: 35px;
+            margin-right: 15px;
+            min-width: 35px;
+        }
+        border-radius: 0px !important;
+        background-color: $bg-white !important;
+        &:first-child {
+            border-radius: 0px !important;
+            border: 0px !important;
+            background-color: $bg-white !important;
+        }
+        .panel-title {
+            button {
+                padding: 20px !important;
+                font-size: 18px !important;
+                font-weight: 500 !important;
+                color: $bg-gray-2 !important;
+                &:focus,
+                &:hover {
+                    text-decoration: none !important;
+                }
+                .cf-panel-arrow-up {
+                    display: none;
+                }
+                .cf-panel-arrow-down {
+                    display: block;
+                }
+                i {
+                    font-size: 30px;
+                }
+            }
+        }
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    .panel-open {
+        .panel-heading {
+            .panel-title {
+                button {
+                    .cf-panel-arrow-up {
+                        display: block;
+                    }
+                    .cf-panel-arrow-down {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+    .panel-body {
+        padding-left: 70px;
+        padding-right: 50px;
+        color: rgba($bg-gray-2, 0.7);
+        p {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            &:first-child {
+                margin-top: 0px;
+            }
+            &:last-child {
+                margin-bottom: 0px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .cf-accordion-title {
+        white-space: pre-wrap;
+        text-align: left;
+    }
+}

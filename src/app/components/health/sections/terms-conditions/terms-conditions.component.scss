@@ -1,0 +1,26 @@
+.cf-img-full{
+    max-width: 250px!important;
+    height: auto!important;
+}
+
+.cf-modal-body{
+    .title{
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-start;
+        margin-bottom: 15px;
+
+        h4{
+            text-transform: none;
+        }
+    }
+    p{
+        font-size: 14px;
+    line-height: 21px;
+        
+    }
+}
+
+ul{
+    list-style: disc;
+}

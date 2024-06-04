@@ -1,0 +1,81 @@
+// Large devices (desktops, less than 1200px)
+@media (max-width: 1199.98px) {
+
+}
+
+// Medium devices (tablets, less than 992px)
+@media (max-width: 991.98px) {
+
+}
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 769.98px) { 
+	.canvas {
+		width: $width-canvas-xs;
+
+		&.left {
+			transform: translate(-#{$width-canvas-xs}, 0);
+		}	
+
+		&.right {
+			transform: translate(#{$width-canvas-xs}, 0);
+		}
+	}
+
+	.container{
+		padding-left: 15px!important;
+		padding-right: 15px!important;
+	}
+
+	.add-button {
+	    position: inherit!important;
+	    right: 0;
+	}
+
+	.header-list{
+		display: inherit!important;
+    	align-items: center!important;
+	}
+
+	.nav-tabs{
+		justify-content: center!important;
+	}
+
+	.container-fluid{
+		padding-right: 0px;
+    	padding-left: 0px;
+	}
+
+
+	.servicio-img{
+		width: 25%;
+	}
+	.toast-middle-right {
+		//display: flex;
+		//align-items: center;
+		bottom: 12px!important;
+		right: 12px;
+	}
+
+	.view-more-btn-responsive{
+			padding-right: 1px !important;
+	}
+
+	.cf-content-header-med{
+		width: 100%!important;
+	}
+
+}
+
+@media (max-width: 992px){
+	body{
+		overflow-x: hidden!important;
+	}
+}
+
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) { 
+	h2{
+		font-size: 25px;
+	}
+}

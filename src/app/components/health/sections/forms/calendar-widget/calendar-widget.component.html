@@ -1,0 +1,367 @@
+<!-- <mwl-demo-utils-calendar-header [(view)]="view" [(viewDate)]="viewDate">
+</mwl-demo-utils-calendar-header> -->
+<!-- 
+<div class="row cf-calendar">
+    <div class="{{ _mainClass }} transition">
+        <div>
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 p-4 bg-gray-5 cf-calendar-wrapper">
+                <div class="cf-calendar-title">
+                    <p *ngIf="scheduleAppoinment.codServicio">
+                        <span>
+                            {{ scheduleAppoinment.codServicio.descripcionCita | titlecase }}
+                        </span>
+                        <span *ngIf="scheduleAppoinment.codServicio.descripcionServicio">
+                            &nbsp; /
+                            {{
+                            scheduleAppoinment.codServicio.descripcionServicio | titlecase
+                            }}
+                        </span>
+                    </p>
+
+                    <p *ngIf="!scheduleAppoinment.codServicio">
+                        <span>
+                            {{ scheduleAppoinment.tipoCita.descripcionCita | titlecase }}
+                        </span>
+                        <span *ngIf="scheduleAppoinment.tipoCita.descripcionServicio">
+                            &nbsp; /
+                            {{ scheduleAppoinment.tipoCita.descripcionServicio | titlecase }}
+                        </span>
+                    </p>
+                    <h4>{{ "health.schedule.calendar_title" | translate }}</h4>
+                </div>
+            </div>
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 pt-4 pb-4 p-4 bg-white cf-border-bottom">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 d-flex align-items-center">
+                        <h4 class="p-0 m-0 text-capitalize">
+                            <span *ngIf="clickedDate">{{ clickedDate | date: "EEEE, dd / MMM / yyyy" }}
+                            </span>
+                            <span *ngIf="!clickedDate">{{
+                                viewDate | calendarDate: view + "ViewTitle" | titlecase
+                                }}</span>
+                        </h4>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                        <div class="cf-calendar-buttons cf-buttons-inline-mini text-md-right text-sm-center mt-3">
+                            <button class="btn btn-primary cf-btn cf-btn-not-responsive cf-btn-secondary-4"
+                                mwlCalendarToday [(viewDate)]="viewDate" id="click-calendar">
+                                {{ "Hoy" | titlecase }}
+                            </button>
+                            <button class="btn btn-primary cf-btn cf-btn-not-responsive cf-btn-primary"
+                                mwlCalendarPreviousView [view]="view" [(viewDate)]="viewDate"
+                                (viewDateChange)="closeOpenMonthViewDay()">
+                                <i class="fa fa-angle-left" aria-hidden="true"></i>
+                            </button>
+
+                            <button class="btn btn-primary cf-btn cf-btn-not-responsive cf-btn-primary"
+                                mwlCalendarNextView [view]="view" [(viewDate)]="viewDate"
+                                (viewDateChange)="closeOpenMonthViewDay()">
+                                <i class="fa fa-angle-right" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 pt-4 pb-4 p-4 bg-white">
+                <div class="align-items-center col">
+                    <h4 *ngIf="clickedDate">
+                        {{ viewDate | calendarDate: view + "ViewTitle" | titlecase }}
+                    </h4>
+                    <div class="align-items-center d-sm-block d-md-flex">
+                        <span class="appointmentDay"></span>&nbsp;D&iacute;a con citas disponible &nbsp;<br />
+                        <span class="withoutAppointmentDay"></span>&nbsp;D&iacute;a sin citas disponibles
+                    </div>
+
+                      <div class="d-sm-block d-md-flex" *ngIf="showAlertMessage">
+                        {{MESSAGE_ALERT}}
+                    </div>  -->
+                </div>
+
+                <!-- 
+                       <mwl-calendar-month-view weekStartsOn="1" *ngSwitchCase="'month'" [viewDate]="viewDate" [events]="events"
+                            (columnHeaderClicked)="clickedColumn = $event" 
+                            (dayClicked)="clickedDate = $event.day.date"
+                            >
+                        </mwl-calendar-month-view>
+                    
+                <div [ngSwitch]="view">
+                    <mwl-calendar-month-view weekStartsOn="1" *ngSwitchCase="'month'" [viewDate]="viewDate"
+                        [events]="availableAppoinments" (columnHeaderClicked)="clickedColumn = $event"
+                        (eventClicked)="handleEvent($event)" (dayClicked)="dayClicked($event.day)">
+                    </mwl-calendar-month-view>
+                </div>
+
+                 <div class="align-items-center d-sm-block d-md-flex">
+                    <div class="appointmentDay"></div>&nbsp;D&iacute;a con citas disponible
+                    <div class="withoutAppointmentDay"></div>&nbsp;D&iacute;a sin citas disponibles
+                </div>  
+            </div>
+        </div>
+    </div>
+    <div class="{{ _mainClassSecond }} cf-novisible mt-4 mt-sm-0" id="AppointmentLists">
+        <div class="cf-calendar-title cf-calendar-title-aside mb-4">
+            <p>Lista de citas disponibles</p>
+            <h4>{{ clickedDate | date: "EEEE, dd / MMMM / yyyy" }}</h4>
+        </div>
+        <div class="cf-calendar-content" *ngIf="!disabledSelector">
+            <p class="cf-note">
+                Para la fecha seleccionada estos son los profesionales disponibles, selecciona uno para ver sus
+                horarios.
+            </p>
+        </div>
+        <div class="cf-content-inner cf-content-inner-up mb-4 mt-3"
+            *ngIf="healthcareProfessionalAux.length > 0 || codMedico">
+            <form [formGroup]="aFormGroup">
+                <h4 *ngIf="!disabledSelector">Selecciona un profesional</h4>
+                <h4 *ngIf="disabledSelector">
+                    Este es el profesional que seleccionaste
+                </h4>
+                <div class="form-group mt-3 cf-custom-select" *ngIf="!disabledSelector">
+                    <ng-select [items]="healthcareProfessionalAux" bindLabel="nombre" bindValue="codMedico"
+                        [(ngModel)]="codMedico" formControlName="codMedico" [multiple]="false"
+                        notFoundText="No hay resultados" placeholder="{{
+              'health.schedule.fields.healthcareProfessional' | translate
+            }}" [dropdownPosition]="'bottom'" class="ng-select-white" (change)="onSelectCodMed($event)">
+                    </ng-select>
+                </div>
+
+                <div class="form-group mt-4 text-center" *ngIf="disabledSelector">
+                    <h3>
+                        {{ scheduleAppoinment.codMedico.nombre | titlecase }}
+                    </h3>
+                </div>
+            </form>
+        </div>
+        <div class="cf-content-inner cf-content-inner-down" *ngIf="appoinmentsDayShow.length > 0">
+            <div class="cf-calendar-title mb-4">
+                <p>Selecciona la hora de tu cita</p>
+            </div>
+            <perfect-scrollbar style="max-height: 350px">
+                <div class="cf-list-hours-appointment cf-max-height">
+                    <div class="cf-item-hour-appointment d-flex justify-content-between align-items-center pt-3 pb-3 p-3"
+                        *ngFor="let appoinment of appoinmentsDayShow">
+                        <h5 class="cf-hour m-0 p-0">{{ appoinment.horaCita }}</h5>
+                        <button class="btn btn-primary cf-btn cf-btn-secondary cf-appointment"
+                            (click)="getAppointmentsValue(modalScheduleAppoiment, appoinment)">
+                            Agendar cita
+                        </button>
+                    </div>
+                </div>
+            </perfect-scrollbar>
+        </div>
+    </div>
+</div>
+
+begin:Template for modal policy
+<ng-template #modalScheduleAppoiment>
+    <div class="modal-header not-border pb-0" id="_section-8">
+        <div>
+            <div class="cf-modal-header pb-0" id="modalId">
+                <div class="cf-widget cf-widget-1">
+                    <div class="cf-widget-body">
+                        <div>
+                            <h3 *ngIf="!showButtonsPayment">Este es el resumen de tu cita</h3>
+                            <h3 *ngIf="showButtonsPayment">
+                                Tu cita ha sido agendada correctamente.
+                            </h3>
+                            <div class="d-flex align-items-start indicator">
+                                <h6 class="gray-color" *ngIf="!showButtonsPayment">
+                                    Para guardar tu cita debes diligenciar la información en todos los campos
+                                </h6>
+
+                                <h6 class="gray-color" *ngIf="showButtonsPayment">
+                                    Recuerda que puedes pagar tu cita por este medio. Si no deseas pagarla oprime el
+                                    bot&oacute;n "Volver" para regresar al inicio.
+                                </h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-body">
+        <div class="cf-modal-body">
+            <div class="cf-frame cf-frame-fluid cf-frame-fill cf-frame-fill-image cf-div-image cf-info-appointment background-align"
+                [style.backgroundImage]="'url(' + bgimage + ')'">
+                <div class="cf-widget cf-widget-5">
+                    <div class="ct-widget-header cf-frame-header">
+                         <p>Se le asignará cita de {{scheduleAppoinment.tipoCita.descripcionCita | titlecase}} el:&nbsp;
+                            <strong>{{ clickedDate | date:'EEEE, d MMMM y' | titlecase}}</strong>
+                        </p> 
+                        <ng-container *ngIf="!showButtonsPayment">
+                            <p>
+                                Se asignará tu cita de {{ scheduleAppoinment.tipoCita.descripcionCita | titlecase }}
+                                el&nbsp;
+                                <strong>{{
+                                    clickedDate | date: "EEEE, d MMMM y" | titlecase
+                                    }}</strong>
+                            </p>
+                        </ng-container>
+
+                        <ng-container *ngIf="showButtonsPayment">
+                            <p>
+                                Se asign&oacute; tu cita de {{ scheduleAppoinment.tipoCita.descripcionCita | titlecase
+                                }} el&nbsp;
+                                <strong>{{
+                                    clickedDate | date: "EEEE, d MMMM y" | titlecase
+                                    }}</strong>
+                            </p>
+                        </ng-container>
+                    </div>
+                    <div class="ct-widget-footer cf-frame-footer">
+                        <div class="row">
+                            <div class="col-xl-2 col-lg-3 col-md-6 col-sm-12">
+                                <div class="cf-widget-content-text">
+                                    <h5>Hora</h5>
+                                    <h4>{{ scheduleAppoinment.horaCita }}</h4>
+                                </div>
+                            </div>
+                            <div class="col-xl-8 col-lg-3 col-md-6 col-sm-12">
+                                <div class="cf-widget-content-text">
+                                    <h5>Profesional</h5>
+                                    <h4>{{ scheduleAppoinment.nomMedico | titlecase }}</h4>
+                                </div>
+                            </div>
+                             <div class="col-xl-2 col-lg-3 col-md-6 col-sm-12">
+                                <div class="cf-widget-content-text">
+                                    <h5> Valor </h5>
+                                    <h4>${{scheduleAppoinment.value | number}}</h4>
+                                </div>
+                            </div> 
+                            <div class="col-xl-12 col-lg-12 col-md-6 col-sm-12">
+                                <div class="cf-widget-content-text">
+                                    <h5>Lugar..</h5>
+                                    <h4>{{ scheduleAppoinment.lugarCitaName }}</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cf-modal-footer">
+            <form [formGroup]="aFormGroup">
+                <div class="row">
+                    <ng-container *ngIf="!showButtonsPayment">
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                            <div class="form-group">
+                                <label>{{ "health.schedule.fields.email" | translate }}</label>
+                                <input type="text" class="form-control cf-form-input" placeholder="{{
+                    'health.schedule.fields.email' | translate
+                  }} *" tooltip="Ingresa un correo electrónico" placement="right" maxlength="40"
+                                    (keyup)="validateExtension(40, 'email')" formControlName="userEmail"
+                                    [(ngModel)]="userDataToUpdate.email" triggers="hover focus"
+                                    containerClass="cf-tooltip" />
+
+                                <span *ngIf="isControlHasError('userEmail', 'required')"
+                                    class="badge badge-pill badge-danger cf-badge d-block mt-2 pt-1 pb-1 pr-2 pl-2 text-left">{{
+                                    emailFieldAppointment }}</span>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12" *ngIf="userDataToUpdate.newUser">
+                            <div class="form-group">
+                                <label>{{
+                                    "health.schedule.fields.confirm_email" | translate
+                                    }}</label>
+                                <input type="text" class="form-control cf-form-input" placeholder="{{
+                    'health.schedule.fields.confirm_email' | translate
+                  }} *" tooltip="Confirma el correo electrónico" placement="right" maxlength="40"
+                                    (keyup)="validateExtension(40, 'confirmEmail')" formControlName="userConfirm"
+                                    [(ngModel)]="userDataToUpdate.confirmEmail" triggers="hover focus"
+                                    containerClass="cf-tooltip" />
+
+                                <span *ngIf="isControlHasError('userConfirm', 'required')"
+                                    class="badge badge-pill badge-danger cf-badge d-block mt-2 pt-1 pb-1 pr-2 pl-2 text-left">{{
+                                    confirmEmailFieldAppointment }}</span>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                            <div class="form-group">
+                                <label>{{
+                                    "health.schedule.fields.phone" | translate
+                                    }}
+                                    (Opcional)</label>
+                                <input type="text" class="form-control cf-form-input"
+                                    placeholder="{{ 'health.schedule.fields.phone' | translate }}"
+                                    tooltip="Ingresa un número de teléfono" placement="right" maxlength="20"
+                                    (keyup)="validateNumber('phone')" formControlName="userPhone"
+                                    [(ngModel)]="userDataToUpdate.phone" triggers="hover focus"
+                                    containerClass="cf-tooltip" />
+
+                                <span *ngIf="isControlHasError('userPhone')"
+                                    class="badge badge-pill badge-danger cf-badge d-block mt-2 pt-1 pb-1 pr-2 pl-2 text-left">{{
+                                    phoneNumberFieldAppointment }}</span>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                            <div class="form-group">
+                                <label>{{
+                                    "health.schedule.fields.cellphone" | translate
+                                    }}</label>
+                                <input type="text" class="form-control cf-form-input" placeholder="{{
+                    'health.schedule.fields.cellphone' | translate
+                  }} *" tooltip="Ingresa un número celular" placement="right" maxlength="10"
+                                    (keyup)="validateNumber('cellphone')" formControlName="userCellPhone"
+                                    [(ngModel)]="userDataToUpdate.cellphone" triggers="hover focus"
+                                    containerClass="cf-tooltip" />
+                                <span *ngIf="isControlHasError('userCellPhone', 'required')"
+                                    class="badge badge-pill badge-danger cf-badge d-block mt-2 pt-1 pb-1 pr-2 pl-2 text-left">{{
+                                    cellphoneNumberFieldAppointment }}</span>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                            <div class="form-group">
+                                <label>{{
+                                    "health.schedule.fields.address" | translate
+                                    }}</label>
+                                <input type="text" class="form-control cf-form-input" placeholder="{{
+                    'health.schedule.fields.address' | translate
+                  }} *" tooltip="Ingresa una dirección de residencia" placement="right" maxlength="100"
+                                    (keyup)="validateExtension(100, 'address')" formControlName="userAddress"
+                                    [(ngModel)]="userDataToUpdate.address" triggers="hover focus"
+                                    containerClass="cf-tooltip" />
+                                <span *ngIf="isControlHasError('userAddress', 'required')"
+                                    class="badge badge-pill badge-danger cf-badge d-block mt-2 pt-1 pb-1 pr-2 pl-2 text-left">{{
+                                    addressFieldAppointment }}</span>
+                            </div>
+                        </div>
+                    </ng-container>
+
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xl-6">
+                        <div class="cf-buttons-inline d-md-flex d-sm-block mb-lg-0 mb-md-4 ng-star-inserted">
+                            <button *ngIf="!showButtonsPayment"
+                                class="btn btn-primary cf-btn cf-btn-secondary-4 cf-btn-block cf-btn-large-text"
+                                (click)="cancelAppoinment()">
+                                Cancelar
+                            </button>
+
+                            <button *ngIf="showButtonsPayment"
+                                class="btn btn-primary cf-btn cf-btn-secondary-4 cf-btn-block cf-btn-large-text"
+                                (click)="gotoList()">
+                                Volver
+                            </button>
+
+                            <button
+                                class="btn btn-primary cf-btn cf-btn-primary cf-btn cf-btn-block cf-btn-large-text ng-star-inserted"
+                                (click)="updateUserData()" *ngIf="!showButtonsPayment">
+                                Guardar cita
+                            </button>
+
+                            <button *ngIf="showButtonsPayment"
+                                class="btn btn-primary cf-btn cf-btn-primary cf-btn-block cf-btn-large-text"
+                                (click)="confirmPayAppoinment()">
+                                Pagar cita
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</ng-template> -->
+<!--end:Template for modal policy -->

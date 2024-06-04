@@ -1,0 +1,31 @@
+<div class="cf-breadcrumbs">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+        <div class="cf-buttons-inline d-md-flex d-sm-block mb-lg-0 mb-md-4">
+          <a
+            *ngIf="step == 0"
+            (click)="atras()"
+            class="btn btn-primary cf-btn cf-btn-secondary-5 cf-btn-not-responsive"
+          >
+            <i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp; Atrás
+          </a>
+          <a
+            *ngIf="step > 0"
+            (click)="goto(step)"
+            class="btn btn-primary cf-btn cf-btn-secondary-5 cf-btn-not-responsive"
+          >
+            <i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp; Atrás
+          </a>
+          <a
+            [routerLink]="[backMain]"
+            class="btn btn-primary cf-btn cf-btn-secondary-4 cf-btn-not-responsive cf-btn-bolder"
+            (click)="logout()"
+          >
+            Salida segura
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

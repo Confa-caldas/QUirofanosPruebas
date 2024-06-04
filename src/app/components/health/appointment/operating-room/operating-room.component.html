@@ -1,0 +1,558 @@
+<app-breadcrumbs [back]="main_appointments" [backMain]="main_health" [step]="step"></app-breadcrumbs>
+
+<div class="cf-section bg-gray-4" id="_section-7">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mt-3 mb-3">
+                <app-step-form-widget [styleSteps]="2" [currentStep]="currentStep" [numSteps]="numSteps">
+                </app-step-form-widget>
+            </div>
+
+            <ng-container *ngIf="currentStep == 1">
+                <ng-container *ngTemplateOutlet="personalInfo"></ng-container>
+            </ng-container>
+
+            <ng-container *ngIf="currentStep == 2">
+                <ng-container [ngTemplateOutlet]="ensuranceInfo"></ng-container>
+            </ng-container>
+
+            <ng-container *ngIf="currentStep == 3">
+                <ng-container [ngTemplateOutlet]="archivosAdjuntos"></ng-container>
+            </ng-container>
+        </div>
+    </div>
+</div>
+
+<!--begin:Template for Schedule form-->
+<ng-template #personalInfo>
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-6 mb-5">
+        <!-- <div class="cf-content-section"> -->
+        <!-- <div class="cf-content-header mt-5"> -->
+        <!-- <h4>Completa esta información para agendar tu cita quirófano.</h4> -->
+        <!-- </div> -->
+        <!-- </div> -->
+        <!-- <div class="cf-content-inner"> -->
+        <ng-container *ngTemplateOutlet="formPersonalInfo"></ng-container>
+        <!-- </div> -->
+    </div>
+</ng-template>
+<!--end:Template for Schedule form-->
+
+<!--begin:Template for Schedule structure form-->
+<ng-template #formPersonalInfo>
+    <form [formGroup]="formScheduleRoom">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <h2 style="color: #00afeb; text-align: center; margin-bottom: 40px">
+                    Ingresa los siguientes datos para radicar tu procedimiento quirúrgico.
+                </h2>
+                <div class="col-md-6">
+                    <div class="form-group pl-0">
+                        <label class="m-0 mb-1">Número de documento</label><br />
+                        <label class="m-0 mb-1 texto2">{{ f.numeroDocumento.value }}</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="m-0 mb-1">Nombre</label><br />
+                        <label class="m-0 mb-1 texto2">{{ f.nombre.value }}</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="m-0 mb-1">* Correo electrónico</label>
+                        <input type="email" formControlName="email" class="form-control cf-form-input" placeholder="* Ingresa tu correo electrónico" placement="right" autocomplete="off" value="{{ f.email.value }}" [ngClass]="{
+                'is-invalid': (submitted || f.email.touched) && f.email.errors
+              }" email />
+                        <div *ngIf="(submitted || f.email.touched) && f.email.errors?.required" class="invalid-feedback animated fadeIn fast">
+                            <span class="badge badge-pill badge-danger d-block mt-2 pt-2 pb-2 pr-2 pl-2 text-left" style="font-size: 11px; line-height: 120%">
+                DEBES INGRESAR UN CORREO ELECTRÓNICO</span>
+                        </div>
+                        <div *ngIf="(submitted || f.email.touched) && f.email.errors?.email" class="invalid-feedback animated fadeIn fast">
+                            <span class="badge badge-pill badge-danger d-block mt-2 pt-2 pb-2 pr-2 pl-2 text-left" style="font-size: 11px; line-height: 120%">
+                EL CORREO ELECTRÓNICO NO ES VÁLIDO</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group pl-0">
+                        <label class="m-0 mb-1">* Número de teléfono</label>
+                        <input type="text" formControlName="telefono" class="form-control cf-form-input cf-form-input" placeholder="* Ingresa tu número de teléfono" value="{{ f.telefono.value }}" [ngClass]="{
+                'is-invalid':
+                  (submitted || f.telefono.touched) && f.telefono.errors
+              }" />
+                        <div *ngIf="
+                (submitted || f.telefono.touched) &&
+                f.telefono.errors?.minlength
+              " class="invalid-feedback animated fadeIn fast">
+                            <span class="badge badge-pill badge-danger d-block mt-2 pt-2 pb-2 pr-2 pl-2 text-left" style="font-size: 11px; line-height: 120%">
+                DEBES INGRESAR MÍNIMO
+                {{ f.telefono.errors.minlength.requiredLength }}
+                CARACTERES</span>
+                        </div>
+                        <div *ngIf="
+                (submitted || f.telefono.touched) &&
+                f.telefono.errors?.maxlength
+              " class="invalid-feedback animated fadeIn fast">
+                            <span class="badge badge-pill badge-danger d-block mt-2 pt-2 pb-2 pr-2 pl-2 text-left" style="font-size: 11px; line-height: 120%">DEBES INGRESAR
+                MÁXIMO
+                {{ f.telefono.errors.maxlength.requiredLength }}
+                CARACTERES</span>
+                        </div>
+                        <div *ngIf="
+                (submitted || f.telefono.touched) && f.telefono.errors?.pattern
+              " class="invalid-feedback animated fadeIn fast">
+                            <span class="badge badge-pill badge-danger d-block mt-2 pt-2 pb-2 pr-2 pl-2 text-left " style="font-size: 11px; line-height: 120%">DEBES INGRESAR
+                DÍGITOS POSITIVOS</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group pl-0">
+                        <label class="m-0 mb-1">* Número de celular</label>
+                        <input type="text" formControlName="celular" class="form-control cf-form-input" placeholder="* Ingresa tu número de celular" value="{{ f.celular.value }}" [ngClass]="{
+                'is-invalid':
+                  (submitted || f.celular.touched) && f.celular.errors
+              }" />
+                        <div *ngIf="
+                (submitted || f.celular.touched) && f.celular.errors?.minlength
+              " class="invalid-feedback animated fadeIn fast">
+                            <span class="badge badge-pill badge-danger d-block mt-2 pt-2 pb-2 pr-2 pl-2 text-left" style="font-size: 11px; line-height: 120%">DEBES INGRESAR
+                MÍNIMO
+                {{ f.celular.errors.minlength.requiredLength }}
+                NÚMEROS</span>
+                        </div>
+                        <div *ngIf="
+                (submitted || f.celular.touched) && f.celular.errors?.maxlength
+              " class="invalid-feedback animated fadeIn fast">
+                            <span class="badge badge-pill badge-danger d-block mt-2 pt-2 pb-2 pr-2 pl-2 text-left" style="font-size: 11px; line-height: 120%">DEBES INGRESAR
+                MÁXIMO
+                {{ f.celular.errors.maxlength.requiredLength }}
+                NÚMEROS</span>
+                        </div>
+                        <div *ngIf="
+                (submitted || f.celular.touched) && f.celular.errors?.pattern
+              " class="invalid-feedback animated fadeIn fast">
+                            <span class="badge badge-pill badge-danger d-block mt-2 pt-2 pb-2 pr-2 pl-2 text-left" style="font-size: 11px; line-height: 120%">DEBES INGRESAR
+                DÍGITOS POSITIVOS</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="m-0 mb-1">* Nombre de contacto o acudiente</label>
+                        <input type="text" formControlName="nombreNotificacion" class="form-control cf-form-input cf-form-input sinFlechas" placeholder="* Digite el nombre de contacto o acudiente" placement="right" autocomplete="off" [class.is-invalid]="getNombreNotificacion"
+                        />
+                        <div *ngIf="getNombreNotificacion" class="invalid-feedback animated fadeIn fast">
+                            <span class="badge badge-pill badge-danger d-block mt-2 pt-2 pb-2 pr-2 pl-2 text-left" style="font-size: 11px; line-height: 120%">DEBES INGRESAR
+                ALGUIEN DE CONTACTO O ACUDIENTE</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="m-0 mb-1">* Número de teléfono de contacto o acudiente</label>
+                        <input type="number" formControlName="telefonoAcudiente" class="form-control cf-form-input cf-form-input sinFlechas" placeholder="* Digite el número de teléfono para notificar" placement="right" autocomplete="off" [class.is-invalid]="
+                getTelefonoAcudiente ||
+                f.telefonoAcudiente.errors?.pattern ||
+                f.telefonoAcudiente.errors?.minlength ||
+                f.telefonoAcudiente.errors?.maxlength
+              " />
+                        <div *ngIf="getTelefonoAcudiente" class="invalid-feedback animated fadeIn fast">
+                            <span class="badge badge-pill badge-danger d-block mt-2 pt-2 pb-2 pr-2 pl-2 text-left" style="font-size: 11px; line-height: 120%">DEBES INGRESAR
+                UN NÚMERO TELEFÓNICO DEL ACUDIENTE
+              </span>
+                        </div>
+                        <div *ngIf="
+                f.telefonoAcudiente.errors?.pattern ||
+                f.telefonoAcudiente.errors?.minlength ||
+                f.telefonoAcudiente.errors?.maxlength
+              " class="invalid-feedback animated fadeIn fast">
+                            <span class="badge badge-pill badge-danger d-block mt-2 pt-2 pb-2 pr-2 pl-2 text-left" style="font-size: 11px; line-height: 120%">DEBES INGRESAR
+                UN NÚMERO VÁLIDO</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6"></div>
+                <div class="col-md-12 text-left">
+                    <div class="form-group">* Los campos que tienen asterisco son obligatorios.</div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group m-0" style="align-content: right; width: 100%">
+                        <button class="btn-credits btn mt-1 mb-3" (click)="submitPersonalInfo()">
+              Continuar
+            </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</ng-template>
+<!--end:Template for Schedule structure form-->
+
+<!--begin:Template for Schedule calendar-->
+<ng-template #ensuranceInfo>
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-5">
+        <div class="cf-section bg-gray-4" id="_section-7">
+            <div class="container">
+                <div class="row d-flex justify-content-center">
+                    <form class="form-login needs-validation" [formGroup]="formScheduleRoom">
+                        <h2 style="color: #00afeb; text-align: center; margin-bottom: 40px">
+                            Ingresa los siguientes datos para radicar tu procedimiento quirúrgico.
+                        </h2>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group pl-0">
+                                    <label class="m-0 mb-1">* Aseguradora</label>
+                                    <div class="cf-custom-select">
+                                        <select formControlName="aseguradora" class="form-control cf-form-input" (change)="capturarAseguradora($event.target.value)">
+                      <option value="" hidden disabled>
+                        * Selecciona tu aseguradora
+                      </option>
+                      <option [value]="aseguradora" *ngFor="let aseguradora of aseguradoras">
+                        {{ aseguradora | titlecase }}
+                      </option>
+                    </select>
+                                    </div>
+                                    <span *ngIf="getAseguradora" class="badge badge-pill badge-danger cf-badge d-block mt-2 pt-2 pb-2 pr-2 pl-2 text-left" style="font-size: 11px; line-height: 120%">
+                    DEBES SELECCIONAR UNA ASEGURADORA
+                  </span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group pl-0">
+                                    <label class="m-0 mb-1">* Tipo de aseguramiento</label>
+                                    <div class="form-group pl-0">
+                                        <div class="cf-custom-select">
+                                            <select formControlName="tipoAseguramiento" class="form-control cf-form-input" (change)="capturarTipo($event.target.value)" tooltip="El régimen contributivo es el sistema que recoge a los trabajadores que 
+                                aportan una porción de su salario para tener cobertura en salud para ellos 
+                                y sus familias. El régimen subsidiado acoge a aquellas personas que no pueden 
+                                pagar su afiliación a la salud" triggers="hover focus" containerClass="cf-tooltip">
+                        <option value="" hidden disabled>
+                          * Selecciona el tipo de aseguramiento
+                        </option>
+                        <option [value]="tipo['codigo']" *ngFor="let tipo of tiposAseguramiento">
+                          {{ tipo["descripcion"] | titlecase }}
+                        </option>
+                      </select>
+                                        </div>
+                                        <span *ngIf="getTipoAseguramiento" class="badge badge-pill badge-danger cf-badge d-block mt-2 pt-2 pb-2 pr-2 pl-2 text-left" style="font-size: 11px; line-height: 120%">
+                      DEBES SELECCIONAR UN TIPO DE ASEGURAMIENTO
+                    </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="m-0 mb-1">* Número de autorización</label>
+                                    <input type="text" formControlName="numeroAutorizacion" class="form-control cf-form-input cf-form-input sinFlechas" placeholder="* Numero de autorización" placement="right" autocomplete="off" [class.is-invalid]="getNumeroAutorizacion" />
+                                    <div *ngIf="getNumeroAutorizacion" class="invalid-feedback animated fadeIn fast">
+                                        <span class="badge badge-pill badge-danger d-block mt-2 pt-2 pb-2 pr-2 pl-2 text-left" style="font-size: 11px; line-height: 120%">
+                      DEBES INGRESAR EL NÚMERO DE AUTORIZACIÓN
+                    </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="m-0 mb-1">* Nombre del procedimiento</label><br />
+                                    <textarea type="text" formControlName="nombreProcedimiento" class="form-control-long cf-form-input" placeholder="* Nombre del procedimiento" placement="right" autocomplete="off" [class.is-invalid]="getNombreProcedimiento" rows="5" tooltip="El nombre del procedimiento debe ser tal y como esta escrito en la historia clínica o en la orden médica"
+                                        triggers="hover focus" containerClass="cf-tooltip"></textarea>
+                                    <div *ngIf="getNombreProcedimiento" class="invalid-feedback animated fadeIn fast">
+                                        <span class="badge badge-pill badge-danger d-block mt-2 pt-2 pb-2 pr-2 pl-2 text-left" style="font-size: 11px; line-height: 120%">
+                      DEBES INGRESAR LOS PROCEDIMIENTOS
+                    </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group pl-0">
+                                    <label class="m-0 mb-1">* Especialidad</label>
+                                    <div class="form-group">
+                                        <div class="cf-custom-select">
+                                            <select formControlName="especialidad" class="form-control cf-form-input" (change)="capturarEspecialidad($event.target.value)">
+                        <option value="" hidden disabled>
+                          * Selecciona una especialidad
+                        </option>
+                        <option [value]="esp['cod_esp']" *ngFor="let esp of especialidades">
+                          {{ esp["descripcion"] | titlecase }}
+                        </option>
+                        <option value="Otra">Otra especialidad</option>
+                      </select>
+                                        </div>
+                                    </div>
+                                    <span *ngIf="getEspecialidad" class="badge badge-pill badge-danger cf-badge d-block mt-2 pt-2 pb-2 pr-2 pl-2 text-left" style="font-size: 11px; line-height: 120%">
+                    DEBES SELECCIONAR UNA ESPECIALIDAD
+                  </span>
+                                </div>
+                            </div>
+                            <div class="col-md-6" *ngIf="especialidadValidator == false">
+                                <div class="form-group pl-0">
+                                    <label class="m-0 mb-1">* Especialista</label>
+                                    <div class="form-group">
+                                        <div class="cf-custom-select">
+                                            <select formControlName="nombreEspecialista" class="form-control cf-form-input" (change)="capturarEspecialista($event.target.value)">
+                        <option value="" hidden disabled>
+                          * Selecciona un especialista
+                        </option>
+                        <option [value]="esp['cedula']" *ngFor="let esp of especialistas">
+                          {{ esp["nombre"] | titlecase }}
+                        </option>
+                        <option value="Otro" *ngIf="f.especialidad.value != ''">
+                          Otro especialista
+                        </option>
+                      </select>
+                                        </div>
+                                    </div>
+                                    <span *ngIf="getEspecialidad" class="badge badge-pill badge-danger cf-badge d-block mt-2 pt-2 pb-2 pr-2 pl-2 text-left" style="font-size: 11px; line-height: 120%">
+                    DEBES SELECCIONAR UN ESPECIALISTA</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" *ngIf="especialidadValidator == true">
+                            <div class="col-md-6">
+                                <div class="form-group pl-0">
+                                    <label class="m-0 mb-1">* Otra especialidad</label>
+                                    <input type="text" formControlName="backUpEspecialidad" class="form-control cf-form-input cf-form-input sinFlechas" placeholder="* Otra especialidad" placement="right" autocomplete="off" />
+                                    <span *ngIf="getBackUpEspecialidad" class="badge badge-pill badge-danger cf-badge d-block mt-2 pt-2 pb-2 pr-2 pl-2 text-left" style="font-size: 11px; line-height: 120%">
+                    DEBES DIGITAR OTRA ESPECIALIDAD VÁLIDA
+                  </span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group pl-0">
+                                    <label class="m-0 mb-1">Otro especialista</label>
+                                    <input type="text" formControlName="backUpnombreEspecialista" class="form-control cf-form-input cf-form-input sinFlechas" placeholder="Otro especialista" placement="right" autocomplete="off" />
+                                    <span *ngIf="getBackUpEspecialista" class="badge badge-pill badge-danger cf-badge d-block mt-2 pt-2 pb-2 pr-2 pl-2 text-left" style="font-size: 11px; line-height: 120%">
+                    PUEDES DIGITAR HASTA 30 CARACTERES</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" *ngIf="especialistaValidator == true">
+                            <div class="col-md-6"></div>
+                            <div class="col-md-6">
+                                <div class="form-group pl-0">
+                                    <label class="m-0 mb-1">* Otro especialista</label>
+                                    <input type="text" formControlName="backUpnombreEspecialista" class="form-control cf-form-input cf-form-input sinFlechas" placeholder="* Otro especialista" placement="right" autocomplete="off" />
+                                    <span *ngIf="getBackUpEspecialista" class="badge badge-pill badge-danger cf-badge d-block mt-2 pt-2 pb-2 pr-2 pl-2 text-left" style="font-size: 11px; line-height: 120%">PUEDES DIGITAR HASTA 30 CARACTERES</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 text-left">
+                            <div class="form-group">* Los campos que tienen asterisco son obligatorios.</div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group m-0" style="align-content: right; width: 100%">
+                                <button class="btn-credits btn mt-1 mb-3" (click)="submitEnsuranceInfo()">
+                  Continuar
+                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
+<!--end:Template for Schedule calendar-->
+
+<!--begin:Template for Schedule calendar-->
+<ng-template #archivosAdjuntos>
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-5">
+        <div class="cf-section bg-gray-4" id="_section-7">
+            <div class="container">
+                <div class="row d-flex justify-content-center">
+                    <form class="form-login needs-validation" [formGroup]="formScheduleRoom">
+                        <h2 style="color: #00afeb; text-align: center; margin-bottom: 40px">
+                            Ingresa los siguientes anexos. Al finalizar el registro, podrás ver el número de radicado de tu cirugía. Solo se permiten archivos con extensión PNG, JPG y PDF
+                        </h2>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="m-0 mb-1"> Documento de identidad</label><br />
+                                    <div class="input-group cursorEncima">
+                                        <div class="input-group-prepend" (click)="loadfile('docPro')">
+                                            <span class="input-group-text leftSpan" id="inputGroupFileAddon01">
+                        <img src="assets/images/pdf.png" alt="" style="width: 20px; height: 20px" />
+                      </span>
+                                        </div>
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="docPro" name="docPro" formControlName="documentoIdentidad" aria-describedby="inputGroupFileAddon01" accept="application/pdf, image/png, image/jpeg" (change)="getFile($event, this.f.documentoIdentidad)"
+                                                lang="es" />
+                                            <label class="custom-file-label" *ngIf="f.documentoIdentidad.value == ''">
+                        Adjuntar documento de identidad</label>
+                                            <label class="custom-file-label" for="docPro" id="docPro" *ngIf="f.documentoIdentidad.value != ''">{{
+                        f.documentoIdentidad._pendingValue.split("\\")[2]
+                        }}</label>
+                                        </div>
+                                        <div class="input-group-prepend" (click)="loadfile('docPro')">
+                                            <span class="input-group-text rightSpan" id="inputGroupFileAddon01">
+                        <img src="assets/images/upload.png" alt="" style="width: 20px; height: 20px" />
+                      </span>
+                                        </div>
+                                        <img *ngIf="docPro" src="assets/images/success.png" alt="" style="width: 20px; height: 20px" />
+                                    </div>
+                                    <div *ngIf="getDocumentoIdentidad" class="animated fadeIn fast">
+                                        <span class="badge badge-pill badge-danger d-block mt-2 pt-2 pb-2 pr-2 pl-2 text-left" style="font-size: 11px; line-height: 120%">
+                      DEBES SUBIR UN ARCHIVO DEL DOCUMENTO DE IDENTIDAD VÁLIDO
+                    </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="m-0 mb-1">* Autorización</label><br />
+                                    <div class="input-group cursorEncima">
+                                        <div class="input-group-prepend" (click)="loadfile('autorizacion')">
+                                            <span class="input-group-text leftSpan" id="inputGroupFileAddon01">
+                        <img src="assets/images/pdf.png" alt="" style="width: 20px; height: 20px" />
+                      </span>
+                                        </div>
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="autorizacion" name="autorizacion" formControlName="autorizacion" aria-describedby="inputGroupFileAddon01" accept="application/pdf, image/png, image/jpeg" (change)="getFile($event, this.f.autorizacion)"
+                                                lang="es" tooltip="Autorización emitida por tu asegurador o EPS." triggers="hover focus" containerClass="cf-tooltip" />
+                                            <label class="custom-file-label" *ngIf="f.autorizacion.value == ''">
+                        Adjuntar documento de la autorización</label>
+                                            <label class="custom-file-label" for="autorizacion" id="autorizacion" *ngIf="f.autorizacion.value != ''">{{
+                        f.autorizacion._pendingValue.split("\\")[2]
+                        }}</label>
+                                        </div>
+                                        <div class="input-group-prepend" (click)="loadfile('autorizacion')">
+                                            <span class="input-group-text rightSpan" id="inputGroupFileAddon01">
+                        <img src="assets/images/upload.png" alt="" style="width: 20px; height: 20px" />
+                      </span>
+                                        </div>
+                                        <img *ngIf="autorizacion" src="assets/images/success.png" alt="" style="width: 20px; height: 20px" />
+                                    </div>
+                                    <div *ngIf="getAutorizacion" class="animated fadeIn fast">
+                                        <span class="badge badge-pill badge-danger d-block mt-2 pt-2 pb-2 pr-2 pl-2 text-left" style="font-size: 11px; line-height: 120%">
+                      DEBES SUBIR UN ARCHIVO DEL DOCUMENTO DE LA AUTORIZACION VÁLIDO
+                    </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="m-0 mb-1">* Historia clínica</label><br />
+                                    <div class="input-group cursorEncima">
+                                        <div class="input-group-prepend" (click)="loadfile('historiaClinica')">
+                                            <span class="input-group-text leftSpan" id="inputGroupFileAddon01">
+                        <img src="assets/images/pdf.png" alt="" style="width: 20px; height: 20px" />
+                      </span>
+                                        </div>
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" formControlName="historiaClinica" id="historiaClinica" name="historiaClinica" aria-describedby="inputGroupFileAddon01" accept="application/pdf, image/png, image/jpeg" (change)="getFile($event, this.f.historiaClinica)"
+                                                lang="es" tooltip="Historia clínica del profesional que ordena el procedimiento quirúrgico." triggers="hover focus" containerClass="cf-tooltip" />
+                                            <label class="custom-file-label" *ngIf="f.historiaClinica.value == ''">
+                        Adjuntar documento de la historia clínica</label>
+                                            <label class="custom-file-label" for="historiaClinica" id="historiaClinica" *ngIf="f.historiaClinica.value != ''">{{
+                        f.historiaClinica._pendingValue.split("\\")[2]
+                        }}</label>
+                                        </div>
+                                        <div class="input-group-prepend" (click)="loadfile('historiaClinica')">
+                                            <span class="input-group-text rightSpan" id="inputGroupFileAddon01">
+                        <img src="assets/images/upload.png" alt="" style="width: 20px; height: 20px" />
+                      </span>
+                                        </div>
+                                        <img *ngIf="autorizacion" src="assets/images/success.png" alt="" style="width: 20px; height: 20px" />
+                                    </div>
+                                    <!-- <input
+                    (change)="getFile($event, this.f.historiaClinica)"
+                    type="file"
+                    formControlName="historiaClinica"
+                    placeholder="* subir archivo historia clínica"
+                    placement="right"
+                    autocomplete="off"
+                    [class.is-invalid]="getHistoriaClinica"
+                    tooltip="Historia clínica del profesional que ordena el procedimiento quirúrgico."
+                    triggers="hover focus"
+                    containerClass="cf-tooltip"
+                  /> -->
+                                    <div *ngIf="getHistoriaClinica" class="animated fadeIn fast">
+                                        <span class="badge badge-pill badge-danger d-block mt-2 pt-2 pb-2 pr-2 pl-2 text-left" style="font-size: 11px; line-height: 120%">
+                      DEBES SUBIR UN ARCHIVO DE LA HISTORIA CLÍNICA VÁLIDO
+                    </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="m-0 mb-1">Otros documentos</label><br />
+                                    <div class="input-group cursorEncima">
+                                        <div class="input-group-prepend" (click)="loadfile('otrosDocumentos')">
+                                            <span class="input-group-text leftSpan" id="inputGroupFileAddon01">
+                        <img src="assets/images/pdf.png" alt="" style="width: 20px; height: 20px" />
+                      </span>
+                                        </div>
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" formControlName="otrosDocumentos" id="otrosDocumentos" name="otrosDocumentos" aria-describedby="inputGroupFileAddon01" accept="application/pdf, image/png, image/jpeg" (change)="getFile($event, this.f.otrosDocumentos)"
+                                                lang="es" />
+                                            <label class="custom-file-label" *ngIf="f.otrosDocumentos.value == ''">
+                        Adjuntar otros documentos</label>
+                                            <label class="custom-file-label" for="otrosDocumentos" id="otrosDocumentos" *ngIf="f.otrosDocumentos.value != ''">{{
+                        f.otrosDocumentos._pendingValue.split("\\")[2]
+                        }}</label>
+                                        </div>
+                                        <div class="input-group-prepend" (click)="loadfile('otrosDocumentos')">
+                                            <span class="input-group-text rightSpan" id="inputGroupFileAddon01">
+                        <img src="assets/images/upload.png" alt="" style="width: 20px; height: 20px" />
+                      </span>
+                                        </div>
+                                        <img *ngIf="autorizacion" src="assets/images/success.png" alt="" style="width: 20px; height: 20px" />
+                                    </div>
+                                    <!-- <input
+                    (change)="getFile($event, this.f.otrosDocumentos)"
+                    type="file"
+                    formControlName="otrosDocumentos"
+                    placeholder="* subir archivo de otros documentos"
+                    placement="right"
+                    autocomplete="off"
+                  /> -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="m-0 mb-1">Observación adicional</label><br />
+                                    <textarea type="text" formControlName="observacionAdicional" class="form-control-long cf-form-input" placeholder="Si consideras que debamos saber algo que no está en los soportes, puedes escribirlo aquí. Por ejemplo: procesos jurídicos, como tutela."
+                                        placement="right" autocomplete="off" [class.is-invalid]="getNombreProcedimiento" triggers="hover focus" containerClass="cf-tooltip" tooltip="Cuéntanos aquí sobre cualquier condición adicional que debamos saber." triggers="hover focus"
+                                        containerClass="cf-tooltip" rows="5"></textarea>
+                                    <div *ngIf="getNombreProcedimiento" class="invalid-feedback animated fadeIn fast">
+                                        <span class="badge badge-pill badge-danger d-block mt-2 pt-2 pb-2 pr-2 pl-2 text-left" style="font-size: 11px; line-height: 120%">
+                      DEBES INGRESAR LOS PROCEDIMIENTOS
+                    </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 text-left">
+                            <div class="form-group">
+                                Si presentas algún problema al momento de adjuntar la documentación, puedes comunicarte a nuestras líneas de atención (6068748680 ext 1014 - 3350 - 3374)
+                            </div>
+                            <div class="form-group">* Los campos que tienen asterisco son obligatorios</div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group m-0" style="align-content: right; width: 100%">
+                                <button class="btn-credits btn mt-1 mb-3" (click)="onSubmit()">
+                  Radicar solicitud
+                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
+<!--end:Template for Schedule calendar-->
+
+<app-modal-messages></app-modal-messages>
+
+<app-terms-conditions></app-terms-conditions>

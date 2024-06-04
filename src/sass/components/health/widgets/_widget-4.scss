@@ -1,0 +1,56 @@
+/**
+* Styles for widget 4
+*/
+.cf-widget-4 {
+    .cf-widget-body {
+        display: flex;
+        align-items: center;
+        .cf-widget-content {
+            margin-left: 25px;
+            .cf-widget-inner-content {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                .cf-widget-buttons {
+                    margin-left: 25px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .cf-widget-4 {
+        display: block !important;
+        .cf-widget-body {
+            align-items: start;
+            .cf-widget-content {
+                .cf-widget-inner-content {
+                    display: block !important;
+                    .cf-widget-buttons {
+                        margin-left: 0px !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .cf-widget-4 {
+        .btn,
+        .cf-widget-inner-content,
+        .cf-widget-inner-buttons {
+            display: block !important;
+        }
+        .cf-widget-content {
+            margin-left: 0px !important;
+        }
+        .cf-widget-body {
+            display: block !important;
+            .cf-widget-thumbnail {
+                margin-bottom: 20px !important;
+            }
+        }
+    }
+}

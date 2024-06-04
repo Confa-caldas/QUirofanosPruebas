@@ -1,0 +1,15 @@
+<div class="cf-steps cf-steps-style-1">
+    <div class="cf-steps-information d-flex">
+        <div class="cf-step-numbers"><span>Paso {{currentStep}}</span> de {{numSteps}}</div>
+    </div>
+    <div #containerSteps class="cf-steps-line">
+        <!-- {{ containerSteps.offsetWidth }} -->
+        <div *ngIf="styleSteps == 1" class="cf-step-marker" [style.width.px]="containerSteps.offsetWidth / numSteps"
+            [style.left.px]="((containerSteps.offsetWidth / numSteps) * currentStep) - (containerSteps.offsetWidth / numSteps)">
+        </div>
+
+        <div *ngIf="styleSteps == 2" class="cf-step-marker"
+            [style.width.px]="(containerSteps.offsetWidth / numSteps) * currentStep">
+        </div>
+    </div>
+</div>

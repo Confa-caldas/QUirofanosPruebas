@@ -1,0 +1,94 @@
+<app-onbd-health></app-onbd-health>
+<app-welcome [showHideUserhealth]="false"></app-welcome>
+<div
+  id="_section-1"
+  class="cf-section cf-div-image"
+  [style.backgroundImage]="'url(' + bgimage + ')'"
+>
+  <div class="container">
+    <div class="row d-flex align-items-center">
+      <div class="col-xl-5 col-lg-6 col-md-12 col-sm-12">
+        <ng-container *ngTemplateOutlet="formLogin"></ng-container>
+      </div>
+      <div class="col-xl-7 col-lg-6 col-md-12 col-sm-12">
+        <ng-container *ngTemplateOutlet="content"></ng-container>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-terms-conditions></app-terms-conditions>
+
+<!--
+    INIT TEMPLATES
+-->
+
+<!--begin:Template for login form-->
+<ng-template #formLogin>
+  <app-login-health></app-login-health>
+</ng-template>
+<!--end:Template for login form-->
+
+<!--begin:Template for aside-->
+<ng-template #content>
+  <div class="cf-content-section">
+    <div class="cf-content-header">
+      <h1>Radicación de cirugía, Confa Salud, contigo siempre.</h1>
+      <p>
+        Recuerda tener escaneados los siguientes documentos (admitimos formatos
+        PNG, JPG y PDF). Es importante que sean legibles.
+      </p>
+      <ol>
+        <li style="color: white">
+          Documento de identificación por ambos lados.
+        </li>
+        <li style="color: white">
+          Autorización de la cirugía emitida por tu entidad (no aplica para
+          particulares o SOAT).
+        </li>
+        <li style="color: white">
+          Historia clínica del especialista donde ordena el procedimiento y/o
+          programación de cirugía.
+        </li>
+        <li style="color: white">
+          Si en el momento llevas a cabo algún proceso jurídico como una tutela,
+          derecho de petición u otro, debe anexar el soporte.
+        </li>
+        <li style="color: white">
+          En caso de que la cirugía sea a través del SOAT, debes entregar el
+          “paquete del Soat” en el segundo piso de la Clínica San Marcel -
+          facturación quirófanos.
+        </li>
+      </ol>
+    </div>
+    <div class="cf-content-divider mt-2 mb-2"></div>
+    <div class="cf-content-body">
+      <div class="row">
+        <div class="col-xl-10 col-lg-12 col-md-12 col-sm-12">
+          <div class="cf-widget cf-widget-1">
+            <div class="cf-widget-body"></div>
+            <!-- <div class="ct-widget-footer">
+              <div class="cf-widget-buttons cf-buttons-inline">
+                <button
+                  class="btn btn-primary cf-btn cf-btn-secondary cf-btn-block"
+                  (click)="downloadAppFunc('android')"
+                >
+                  <span class="cf-text-hidden">Descárgala en</span>
+                  Play Store
+                </button>
+                <button
+                  class="btn btn-primary cf-btn cf-btn-secondary cf-btn-block"
+                  (click)="downloadAppFunc('ios')"
+                >
+                  <span class="cf-text-hidden">Descárgala en</span>
+                  App Store
+                </button>
+              </div>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+<!--end:Template for aside-->

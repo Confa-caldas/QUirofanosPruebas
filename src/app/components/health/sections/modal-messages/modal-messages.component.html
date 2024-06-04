@@ -1,0 +1,207 @@
+<!-- Button modal success -->
+<button
+  type="button"
+  class="btn-modal-success btn btn-primary"
+  data-toggle="modal"
+  data-target="#modalSuccess"
+  style="visibility: hidden"
+>
+  Modal success
+</button>
+
+<!-- Modal success -->
+<div
+  class="modal fade modal-success"
+  id="modalSuccess"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="modalSuccessLabel"
+  aria-hidden="true"
+  data-backdrop="static"
+  data-keyboard="false"
+>
+  <div
+    class="modal-dialog modal-dialog-centered justify-content-center"
+    role="document"
+  >
+    <div class="modal-content">
+      <div class="modal-header success-header" id="modalSuccessLabel">
+        <div>
+          <div class="d-flex align-items-center justify-content-center m-4">
+            <img
+              src="assets/images/success.png"
+              class="animate__animated animate__fadeIn animate__fast"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="text-center p-2">
+          <h6 class="m-0 pt-3 pb-3">
+            {{ utilitiesService.messageTitleModal }}
+          </h6>
+          <div class="m-0 pt-3 pb-3">
+            <p class="m-0 text-center" id="newline">
+              {{ utilitiesService.messageModal }}
+            </p>
+            <br />
+            <p class="m-0 text-center" id="newline">
+              {{ utilitiesService.messageModal2 }}
+            </p>
+            <br />
+            <p class="m-0 text-center" id="newline">
+              {{ utilitiesService.messageModal3 }}
+            </p>
+            <br />
+            <p class="m-0 text-center" id="newline">
+              {{ utilitiesService.messageModal4 }}
+            </p>
+          </div>
+        </div>
+        <div class="p-2">
+          <div class="d-flex">
+            <button
+              type="button"
+              class="btn-close btn btn-block "
+              data-dismiss="modal"
+              aria-label="Close"
+              [routerLink]="['/quirofanos/citas']"
+            >
+              
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Button modal error -->
+<button
+  type="button"
+  class="btn-modal-error btn btn-primary"
+  data-toggle="modal"
+  data-target="#modalError"
+  style="visibility: hidden"
+>
+  Modal error
+</button>
+
+<!-- Modal error -->
+<div
+  class="modal fade modal-error"
+  id="modalError"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="modalErrorLabel"
+  aria-hidden="true"
+  data-backdrop="static"
+  data-keyboard="false"
+>
+  <div
+    class="modal-dialog modal-dialog-centered justify-content-center"
+    role="document"
+  >
+    <div class="modal-content">
+      <div class="modal-header error-header" id="modalErrorLabel">
+        <div>
+          <div class="d-flex align-items-center justify-content-center m-4">
+            <img
+              src="assets/images/error.png"
+              class="animate__animated animate__fadeIn animate__fast"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="text-center p-2">
+          <h6 class="m-0 pt-3 pb-3">
+            {{ utilitiesService.messageTitleModal }}
+          </h6>
+          <div class="m-0 pt-3 pb-3">
+            <p class="m-0 text-center">{{ utilitiesService.messageModal }}</p>
+          </div>
+        </div>
+        <div class="p-2">
+          <div class="d-flex">
+            <button
+              type="button"
+              class="btn-close btn btn-block"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+             
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Button warning -->
+<button
+  type="button"
+  class="btn-modal-warning btn btn-primary"
+  data-toggle="modal"
+  data-target="#modalWarning"
+  style="visibility: hidden"
+>
+  Modal warning
+</button>
+
+<!-- Modal warning -->
+<!-- <ng-container *ngIf="this.utilitiesService.showModalInfo == true"> -->
+<div
+  class="modal fade modal-error"
+  id="modalWarning"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="modalErrorLabel"
+  aria-hidden="true"
+  data-backdrop="static"
+  data-keyboard="false"
+>
+  <div
+    class="modal-dialog modal-dialog-centered justify-content-center"
+    role="document"
+  >
+    <div class="modal-content">
+      <div class="modal-header error-header" id="modalErrorLabel">
+        <div>
+          <div class="d-flex align-items-center justify-content-center m-4">
+            <img
+              src="assets/images/warning.png"
+              class="animate__animated animate__fadeIn animate__fast"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="text-center p-2">
+          <h6 class="m-0 pt-3 pb-3">
+            {{ utilitiesService.messageTitleModal }}
+          </h6>
+          <div class="m-0 pt-3 pb-3">
+            <p class="m-0 text-center">{{ utilitiesService.messageModal }}</p>
+          </div>
+        </div>
+        <div class="p-2">
+          <div class="d-flex">
+            <button
+              type="button"
+              class="btn-close btn btn-block"
+              data-dismiss="modal"
+              aria-label="Close"
+              (click)="closeInfoButton()"
+            >
+            Cerrar
+            </button>
+            
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>

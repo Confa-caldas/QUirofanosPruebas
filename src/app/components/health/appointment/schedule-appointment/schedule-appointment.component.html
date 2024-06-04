@@ -1,0 +1,193 @@
+<app-breadcrumbs
+  [back]="main_appointments"
+  [backMain]="main_health"
+  [step]="step"
+></app-breadcrumbs>
+
+<div class="cf-section bg-gray-4" id="_section-7">
+  <div class="container">
+    <div class="row d-flex justify-content-center">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mt-3 mb-3">
+        <app-step-form-widget
+          [styleSteps]="2"
+          [currentStep]="currentStep"
+          [numSteps]="numSteps"
+        >
+        </app-step-form-widget>
+      </div>
+
+      <ng-container *ngIf="currentStep == 1">
+        <ng-container *ngTemplateOutlet="formSchedule"></ng-container>
+      </ng-container>
+
+      <ng-container *ngIf="currentStep == 2">
+        <ng-container [ngTemplateOutlet]="calendarSchedule"></ng-container>
+      </ng-container>
+    </div>
+  </div>
+</div>
+
+<app-terms-conditions></app-terms-conditions>
+
+<!--
+    INIT TEMPLATES
+-->
+
+<!--begin:Template for Schedule form-->
+<ng-template #formSchedule>
+  <div class="col-xl-8 col-lg-8 col-md-10 col-sm-12 mb-5">
+    <div class="cf-content-section">
+      <div class="cf-content-header mt-5">
+        <h4>Completa esta información para agendar tu cita médica.</h4>
+      </div>
+    </div>
+    <div class="cf-content-inner">
+      <ng-container *ngTemplateOutlet="formStructureSchedule"></ng-container>
+    </div>
+  </div>
+</ng-template>
+<!--end:Template for Schedule form-->
+
+<!--begin:Template for Schedule structure form-->
+<ng-template #formStructureSchedule>
+  <form [formGroup]="aFormGroup">
+    <div class="form-group mt-4">
+      <div class="cf-custom-select">
+        <label>Selecciona el sitio de vacunación</label>
+        <select
+          formControlName="convenio"
+          class="form-control cf-form-input"
+          (change)="getAppoinmentsTypes($event)"
+          [(ngModel)]="scheduleAppoinment.convenio"
+        >
+          <option value="">
+            {{ "health.schedule.fields.userType" | translate }} *
+          </option>
+          <option
+            *ngFor="let agreement of userAgreements"
+            value="{{ agreement.convenio }}"
+          >
+            {{ agreement.value }}
+          </option>
+        </select>
+      </div>
+      <span
+        *ngIf="isControlHasError('convenio', 'required')"
+        class="badge badge-pill badge-danger cf-badge d-block mt-2 text-left"
+        >Debes seleccionar el tipo de usuario</span
+      >
+    </div>
+
+    <div class="form-group mt-4">
+      <div class="cf-custom-select">
+        <label>Selecciona el tipo de población</label>
+        <ng-select
+          [items]="appoinmentsTypes"
+          bindLabel="descripcionCita"
+          bindValue="citaId"
+          formControlName="tipoCita"
+          [multiple]="false"
+          notFoundText="No hay resultados"
+          placeholder="{{
+            'health.schedule.fields.appoinmentsTypes' | translate
+          }}"
+          [dropdownPosition]="'bottom'"
+          (change)="onSelectAppoinmentsTypes($event)"
+          class="cf-form-input2"
+        >
+        </ng-select>
+      </div>
+      <span
+        *ngIf="isControlHasError('tipoCita', 'required')"
+        class="badge badge-pill badge-danger cf-badge d-block mt-2 text-left"
+        >Debes seleccionar el tipo de población</span
+      >
+    </div>
+
+    <div
+      class="form-group mt-4 cf-custom-select"
+      *ngIf="servicesList.length > 1"
+    >
+      <label>{{ "health.schedule.fields.service" | translate }}</label>
+      <ng-select
+        [items]="servicesList"
+        bindLabel="descripcionServicio"
+        bindValue="codigo"
+        formControlName="codServicio"
+        [multiple]="false"
+        notFoundText="No hay resultados"
+        placeholder="{{ 'health.schedule.fields.service' | translate }}"
+        [dropdownPosition]="'bottom'"
+        (change)="onSelectService($event)"
+      >
+      </ng-select>
+    </div>
+    <div class="form-group mt-4" *ngIf="healthcareProfessionals.length > 0">
+      <div class="cf-custom-select">
+        <label>{{
+          "health.schedule.fields.healthcareProfessional" | translate
+        }}</label>
+        <ng-select
+          [items]="healthcareProfessionals"
+          bindLabel="nombre"
+          bindValue="codMedico"
+          formControlName="codMedico"
+          [multiple]="false"
+          notFoundText="No hay resultados"
+          placeholder="{{
+            'health.schedule.fields.healthcareProfessional' | translate
+          }}"
+          [dropdownPosition]="'bottom'"
+          (change)="onSelectProfessional($event)"
+        >
+        </ng-select>
+      </div>
+
+      <span
+        *ngIf="isControlHasError('codMedico', 'required')"
+        class="badge badge-pill badge-danger cf-badge d-block mt-2 text-left"
+        >Debes seleccionar una opción para continuar</span
+      >
+    </div>
+    <div class="row d-flex justify-content-center align-items-center mt-5">
+      <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+        <div class="cf-note">
+          <p class="p-0 m-0 text-md-left text-sm-center mt-sm-1 mb-sm-3">
+            Selecciona una opci&oacute;n en cada uno de los campos para activar
+            el bot&oacute;n continuar
+          </p>
+        </div>
+      </div>
+      <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+        <div class="form-group p-0 m-0">
+          <button
+            (click)="submit()"
+            class="btn btn-primary cf-btn cf-btn-primary cf-btn-block"
+          >
+            <!-- <button (click)="nextStep()" type="button" class="btn btn-primary cf-btn cf-btn-primary cf-btn-block">-->
+            Continuar <span class="cf-text-hidden">para agendar tu cita</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</ng-template>
+<!--end:Template for Schedule structure form-->
+
+<!--begin:Template for Schedule calendar-->
+<ng-template #calendarSchedule>
+  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-5">
+    <div class="cf-content-section">
+      <div class="cf-content-header">
+        <h4>Selecciona un día para buscar tu cita</h4>
+      </div>
+    </div>
+    <div class="cf-content-inner">
+      <app-calendar-widget
+        [healthcareProfessional]="healthcareProfessionals"
+        [scheduleAppoinment]="scheduleAppoinment"
+      ></app-calendar-widget>
+    </div>
+  </div>
+</ng-template>
+<!--end:Template for Schedule calendar-->

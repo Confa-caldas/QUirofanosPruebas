@@ -1,0 +1,21 @@
+/**
+* Styles for widget 2
+*/
+.cf-widget-2 {
+    .cf-widget-body {
+        display: block;
+        align-items: center;
+        .cf-widget-thumbnail {
+            display: flex;
+            align-items: center;
+            h4 {
+                margin-left: 10px;
+            }
+        }
+        .cf-widget-content {
+            margin-top: 30px;
+            border-top: 4px solid rgba($bg-gray-1, 1);
+            padding-top: 25px;
+        }
+    }
+}

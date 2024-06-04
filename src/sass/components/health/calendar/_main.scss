@@ -1,0 +1,71 @@
+/**
+* Styles for calendar
+*/
+.cf-calendar {
+  font-family: $f-main;
+  .cf-calendar-title {
+    padding-bottom: 10px;
+    padding-top: 10px;
+    p {
+      margin: 0px;
+      padding: 0px;
+      font-size: 18px;
+    }
+    h4 {
+      margin: 0px;
+      padding: 0px;
+    }
+  }
+  .cal-month-view {
+    .cal-event {
+      width: 0px;
+      height: 0px;
+      border-radius: 0%;
+      display: inline-block;
+      margin: 0px;
+    }
+    .cal-day-cell {
+      min-height: 50px;
+      &.cal-has-events {
+        background-color: #0098d7 !important;
+        border-bottom: solid 0.1px #e1e1e1 !important;
+        & .cal-cell-top {
+          min-height: 50px !important;
+          & .cal-day-number {
+            color: #fff !important;
+          }
+        }
+      }
+
+      &.cal-today {
+        //background-color: #39b34a!important;
+        & .cal-cell-top {
+          & .cal-day-number {
+            //color: #fff!important;
+          }
+        }
+      }
+    }
+  }
+
+  .cf-calendar-content {
+    .cf-note {
+      color: $bg-gray-2;
+    }
+  }
+
+  .cf-item-hour-appointment {
+    border-top: 1px solid $bg-gray-5;
+    border-bottom: 1px solid $bg-gray-5;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .cal-cell-top {
+    min-height: 50px !important;
+
+    & .cal-day-number {
+      font-size: 14px !important;
+    }
+  }
+}

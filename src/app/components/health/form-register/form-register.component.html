@@ -1,0 +1,294 @@
+<div class="container">
+    <div class="modal-body pr-5 pl-5">
+        <div class="animated fadeIn fast">
+            <div class="login-content">
+                <form class="form-login needs-validation" [formGroup]="formRegister" (ngSubmit)="onSubmit()">
+                    <h2 style="color: #00afeb; text-align: center; margin-bottom: 40px">
+                        Ingresa los siguientes datos. Al finalizar este registro, podrás iniciar sesión y acceder a los diferentes servicios
+                    </h2>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group pl-0">
+                                <label class="m-0 mb-1">Número de documento</label>
+                                <input type="text" formControlName="document" class="form-control cf-form-input" placeholder="* Documento" [ngClass]="{
+                    'is-invalid':
+                      (submitted || f.document.touched) && f.document.errors
+                  }" />
+                                <div *ngIf="
+                    (submitted || f.document.touched) &&
+                    f.document.errors?.required
+                  " class="invalid-feedback animated fadeIn fast">
+                                    <span class="badge badge-pill badge-danger d-block mt-2 pt-1 pb-1 pr-2 pl-2 text-left" style="font-size: 11px; line-height: 120%">
+                    DEBES INGRESAR UN DOCUMENTO
+                  </span>
+                                </div>
+                                <div *ngIf="
+                    (submitted || f.document.touched) &&
+                    f.document.errors?.minlength
+                  " class="invalid-feedback animated fadeIn fast">
+                                    <span class="badge badge-pill badge-danger d-block mt-2 pt-1 pb-1 pr-2 pl-2 text-left" style="font-size: 11px; line-height: 120%">
+                    DEBES INGRESAR MÍNIMO
+                    {{ f.document.errors.minlength.requiredLength }}
+                    CARACTERES</span>
+                                </div>
+                                <div *ngIf="
+                    (submitted || f.document.touched) &&
+                    f.document.errors?.maxlength
+                  " class="invalid-feedback animated fadeIn fast">
+                                    <span class="badge badge-pill badge-danger d-block mt-2 pt-1 pb-1 pr-2 pl-2 text-left" style="font-size: 11px; line-height: 120%">
+                    DEBES INGRESAR MÁXIMO
+                    {{ f.document.errors.maxlength.requiredLength }}
+                    CARACTERES
+                  </span>
+                                </div>
+                                <div *ngIf="
+                    (submitted || f.document.touched) &&
+                    f.document.errors?.pattern
+                  " class="invalid-feedback animated fadeIn fast">
+                                    <span class="badge badge-pill badge-danger d-block mt-2 pt-1 pb-1 pr-2 pl-2 text-left">
+                    DEBES INGRESAR DÍGITOS POSITIVOS
+                  </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group pl-0">
+                                <label class="m-0 mb-1">Selecciona el tipo de documento</label>
+                                <div class="card card-custom-select">
+                                    <div class="content-custom-select">
+                                        <select class="form-control cf-form-input inputloginsimulador" formControlName="tpDoc" (change)="capturar($event.target.value)" [class.is-invalid]="getTpDoc">
+                      <option value="" hidden disabled>
+                        * Selecciona el tipo de documento
+                      </option>
+                      <option value="CC">Cédula de ciudadanía</option>
+                      <option value="TI">Tarjeta de identidad</option>
+                      <option value="RC">Registro civil</option>
+                      <option value="NUI">
+                        Número unido de identificación
+                      </option>
+                      ¨
+                      <option value="NIT">NIT</option>
+                      <option value="CE">Cédula extranjería</option>
+                      <option value="PA">Pasaporte</option>
+                      <option value="PE">
+                        Permiso especial de permanencia
+                      </option>
+                      <option value="ASI">Adulto sin identificación</option>
+                      <option value="MSI">Menor sin identificación</option>
+                    </select>
+                                        <i class="icon-down1 fas fa-chevron-down pl-2"></i>
+                                    </div>
+                                </div>
+                                <span *ngIf="getTpDoc" class="badge badge-pill badge-danger cf-badge d-block mt-2 pt-1 pb-1 pr-2 pl-2 text-left" style="font-size: 11px; line-height: 120%">
+                  DEBES SELECCIONAR UN TIPO DE DOCUMENTO PARA INICIAR SESIÓN
+                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="m-0 mb-1">Primer nombre</label>
+                                <input type="text" formControlName="firstName" class="form-control cf-form-input cf-form-input" placeholder="* Primer nombre" placement="right" autocomplete="off" [ngClass]="{
+                    'is-invalid':
+                      (submitted || f.firstName.touched) && f.firstName.errors
+                  }" />
+                                <div *ngIf="
+                    (submitted || f.firstName.touched) &&
+                    f.firstName.errors?.required
+                  " class="invalid-feedback animated fadeIn fast">
+                                    <span class="badge badge-pill badge-danger d-block mt-2 pt-1 pb-1 pr-2 pl-2 text-left" style="font-size: 11px; line-height: 120%">
+                    DEBES INGRESAR EL PRIMER NOMBRE
+                  </span>
+                                </div>
+                                <div *ngIf="
+                    (submitted || f.firstName.touched) &&
+                    f.firstName.errors?.pattern
+                  " class="invalid-feedback animated fadeIn fast">
+                                    <span class="badge badge-pill badge-danger d-block mt-2 pt-1 pb-1 pr-2 pl-2 text-left" style="font-size: 11px; line-height: 120%">
+                    DEBES INGRESAR SOLO LETRAS
+                  </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="m-0 mb-1">Segundo nombre</label>
+                                <input type="text" formControlName="secondName" class="form-control cf-form-input" placeholder="Segundo nombre" placement="right" autocomplete="off" [ngClass]="{
+                    'is-invalid':
+                      (submitted || f.secondName.touched) && f.secondName.errors
+                  }" />
+                                <div *ngIf="
+                    (submitted || f.secondName.touched) &&
+                    f.secondName.errors?.pattern
+                  " class="invalid-feedback animated fadeIn fast">
+                                    <span class="badge badge-pill badge-danger d-block mt-2 pt-1 pb-1 pr-2 pl-2 text-left" style="font-size: 11px; line-height: 120%">
+                    DEBES INGRESAR SOLO LETRAS
+                  </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="m-0 mb-1">Primer apellido</label>
+                                <input type="text" formControlName="firstLastName" class="form-control cf-form-input" placeholder="* Primer apellido" placement="right" autocomplete="off" [ngClass]="{
+                    'is-invalid':
+                      (submitted || f.firstLastName.touched) &&
+                      f.firstLastName.errors
+                  }" />
+                                <div *ngIf="
+                    (submitted || f.firstLastName.touched) &&
+                    f.firstLastName.errors?.required
+                  " class="invalid-feedback animated fadeIn fast">
+                                    <span class="badge badge-pill badge-danger d-block mt-2 pt-1 pb-1 pr-2 pl-2 text-left" style="font-size: 11px; line-height: 120%">
+                    DEBES INGRESAR EL PRIMER APELLIDO DEL USUARIO
+                  </span>
+                                </div>
+                                <div *ngIf="
+                    (submitted || f.firstLastName.touched) &&
+                    f.firstLastName.errors?.pattern
+                  " class="invalid-feedback animated fadeIn fast">
+                                    <span class="badge badge-pill badge-danger d-block mt-2 pt-1 pb-1 pr-2 pl-2 text-left" style="font-size: 11px; line-height: 120%">
+                    DEBES INGRESAR SOLO LETRAS
+                  </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="m-0 mb-1">Segundo apellido</label>
+                                <input type="text" formControlName="secondLastName" class="form-control cf-form-input" placeholder="Segundo apellido" placement="right" autocomplete="off" [ngClass]="{
+                    'is-invalid':
+                      (submitted || f.secondLastName.touched) &&
+                      f.secondLastName.errors
+                  }" />
+                                <div *ngIf="
+                    (submitted || f.secondLastName.touched) &&
+                    f.secondLastName.errors?.pattern
+                  " class="invalid-feedback animated fadeIn fast">
+                                    <span class="badge badge-pill badge-danger d-block mt-2 pt-1 pb-1 pr-2 pl-2 text-left" style="font-size: 11px; line-height: 120%">
+                    DEBES INGRESAR SOLO LETRAS
+                  </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="m-0 mb-1">Correo electrónico</label>
+                                <input type="email" formControlName="email" class="form-control cf-form-input" placeholder="* Correo electrónico" placement="right" autocomplete="off" [ngClass]="{
+                    'is-invalid':
+                      (submitted || f.email.touched) && f.email.errors
+                  }" email />
+                                <div *ngIf="
+                    (submitted || f.email.touched) && f.email.errors?.required
+                  " class="invalid-feedback animated fadeIn fast">
+                                    <span class="badge badge-pill badge-danger d-block mt-2 pt-1 pb-1 pr-2 pl-2 text-left" style="font-size: 11px; line-height: 120%">
+                    DEBES INGRESAR UN CORREO ELECTRÓNICO
+                  </span>
+                                </div>
+                                <div *ngIf="
+                    (submitted || f.email.touched) && f.email.errors?.email
+                  " class="invalid-feedback animated fadeIn fast">
+                                    <span class="badge badge-pill badge-danger d-block mt-2 pt-1 pb-1 pr-2 pl-2 text-left" style="font-size: 11px; line-height: 120%">
+                    EL CORREO ELECTRÓNICO NO ES VALIDO
+                  </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group pl-0">
+                                <label class="m-0 mb-1">Número de telefono</label>
+                                <input type="text" formControlName="telefono" class="form-control cf-form-input cf-form-input" placeholder="Telefono" [ngClass]="{
+                    'is-invalid':
+                      (submitted || f.telefono.touched) && f.telefono.errors
+                  }" />
+                                <div *ngIf="
+                    (submitted || f.telefono.touched) &&
+                    f.telefono.errors?.minlength
+                  " class="invalid-feedback animated fadeIn fast">
+                                    <span class="badge badge-pill badge-danger d-block mt-2 pt-1 pb-1 pr-2 pl-2 text-left" style="font-size: 11px; line-height: 120%">
+                    DEBES INGRESAR MÍNIMO
+                    {{ f.telefono.errors.minlength.requiredLength }}
+                    CARACTERES
+                  </span>
+                                </div>
+                                <div *ngIf="
+                    (submitted || f.telefono.touched) &&
+                    f.telefono.errors?.maxlength
+                  " class="invalid-feedback animated fadeIn fast">
+                                    <span class="badge badge-pill badge-danger d-block mt-2 pt-1 pb-1 pr-2 pl-2 text-left" style="font-size: 11px; line-height: 120%">
+                    DEBES INGRESAR MÁXIMO
+                    {{ f.telefono.errors.maxlength.requiredLength }}
+                    CARACTERES
+                  </span>
+                                </div>
+                                <div *ngIf="
+                    (submitted || f.telefono.touched) &&
+                    f.telefono.errors?.pattern
+                  " class="invalid-feedback animated fadeIn fast">
+                                    <span class="badge badge-pill badge-danger d-block mt-2 pt-1 pb-1 pr-2 pl-2 text-left" style="font-size: 11px; line-height: 120%">
+                    DEBES INGRESAR DÍGITOS POSITIVOS
+                  </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group pl-0">
+                                <label class="m-0 mb-1">Número de celular</label>
+                                <input type="text" formControlName="celular" class="form-control cf-form-input" placeholder="celular" [ngClass]="{
+                    'is-invalid':
+                      (submitted || f.celular.touched) && f.celular.errors
+                  }" />
+                                <div *ngIf="
+                    (submitted || f.celular.touched) &&
+                    f.celular.errors?.minlength
+                  " class="invalid-feedback animated fadeIn fast">
+                                    <span class="badge badge-pill badge-danger d-block mt-2 pt-1 pb-1 pr-2 pl-2 text-left" style="font-size: 11px; line-height: 120%">
+                    DEBES INGRESAR MÍNIMO {{ f.celular.errors.minlength.requiredLength }} CARACTERES</span>
+                                </div>
+                                <div *ngIf="
+                    (submitted || f.celular.touched) &&
+                    f.celular.errors?.maxlength
+                  " class="invalid-feedback animated fadeIn fast">
+                                    <span class="badge badge-pill badge-danger d-block mt-2 pt-1 pb-1 pr-2 pl-2 text-left" style="font-size: 11px; line-height: 120%">
+                    DEBES INGRESAR MÁXIMO {{ f.celular.errors.maxlength.requiredLength }} CARACTERES</span>
+                                </div>
+                                <div *ngIf="
+                    (submitted || f.celular.touched) &&
+                    f.celular.errors?.pattern
+                  " class="invalid-feedback animated fadeIn fast">
+                                    <span class="badge badge-pill badge-danger d-block mt-2 pt-1 pb-1 pr-2 pl-2 text-left" style="font-size: 11px; line-height: 120%">
+                    DEBES INGRESAR DÍGITOS POSITIVOS
+                  </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group pl-0">
+                                <label>Fecha de nacimiento</label>
+                                <my-date-picker class="icon-mydpcalendar" formControlName="birthday" [options]="dateOptionsInit" placeholder="* Fecha de nacimiento">
+                                </my-date-picker>
+                                <span *ngIf="isControlHasError('birthday', 'required')" class="badge badge-pill badge-danger cf-badge d-block mt-2 pt-1 pb-1 pr-2 pl-2 text-left" style="font-size: 11px; line-height: 120%">{{
+                  birthdayFieldLogin }}</span>
+                            </div>
+                        </div>
+                        <div class="col-md-12 text-left pl-1">
+                            <div class="form-group" style="font-size: 10px;">
+                                * Los campos que tienen asterisco son obligatorios
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group m-0" style="align-content: center; width: 100%">
+                                <button class="btn-credits btn mt-1 mb-3">Continuar</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- TODO: Limpiar el formulario y volverlo al estado normal cuando pasa un registro en el popup -->
+<!-- TODO: Aplicar el metodo de validación de correo si son iguales con un validador personalizado -->
+<!-- TODO: Crear metodos de validación para los formularios desde el TS para formularios reactivos -->

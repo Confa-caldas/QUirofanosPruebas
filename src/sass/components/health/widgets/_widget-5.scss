@@ -1,0 +1,77 @@
+/**
+* Styles for widget 5
+*/
+.cf-widget-5 {
+    .cf-widget-body {
+        display: flex;
+        align-items: center;
+        .cf-widget-content {
+            margin-left: 0px;
+            .cf-widget-inner-content {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                h5 {
+                    color: $bg-gray-2;
+                }
+                h3 {
+                    color: rgba($bg-black, 0.8);
+                }
+                h4 {
+                    color: rgba($bg-black, 0.8);
+                }
+                .cf-widget-buttons {
+                    margin-left: 25px;
+                    .cf-widget-inner-buttons {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                    }
+                }
+            }
+        }
+    }
+    .ct-widget-footer {
+        h5 {
+            color: $bg-gray-2;
+            font-size: 16px !important;
+        }
+        h4 {
+            font-size: 16px !important;
+        }
+    }
+    .cf-widget-5-btn-2 {
+        display: none !important;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .cf-widget-5 {
+        .cf-widget-inner-buttons {
+            display: block !important;
+        }
+        .cf-widget-buttons {
+            margin-top: 20px;
+            margin-left: 0px !important;
+            display: block !important;
+        }
+        .cf-widget-5-btn-1 {
+            display: none !important;
+        }
+        .cf-widget-5-btn-2 {
+            display: block !important;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .cf-widget-5 {
+        .btn,
+        .cf-widget-inner-buttons {
+            display: block !important;
+        }
+        .cf-widget-buttons {
+            width: 100%;
+        }
+    }
+}

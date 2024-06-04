@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "step-form-widget.component.scss"
+    ],
+    "names": [],
+    "file": "step-form-widget.component.css"
+}

@@ -1,0 +1,341 @@
+<ng-template #registerModal>
+  <div class="p-40" *ngIf="ViewRegisterForm">
+    <div class="modal-header">
+      <span class="modal-title text-center">Registrar usuario</span>
+      <button
+        type="button"
+        class="close pull-rigth"
+        aria-label="Close"
+        (click)="closeModal()"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body text-center">
+      <form [formGroup]="aFormGroup">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group text-left">
+              <label>Primer nombre</label>
+              <input
+                type="text"
+                class="form-control filter cf-form-input"
+                formControlName="first_name"
+                name="first_name"
+                placeholder="* Primer nombre"
+                maxlength="20"
+                tooltip="Ingresa el primer nombre del usurio"
+                placement="right"
+                triggers="hover focus"
+                containerClass="cf-tooltip"
+              />
+              <span
+                *ngIf="isControlHasError('first_name', 'required')"
+                class="badge badge-pill badge-danger cf-badge d-block mt-2 text-left"
+                >Debes ingresar el primer nombre
+              </span>
+              <span
+                *ngIf="isControlHasError('first_name', 'pattern')"
+                class="badge badge-pill badge-danger cf-badge d-block mt-2 text-left"
+                >El campo primer nombre no debe contener números</span
+              >
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group text-left">
+              <label>Segundo nombre</label>
+              <input
+                type="text"
+                class="form-control filter cf-form-input"
+                name="second_name"
+                formControlName="second_name"
+                placeholder="Segundo nombre"
+                maxlength="30"
+                tooltip="Ingresa el segundo nombre del usuario"
+                placement="right"
+                triggers="hover focus"
+                containerClass="cf-tooltip"
+              />
+              <span
+                *ngIf="isControlHasError('second_name', 'pattern')"
+                class="badge badge-pill badge-danger cf-badge d-block mt-2 text-left"
+                >El campo segundo nombre no debe contener números</span
+              >
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group text-left">
+              <label>Primer apellido</label>
+              <input
+                type="text"
+                class="form-control filter cf-form-input"
+                name="first_last_name"
+                formControlName="first_last_name"
+                placeholder="* Primer apellido"
+                maxlength="20"
+                tooltip="Ingresa el primer apellido del usuario"
+                placement="right"
+                triggers="hover focus"
+                containerClass="cf-tooltip"
+              />
+              <span
+                *ngIf="isControlHasError('first_last_name', 'required')"
+                class="badge badge-pill badge-danger cf-badge d-block mt-2 text-left"
+              >
+                Debes ingresar el primer apellido del usuario
+              </span>
+
+              <span
+                *ngIf="isControlHasError('first_last_name', 'pattern')"
+                class="badge badge-pill badge-danger cf-badge d-block mt-2 text-left"
+              >
+                El campo primer apellido no debe contener números
+              </span>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group text-left">
+              <label>Segundo apellido</label>
+              <input
+                type="text"
+                class="form-control filter cf-form-input"
+                name="second_last_name"
+                formControlName="second_last_name"
+                placeholder="Segundo apellido"
+                maxlength="30"
+                tooltip="Ingresa el segundo apellido del usuario"
+                placement="right"
+                triggers="hover focus"
+                containerClass="cf-tooltip"
+              />
+              <!-- <span
+                                *ngIf="isControlHasError('second_last_name', 'required')"
+                                class="badge badge-pill badge-danger cf-badge d-block mt-2 text-left"
+                                >Debes ingresar el segundo apellido del usuario</span> -->
+              <span
+                *ngIf="isControlHasError('second_last_name', 'pattern')"
+                class="badge badge-pill badge-danger cf-badge d-block mt-2 text-left"
+              >
+                El campo segundo apellido no debe contener números
+              </span>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="form-group text-left">
+              <label>Número de documento</label>
+              <input
+                type="text"
+                (keyup)="validateDocumentregister()"
+                class="form-control filter"
+                name="document"
+                formControlName="document"
+                placeholder="* Documento"
+                pattern="\d*"
+                maxlength="15"
+                disabled
+              />
+              <span
+                *ngIf="isControlHasError('document', 'required')"
+                class="badge badge-pill badge-danger cf-badge d-block mt-2 text-left"
+                >Documento requerido</span
+              >
+            </div>
+          </div>
+          <div class="col-md-6"></div>
+          <div class="col-md-6">
+            <div class="form-group text-left">
+              <label>Correo electrónico</label>
+              <input
+                type="text"
+                class="form-control filter cf-form-input"
+                formControlName="email"
+                name="email"
+                placeholder="* E-mail"
+                tooltip="Ingresa un correo electrónico"
+                placement="right"
+                triggers="hover focus"
+                containerClass="cf-tooltip"
+              />
+              <span
+                *ngIf="isControlHasError('email', 'required')"
+                class="badge badge-pill badge-danger cf-badge d-block mt-2 text-left"
+                >Debes ingresar un correo electrónico</span
+              >
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group text-left">
+              <label>Confirma tu correo electrónico</label>
+              <input
+                type="text"
+                class="form-control filter cf-form-input"
+                formControlName="confirm_email"
+                name="confirm_email"
+                placeholder="* Confirmar E-mail"
+                tooltip="Confirma el correo electrónico"
+                placement="right"
+                triggers="hover focus"
+                containerClass="cf-tooltip"
+              />
+              <span
+                *ngIf="isControlHasError('confirm_email', 'required')"
+                class="badge badge-pill badge-danger cf-badge d-block mt-2 text-left"
+                >Debes confirmar el correo electrónico</span
+              >
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="form-group text-left">
+              <label>Contraseña</label>
+              <input
+                type="password"
+                class="form-control filter cf-form-input"
+                name="password"
+                formControlName="password"
+                placeholder="* Contraseña"
+                tooltip="Ingresa una contraseña"
+                placement="right"
+                triggers="hover focus"
+                containerClass="cf-tooltip"
+              />
+
+              <span
+                *ngIf="isControlHasError('password', 'required')"
+                class="badge badge-pill badge-danger cf-badge d-block mt-2 text-left"
+                >Debes ingresar una contraseña
+              </span>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="form-group text-left">
+              <label>Confirma tu contraseña</label>
+              <input
+                type="password"
+                class="form-control filter cf-form-input"
+                name="confirm_password"
+                formControlName="confirm_password"
+                placeholder="* Confirmar Contraseña"
+                tooltip="Confirma tu contraseña"
+                placement="right"
+                triggers="hover focus"
+                containerClass="cf-tooltip"
+              />
+              <span
+                *ngIf="isControlHasError('confirm_password', 'required')"
+                class="badge badge-pill badge-danger cf-badge d-block mt-2 text-left"
+                >Debes confirmar tu contraseña</span
+              >
+            </div>
+          </div>
+          <div class="col-md-12 text-left">
+            <div class="form-group">
+              * Este formulario solo admite el registro de personas naturales.
+            </div>
+          </div>
+          <div class="col-md-12 text-left">
+            <div class="form-group">
+              <input
+                type="checkbox"
+                class="filter"
+                formControlName="accept_habeas"
+                name="accept_habeas"
+                required
+              />
+              <span class="text-left">
+                * Acepto
+                <a
+                  class="politica"
+                  href="javascript:;"
+                  (click)="ViewRegisterForm = false"
+                >
+                  Política de tratamiento de datos
+                </a>
+              </span>
+              <span
+                *ngIf="isControlHasError('accept_habeas', 'required')"
+                class="badge badge-pill badge-danger cf-badge d-block mt-2 text-left"
+              >
+                Debes aceptar para continuar
+              </span>
+            </div>
+          </div>
+
+          <div class="col-md-12">
+            <button
+              href="javascript:;"
+              class="btn btn-primary login-button filter"
+              (click)="register()"
+            >
+              <i class="fa fa-spinner fa-spin fa fa-fw" *ngIf="spinLoader"></i>
+              <span class="sr-only"></span>
+              Continuar
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="p-40" *ngIf="!ViewRegisterForm">
+    <div class="modal-header">
+      <span class="modal-title text-center"
+        >POL&Iacute;TICA DE HABEAS DATA</span
+      >
+      <button
+        type="button"
+        class="close pull-rigth"
+        aria-label="Close"
+        (click)="closeModal()"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body body-content-modal">
+      <div class="row">
+        <div class="col-md-12 justify">
+          <p>
+            Acepto todos los requisitos y recomendaciones. As&iacute; mismo,
+            autorizo de manera libre, previa, expresa e informada a la Caja de
+            Compensación Familiar de Caldas, Confa para que trate mis datos
+            personales o sensibles que llegase a recolectar, para procesarla,
+            recolectarla, almacenarla, usarla, circularla, suprimirla,
+            compartirla, actualizarla, transmitirla y transferirla de acuerdo
+            con los términos y condiciones de las políticas de tratamiento
+            vigentes (
+            <a href="www.confa.co" target="_blank">www.confa.co</a>), con el fin
+            de hacer posible la presentación de los servicios propios, reportes
+            a autoridades de control y vigilancia y para uso de fines
+            administrativo, comercial, de publicidad y contacto frente a los
+            titulares de los mismos.
+          </p>
+          <p>
+            Como titular de la información tengo derecho a consultar, conocer,
+            actualizar y rectificar mis datos personales, ser informado sobre el
+            uso que se ha dado a los mismos en el momento que los solicite,
+            presentar quejas, revocar la autorizaci&oacute;n y/o solicitar la
+            supresi&oacute;n de mis datos en los casos en que sea procedente y
+            acceder en forma gratuita a los mismos, a través de las líneas de
+            atención 606 8783111 ext 2790 o al correo proteccion.datos@confa.co.
+            Conozco que como titular de datos sensibles no estoy obligado a
+            autorizar el tratamiento
+          </p>
+        </div>
+
+        <div class="col-md-12">
+          <div class="spacer10"></div>
+          <button
+            href="javascript:;"
+            class="btn btn-primary login-button filter"
+            (click)="ViewRegisterForm = true"
+          >
+            <span class="sr-only"></span>
+            Volver
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

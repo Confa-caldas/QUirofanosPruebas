@@ -1,0 +1,10 @@
+.modal-header {
+  -webkit-box-pack: center !important;
+      -ms-flex-pack: center !important;
+          justify-content: center !important;
+}
+
+.modal-body{
+  align-content: center;
+}
+/*# sourceMappingURL=confirm.component.css.map */

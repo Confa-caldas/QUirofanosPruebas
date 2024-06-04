@@ -1,0 +1,69 @@
+/* .cell-color{
+    background-color: blue!important;
+} */
+.cf-btn {
+  text-transform: none;
+}
+
+.ng-select-white {
+  border-radius: 50px;
+  background-color: white !important;
+}
+
+.cal-events.ng-star-inserted {
+  display: none !important;
+}
+
+.indicator {
+  border-left: solid 5px #00aeef;
+  margin-right: 3px;
+  /* .cf-calendar .cal-in-month .cal-day-number {
+        color: #fff;
+    } */
+}
+
+.indicator h6 {
+  margin-left: 5px;
+}
+
+.appointmentDay {
+  background-color: #0098d7;
+  width: 15px;
+  height: 15px;
+  border-radius: 50px;
+  display: -webkit-inline-box;
+}
+
+.withoutAppointmentDay {
+  background-color: #e5f7fd;
+  width: 15px;
+  height: 15px;
+  border-radius: 50px;
+  display: -webkit-inline-box;
+}
+
+/* Hide HTML5 Up and Down arrows. */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+@media screen and (max-width: 768px) {
+  .cf-appointment {
+    width: 60% !important;
+  }
+}
+/*# sourceMappingURL=calendar-widget.component.css.map */
+
+.cal-month-view .cal-event {
+  width: 10px;
+  height: 50px;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 2px;
+}

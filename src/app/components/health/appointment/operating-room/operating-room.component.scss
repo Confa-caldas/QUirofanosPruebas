@@ -1,0 +1,146 @@
+input.sinFlechas::-webkit-outer-spin-button,
+input.sinFlechas::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.cursorEncima {
+    cursor: pointer;
+}
+
+.texto2 {
+    font-family: Ubuntu;
+    font-size: 20px;
+    color: #00afeb;
+    width: 100%;
+    padding-bottom: 4px;
+}
+
+// Input file subir archivo
+.custom-file-label,
+.custom-file-input {
+    cursor: pointer;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 16px !important;
+    /* ---- */
+    height: 36.5px !important;
+    padding: 10px 10px;
+    border-left: 0px;
+    border-right: 0px;
+}
+
+.custom-file-label::after {
+    content: none !important;
+}
+
+.input-group-text {
+    background-color: #fff !important;
+}
+
+.rightSpan {
+    border-left: none !important;
+    border-top-right-radius: 0.25rem !important;
+    border-bottom-right-radius: 0.25rem !important;
+}
+
+.leftSpan {
+    border-right: none !important;
+}
+
+// fin input file
+button.btn-credits {
+    background-color: #00afeb;
+    border-color: #00afeb;
+    color: #fff;
+    border-radius: 25px;
+    padding: 5px 20px;
+    outline: 0px;
+    font-family: Ubuntu, Poppins;
+    font-size: 14px;
+    line-height: 21px;
+    margin: auto;
+}
+
+div.card-custom-select {
+    border: none;
+    border-radius: 50px;
+}
+
+div.card-custom-select div.content-custom-select select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    //background-color: #eeeeee;
+    border-color: #cecece;
+    color: #666666;
+    padding: 5px 20px;
+    outline: 0px;
+    font-family: Ubuntu, Poppins;
+    font-size: 13px;
+    line-height: 21px;
+    text-align: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    height: 31px;
+}
+
+div.card-custom-select div.content-custom-select select option {
+    color: #8f8f8f;
+    font-size: 16px;
+    line-height: 18px;
+}
+
+div.card-custom-select div.content-custom-select select option:nth-child(odd) {
+    background-color: #f2f2f2;
+}
+
+div.card-custom-select div.content-custom-select select option:nth-child(even) {
+    background-color: #fff;
+}
+
+div.card-custom-select div.content-custom-select i {
+    color: #00afeb;
+    position: absolute;
+    bottom: 0em;
+    padding: 7px;
+    right: 1rem;
+    pointer-events: none;
+    width: 20px;
+    height: 20px;
+    display: block;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+////////////////////////////////////////////////////
+.custom-input-file {
+    background-color: #941b80;
+    color: #fff;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0 auto 0;
+    min-height: 15px;
+    overflow: hidden;
+    padding: 10px;
+    position: relative;
+    text-align: center;
+    width: 400px;
+}
+
+.custom-input-file .input-file {
+    border: 10000px solid transparent;
+    cursor: pointer;
+    font-size: 10000px;
+    margin: 0;
+    opacity: 0;
+    outline: 0 none;
+    padding: 0;
+    position: absolute;
+    right: -1000px;
+    top: -1000px;
+}

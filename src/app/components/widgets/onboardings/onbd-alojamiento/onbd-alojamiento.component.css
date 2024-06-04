@@ -1,0 +1,8 @@
+.modal-onboarding-video {
+  height: 500px;
+}
+
+.modal-onboarding-video .iframe {
+  height: -webkit-fill-available;
+}
+/*# sourceMappingURL=onbd-alojamiento.component.css.map */

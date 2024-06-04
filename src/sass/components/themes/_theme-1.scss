@@ -1,0 +1,264 @@
+.icon-mydpcalendar,
+h3 {
+  color: $bg-blue;
+}
+.cf-message-login {
+  &:before {
+    background-color: $bg-blue;
+  }
+}
+
+#_section-1 {
+  .cf-login {
+    label.strong,
+    .mydpicon.icon-mydpcalendar,
+    h3 {
+      color: $bg-blue;
+    }
+    .cf-message-login {
+      &:before {
+        background-color: $bg-blue;
+      }
+    }
+  }
+  .cf-content-header {
+    h1 {
+      color: $bg-blue;
+    }
+    p {
+      color: $bg-white;
+      line-height: normal;
+    }
+  }
+  .cf-widget-1 {
+    h3 {
+      color: $bg-blue;
+    }
+    p {
+      color: $bg-white;
+    }
+  }
+  .cf-content-divider {
+    border-top: 4px solid rgba($bg-white, 0.6);
+  }
+}
+
+#_section-2 {
+  .cf-section {
+    background-color: $bg-white;
+  }
+  .cf-widget-1 {
+    color: $bg-blue;
+  }
+}
+
+#_section-3 {
+  .cf-login-name,
+  h2 {
+    color: $bg-blue;
+  }
+}
+
+#_section-4 {
+  .cf-widget-4 {
+    h3 {
+      color: $bg-blue;
+    }
+    p {
+      color: $bg-white;
+    }
+  }
+}
+
+#_section-5 {
+  h2 {
+    color: $bg-blue;
+  }
+}
+
+#_section-6 {
+  .cf-frame-fill-white {
+    .cf-widget-5 {
+      .ct-widget-footer,
+      .cf-widget-body {
+        h4 {
+          font-weight: 700 !important;
+        }
+        h5 {
+          font-size: 14px !important;
+          font-weight: 400 !important;
+        }
+        &.cf-widget-main-text {
+          h4 {
+            color: $bg-blue !important;
+          }
+        }
+        &.cf-widget-main-title-2,
+        &.cf-widget-main-title {
+          h4 {
+            font-size: 22px;
+          }
+        }
+      }
+    }
+  }
+}
+
+#_section-7 {
+  .cf-content-header {
+    h4 {
+      color: $bg-blue;
+      font-weight: 700;
+    }
+  }
+  .cf-calendar-wrapper {
+    background-color: $bg-blue;
+    p,
+    h4 {
+      color: $bg-white;
+    }
+  }
+  .cf-calendar {
+    .cal-day-cell {
+      &:hover {
+        cursor: pointer;
+        //background-color: rgba($bg-green, 1) !important;
+        .cal-day-number {
+          //color: $bg-white;
+        }
+      }
+    }
+    .cal-day-number {
+      opacity: 1 !important;
+    }
+    .cal-in-month {
+      background-color: rgba($bg-green-1, 0.1);
+      .cal-day-number {
+        color: $bg-blue;
+      }
+      &.cal-today {
+        .cal-day-number {
+          color: $bg-gray-2;
+        }
+      }
+    }
+    .cal-out-month {
+      &.cal-past,
+      &.cal-future {
+        .cal-day-number {
+          color: $bg-gray-2;
+        }
+      }
+    }
+  }
+
+  .cf-calendar-title-aside {
+    p {
+      color: $bg-blue;
+    }
+  }
+  .cf-content-inner-up {
+    h4 {
+      color: $bg-blue;
+    }
+  }
+  .cf-content-inner-down {
+    p {
+      color: $bg-blue;
+      font-size: 18px;
+      font-weight: 700;
+    }
+  }
+  .cf-item-hour-appointment {
+    h5 {
+      font-size: 18px;
+    }
+    &:hover {
+      h5 {
+        color: $bg-blue;
+      }
+    }
+  }
+}
+
+#_section-8 {
+  h3 {
+    color: $bg-blue;
+  }
+}
+
+#_modalPolicy,
+#_modalConditions {
+  .cf-widget-1 {
+    h5 {
+      color: $bg-blue;
+    }
+  }
+}
+
+.cf-frame-fill-image {
+  h3,
+  h4,
+  p {
+    color: $bg-white !important;
+  }
+  h4 {
+    span {
+      color: $bg-white !important;
+    }
+  }
+  h5 {
+    color: $bg-blue !important;
+  }
+}
+
+.cf-frame-fill-blue {
+  background-color: $bg-blue !important;
+  h3,
+  p {
+    color: $bg-white;
+  }
+}
+.cf-frame-fill-white {
+  background-color: $bg-white !important;
+  h3 {
+    color: $bg-blue;
+    &.cf-frame-text-inverse {
+      color: $bg-black;
+      margin: 0px;
+    }
+  }
+}
+
+#_frequentQuestions {
+  .cf-content-header {
+    h2 {
+      color: $bg-blue;
+    }
+  }
+  .cf-accordion-title {
+    span {
+      color: $bg-blue;
+    }
+    .cf-panel-number {
+      color: $bg-white;
+      background-color: $bg-blue;
+    }
+    i {
+      &:before {
+        color: $bg-blue;
+      }
+    }
+  }
+}
+.cf-list-parent-2 {
+  h4 {
+    color: $bg-blue;
+  }
+}
+
+.cf-custom-select {
+  &:after {
+    color: $bg-blue;
+  }
+}

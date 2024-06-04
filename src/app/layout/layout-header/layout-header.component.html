@@ -1,0 +1,373 @@
+<!-- Button error -->
+<button
+  type="button"
+  class="btn-modal-token-expired btn btn-primary"
+  data-toggle="modal"
+  data-target="#modalTokenExpired"
+>
+  Modal error
+</button>
+
+<!-- Modal error -->
+<div
+  class="modal fade modal-token-expired"
+  id="modalTokenExpired"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="modalTokenExpiredLabel"
+  aria-hidden="true"
+  data-backdrop="static"
+  data-keyboard="false"
+>
+  <div
+    class="modal-dialog modal-dialog-centered justify-content-center"
+    role="document"
+  >
+    <div class="modal-content">
+      <div class="modal-header error-header" id="modalTokenExpiredLabel">
+        <div>
+          <div class="d-flex align-items-center justify-content-center m-4">
+            <i aria-hidden="true" class="fa fa-exclamation-circle fa-3x"></i>
+          </div>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="text-center p-2">
+          <h6 class="m-0 pt-3 pb-3">Su sesión ha expirado</h6>
+          <div class="m-0 pt-3 pb-3">
+            <span>
+              <p class="text-center m-0">
+                Su sesión ha llegado al tiempo de caducidad, inicie sesión
+                nuevamente
+              </p>
+            </span>
+          </div>
+        </div>
+        <div class="p-2">
+          <div class="d-flex">
+            <button
+              type="button"
+              class="btn-close "
+              data-dismiss="modal"
+              
+              (click)="logout()"
+            >
+              Cerrar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<header class="header-home cf-header">
+  <div class="container position-relative">
+    <div class="header-nav-top">
+      <ul class="menu">
+        <li>
+          <a href="{{ home }}" target="_blank"
+            ><i class="fa fa-users"></i><span>Personas</span></a
+          >
+        </li>
+        <li>
+          <a href="{{ empresas }}" target="_blank"
+            ><i class="fa fa-briefcase"></i><span>Empresas</span></a
+          >
+        </li>
+      </ul>
+    </div>
+    <div class="row d-flex justify-content-between cf-menu-md-responsive">
+      <div class="col-md-12">
+        <div class="bt-social-wrap text-right">
+          <a
+            data-icon="fa fa-facebook-square"
+            href="https://www.facebook.com/Confacaldas/"
+            target="_blank"
+          >
+            <i class="fa fa-facebook-square"></i>
+          </a>
+          <a
+            data-icon="fa fa-twitter"
+            href="https://twitter.com/confacaldas"
+            target="_blank"
+          >
+            <i class="fa fa-twitter"></i>
+          </a>
+          <a
+            data-icon="fa fa-instagram"
+            href="https://www.instagram.com/confacaldas/"
+            target="_blank"
+          >
+            <i class="fa fa-instagram"></i>
+          </a>
+          <a
+            data-icon="fa fa-youtube-play"
+            href="https://www.youtube.com/user/Confamiliares"
+            target="_blank"
+          >
+            <i class="fa fa-youtube-play"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <nav class="row header-nav-ppal d-flex justify-content-between">
+      <div
+        class="col-xl-2 col-lg-2 col-md-2 col-sm-7 col-7 d-flex justify-content-start align-items-center"
+      >
+        <a class="div-logo" href="{{ home }}">
+          <img src="./assets/images/logo.png" class="logo" alt="Logo confa" />
+        </a>
+        <a class="div-logo-alt" href="{{ home }}">
+          <img
+            src="./assets/images/logo_reverse.png"
+            class="logo"
+            alt="Logo confa"
+          />
+        </a>
+      </div>
+
+      <div
+        class="col-xl-2 col-lg-2 col-md-2 col-sm-4 col-4 d-flex justify-content-end align-items-center cf-btn-close-menu"
+      >
+        <div class="d-flex flex-column">
+          <div class="options">
+            <a
+              href="javascript:;"
+              class="cf-btn-close-menu"
+              (click)="openMenu(menu)"
+            >
+              <i class="fa fa-bars"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="col-xl-10 col-lg-10 col-md-10 col-sm-12 col-12 cf-menu-desktop"
+      >
+        <ul
+          class="menu d-md-block d-lg-flex justify-content-center align-items-center cf-menu-md-responsive cf-menu-movile"
+          [ngClass]="{ active: menu }"
+        >
+          <li class="">
+            <a href="{{ acerca }}"><span>Acerca de Confa</span></a>
+          </li>
+          <!---active-->
+          <li class="services">
+            <a href="javascript:;" class="link cf-dropdown-menu"
+              ><span>Servicios</span></a
+            >
+
+            <ul class="sub-menu" [ngClass]="{ active: showMenu }">
+              <li class="subsidios">
+                <a href="{{ servicio_subsidio }}" class="item-link"
+                  ><span>Subsidios</span></a
+                >
+              </li>
+              <li class="vivienda">
+                <a href="{{ servicio_vivienda }}"><span>Vivienda</span></a>
+              </li>
+              <li class="educacion">
+                <a href="{{ servicio_educacion }}"
+                  ><span>Educaci&oacute;n</span></a
+                >
+              </li>
+              <li class="recreacion">
+                <a href="{{ servicio_recreacion }}"
+                  ><span>Recreaci&oacute;n</span></a
+                >
+              </li>
+              <li class="creditos">
+                <a href="{{ servicio_credito }}"
+                  ><span>Cr&eacute;ditos</span></a
+                >
+              </li>
+             
+              <li class="salud">
+                <a href="{{ servicio_salud }}"
+                  ><span>Salud</span></a
+                >
+              </li>
+            </ul>
+          </li>
+
+          <li>
+            <a href="{{ contacto }}"><span>Contacto</span></a>
+          </li>
+          <li>
+            <a href="{{ viveconfa }}"><span>Servicios en línea</span></a>
+          </li>
+          <!-- Option's session -->
+          <ng-container *ngIf="logued">
+            <li class="services">
+              <a
+                href="javascript:;"
+                class="link border-login"
+                (mouseover)="showMenuAuthentications = true"
+                (mouseout)="showMenuAuthentications = false"
+              >
+                <span>{{ user.primerNombre }} {{ user.segundoNombre }}</span>
+              </a>
+
+              <ul
+                class="sub-menu"
+                [ngClass]="{ active: showMenuAuthentications }"
+              >
+                <!-- <li>
+                                    <a href="javascript:;" routerLink="/alojamiento/list-reserves">{{ 'user.my_reservations' | translate }}</a>
+                                </li> -->
+                <li>
+                  <a href="javascript:;" (click)="logout()">{{
+                    "authentication.logout" | translate
+                  }}</a>
+                </li>
+              </ul>
+            </li>
+          </ng-container>
+
+          <li *ngIf="!logued">
+            <a
+              href="javascript:;"
+              class="border-login"
+              (click)="openLoginModal()"
+              >{{ "authentication.login" | translate }}</a
+            >
+          </li>
+
+          <!-- /Option's session -->
+        </ul>
+      </div>
+
+      <div
+        class="col-xl-10 col-lg-10 col-md-10 col-sm-12 col-12 cf-menu-mobile"
+      >
+        <ul
+          class="menu d-md-block d-lg-flex justify-content-center align-items-center cf-menu-md-responsive cf-menu-movile"
+          [ngClass]="{ active: menu }"
+          [exclude]="'button,.cf-btn-close-menu'"
+          (clickOutside)="closeMenu()"
+        >
+          <li class="">
+            <a href="{{ acerca }}" target="_blank"
+              ><span>Acerca de Confa</span></a
+            >
+          </li>
+          <!---active-->
+          <li class="services">
+            <a
+              href="javascript:;"
+              class="link cf-dropdown-menu"
+              (click)="openServices()"
+              ><span>Servicios</span></a
+            >
+
+            <ul class="sub-menu" [ngClass]="{ active: showMenu }">
+              <li class="subsidios">
+                <a href="{{ servicio_subsidio }}" class="item-link"
+                  ><span>Subsidios</span></a
+                >
+              </li>
+              <li class="vivienda">
+                <a href="{{ servicio_vivienda }}"><span>Vivienda</span></a>
+              </li>
+              <li class="educacion">
+                <a href="{{ servicio_educacion }}"
+                  ><span>Educaci&oacute;n</span></a
+                >
+              </li>
+              <li class="recreacion">
+                <a href="{{ servicio_recreacion }}"
+                  ><span>Recreaci&oacute;n</span></a
+                >
+              </li>
+              <li class="creditos">
+                <a href="{{ servicio_credito }}"
+                  ><span>Cr&eacute;ditos</span></a
+                >
+              </li>
+              <li class="alojamiento">
+                <a
+                  [routerLink]="['/alojamiento']"
+                  routerLinkActive="router-link-active"
+                  ><span>Alojamiento</span></a
+                >
+              </li>
+              <li class="salud">
+                <a
+                  [routerLink]="['/salud']"
+                  routerLinkActive="router-link-active"
+                  ><span>Salud</span></a
+                >
+              </li>
+            </ul>
+          </li>
+
+          <li>
+            <a href="{{ contacto }}"><span>Contacto</span></a>
+          </li>
+          <li>
+            <a href="{{ viveconfa }}"><span>Servicios en línea</span></a>
+          </li>
+          <!-- Option's session -->
+          <ng-container *ngIf="logued">
+            <li class="services">
+              <a href="javascript:;" class="link" (click)="openAuthUser()">
+                <span>{{ user.primerNombre }} {{ user.segundoNombre }}</span>
+              </a>
+
+              <ul
+                class="sub-menu"
+                [ngClass]="{ active: showMenuAuthentications }"
+              >
+                <li *ngIf="logued">
+                  <a
+                    href="javascript:;"
+                    routerLink="/alojamiento/list-reserves"
+                    >{{ "user.my_reservations" | translate }}</a
+                  >
+                </li>
+                <li>
+                  <a href="javascript:;" (click)="logout()">{{
+                    "authentication.logout" | translate
+                  }}</a>
+                </li>
+              </ul>
+            </li>
+          </ng-container>
+
+          <li *ngIf="!logued">
+            <a href="javascript:;" (click)="openLoginModal()">{{
+              "authentication.login" | translate
+            }}</a>
+          </li>
+
+          <!-- /Option's session -->
+        </ul>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<div class="overlay" [class.open]="showOverlay">
+  <div class="img text-center">
+    <img
+      src="../../assets/images/loading.png"
+      alt=""
+      style="width: 15%; margin-top: 5%"
+    />
+  </div>
+  <div class="row">
+    <div class="col-md-12 text-center loading-message">
+      <h2>{{ welcome }}</h2>
+    </div>
+  </div>
+</div>
+
+<app-splashscreen [loader]="false"></app-splashscreen>
+
+<app-auth-login></app-auth-login>
+
+<app-auth-validate-document></app-auth-validate-document>
+
+<app-auth-register></app-auth-register>

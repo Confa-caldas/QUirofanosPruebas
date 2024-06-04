@@ -1,0 +1,28 @@
+[id^="ngx_captcha_id_"] {
+  & > div {
+    margin: 0 auto;
+  }
+}
+// @media screen and(max-width: 575px) {
+//     [id^="ngx_captcha_id_"] > div {
+//         transform: scale(0.77);
+//         -webkit-transform: scale(0.77);
+//         transform-origin: 0 0;
+//         -webkit-transform-origin: 0 0;
+//     }
+// }
+@media screen and (max-width: 490px) {
+  [id^="ngx_captcha_id_"] > div {
+    position: relative;
+    left: 50%;
+    transform: scale(0.77) translateX(-50%);
+    transform-origin: 0 0;
+    -webkit-transform-origin: 0 0;
+  }
+}
+
+@media screen and (max-width: 330px) {
+  [id^="ngx_captcha_id_"] > div {
+    transform: scale(0.6) translateX(-50%);
+  }
+}

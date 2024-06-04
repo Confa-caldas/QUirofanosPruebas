@@ -1,0 +1,219 @@
+<app-breadcrumbs
+  [back]="main_appointments"
+  [backMain]="main_health"
+></app-breadcrumbs>
+<div class="cf-section bg-gray">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-9 col-lg-9 col-md-8 col-sm-12">
+        <ng-container *ngTemplateOutlet="mainContent"></ng-container>
+      </div>
+      <div class="col-xl-3 col-lg-3 col-md-4 col-sm-12">
+        <app-attention-information
+          [parentWidgetStyle]="2"
+          [widgetStyle]="2"
+        ></app-attention-information>
+
+        <div
+          class="cf-widget cf-widget-4 d-flex align-items-center justify-content-between"
+        >
+          <div class="cf-widget-content flex-fill ">
+            <div class="cf-widget-inner-content">
+              <div class="">
+                <div class="cf-widget-buttons cf-buttons-inline">
+                  <div>
+                    <a
+                      (click)="scrollTo('#_frequentQuestions')"
+                      class="btn btn-primary cf-btn cf-btn-primary cf-btn-block"
+                      >{{ "confa.frequent_questions" | translate }}</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="spacer20"></div>
+</div>
+
+<app-download-app></app-download-app>
+
+<app-frequent-questions></app-frequent-questions>
+
+<!-- INIT TEMPLATES -->
+
+<!-- begin:Template for main content -->
+<ng-template #mainContent>
+  <ng-container *ngIf="historicAppointments.length > 0">
+    <ng-container *ngTemplateOutlet="listAppointment"></ng-container>
+  </ng-container>
+
+  <ng-container *ngIf="historicAppointments.length == 0 && !load">
+    <ng-container *ngTemplateOutlet="noScheduleAppointment"></ng-container>
+  </ng-container>
+</ng-template>
+<!-- end:Template for main content -->
+
+<!-- begin:Template for list appointments -->
+<ng-template #listAppointment>
+  <div class="cf-content-p mt-5 mb-4">
+    <div class="row">
+      <div class="col-lx-10 col-lg-10 col-md-12 col-sm-12">
+        <h2>Histórico de citas</h2>
+        <p>
+          Este es tu historial de citas, verifica tus acciones o transacciones
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <ng-container *ngFor="let appoinment of historicAppointments">
+    <ng-container
+      [ngTemplateOutletContext]="{ item: appoinment }"
+      [ngTemplateOutlet]="appointment"
+    ></ng-container>
+  </ng-container>
+
+  <!-- <ng-container *ngFor="let appoinment of historicAppointments">
+        <ng-container [ngTemplateOutletContext]="{ item: appoinment }" [ngTemplateOutlet]="appointment"></ng-container>
+    </ng-container> -->
+</ng-template>
+<!-- end:Template for list appointments -->
+
+<!-- begin:Template for widget appointment -->
+<ng-template #appointment let-item="item" let-parentItem="parentItem">
+  <div class="cf-frame cf-frame-fill  cf-frame-fill-white mt-5">
+    <div class="cf-widget cf-widget-5">
+      <div class="cf-widget-body">
+        <div class="cf-widget-content flex-fill">
+          <div class="cf-widget-inner-content">
+            <div class="cf-widget-content-text">
+              <h5>Cita</h5>
+              <h4 class="gray-color">{{ item.descripcionCita | titlecase }}</h4>
+            </div>
+            <div class="cf-widget-buttons cf-buttons-inline cf-widget-5-btn-1">
+              <div class="cf-widget-inner-buttons">
+                <button
+                  *ngIf="item.estado == 'INTERNET'"
+                  class="btn btn-primary cf-btn cf-btn-secondary"
+                  (click)="viewDetails(item.consecutivo)"
+                >
+                  {{ "confa.buttons.show_details" | translate }}
+                </button>
+                <!--  <button
+                                    class="btn btn-primary cf-btn cf-btn-primary" *ngIf="item.estado == 'NO_PAGA'">{{'confa.buttons.pay_appointment' | translate}}</button> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cf-widget-body mt-3">
+        <div class="cf-widget-content flex-fill">
+          <div class="cf-widget-inner-content">
+            <div class="cf-widget-content-text">
+              <h5>Profesional</h5>
+              <h4 class="blue-color">{{ item.nombreMedico | titlecase }}</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ct-widget-footer mt-3">
+        <div class="row">
+          <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+            <div class="cf-widget-content-text">
+              <h5>Lugar</h5>
+              <h4 class="blue-color">
+                {{ item.lugarCitaDescripcion | titlecase }}
+              </h4>
+            </div>
+          </div>
+          <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+            <div class="cf-widget-content-text">
+              <h5>Fecha y hora</h5>
+              <h4 class="blue-color">
+                {{ item.fechaCita | date: "d MMMM y" }}/{{ item.horaCita }}
+              </h4>
+            </div>
+          </div>
+          <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+            <div class="cf-widget-content-text">
+              <h5>Valor</h5>
+              <h4 class="blue-color">${{ item.valor | number }}</h4>
+            </div>
+          </div>
+          <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+            <div class="cf-widget-content-text">
+              <h5>Estado de pago</h5>
+              <h4>
+                <span class="text-danger" *ngIf="item.estado == 'NO_PAGA'"
+                  >Pendiente de pago</span
+                >
+                <span class="text-success" *ngIf="item.estado == 'INTERNET'"
+                  >Paga</span
+                >
+                <span class="text-success" *ngIf="item.estado == 'CONFA'"
+                  >Paga en confa</span
+                >
+              </h4>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cf-widget-body cf-widget-5-btn-2">
+        <div class="cf-widget-content flex-fill">
+          <div class="cf-widget-inner-content">
+            <div class="cf-widget-buttons cf-buttons-inline">
+              <div class="cf-widget-inner-buttons">
+                <button
+                  *ngIf="item.estado == 'INTERNET'"
+                  class="btn btn-primary cf-btn cf-btn-primary"
+                  (click)="viewDetails(item.consecutivo)"
+                >
+                  {{ "confa.buttons.show_details" | translate }}
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+<!-- end:Template for widget appointment -->
+
+<!-- begin:Template for widget not schedule appointment -->
+<ng-template #noScheduleAppointment>
+  <div class="cf-frame cf-frame-fill cf-frame-fill-white mt-4">
+    <div class="cf-widget cf-widget-3">
+      <div class="cf-widget-body">
+        <div class="cf-widget-thumbnail">
+          <img alt="" src="{{ historialCitas }}" />
+        </div>
+
+        <div class="cf-widget-content">
+          <div class="cf-widget-inner-content">
+            <h3 class="cf-frame-text-inverse gray-color">
+              Actualmente no cuentas con citas en tu historial
+            </h3>
+            <p>
+              Busca el tipo de cita que necesitas y agéndala de manera fácil y
+              rápida
+            </p>
+          </div>
+          <div class="cf-widget-buttons cf-buttons-block mt-4">
+            <a
+              [routerLink]="[scheduleAppointmentLink]"
+              class="btn btn-primary cf-btn cf-btn-primary"
+              >{{ "confa.buttons.schedule_appointment" | translate }}</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+<!-- end:Template for widget not schedule appointment -->

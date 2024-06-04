@@ -1,0 +1,17 @@
+<div class="page-container">
+  <div class="loader-container" id="page-loader">
+    <div class="loading-wrapper loading-wrapper-hide"></div>
+  </div>
+
+  <app-layout-header></app-layout-header>
+
+  <div>
+    <router-outlet (activate)="onActivate($event)"></router-outlet>
+  </div>
+
+  <footer id="footer" class="jumb-footer">
+    <div class="container">
+      <div class="row"></div>
+    </div>
+  </footer>
+</div>

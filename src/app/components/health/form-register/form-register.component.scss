@@ -1,0 +1,65 @@
+button.btn-credits {
+  background-color: #00afeb;
+  border-color: #00afeb;
+  color: #fff;
+  border-radius: 25px;
+  padding: 5px 20px;
+  outline: 0px;
+  font-family: Ubuntu, Poppins;
+  font-size: 14px;
+  line-height: 21px;
+  margin: auto;
+}
+
+div.card-custom-select {
+  border: none;
+}
+
+div.card-custom-select div.content-custom-select select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  //background-color: #eeeeee;
+  border-color: #cecece;
+  color: #666666;
+  border-radius: 25px;
+  padding: 5px 20px;
+  outline: 0px;
+  font-family: Ubuntu, Poppins;
+  font-size: 13px;
+  line-height: 21px;
+  text-align: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  height: 31px;
+}
+
+div.card-custom-select div.content-custom-select select option {
+  color: #8f8f8f;
+  font-size: 16px;
+  line-height: 18px;
+}
+
+div.card-custom-select div.content-custom-select select option:nth-child(odd) {
+  background-color: #f2f2f2;
+}
+
+div.card-custom-select div.content-custom-select select option:nth-child(even) {
+  background-color: #fff;
+}
+
+div.card-custom-select div.content-custom-select i {
+  color: #00afeb;
+  position: absolute;
+  bottom: 0em;
+  padding: 7px;
+  right: 1rem;
+  pointer-events: none;
+  width: 20px;
+  height: 20px;
+  display: block;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}

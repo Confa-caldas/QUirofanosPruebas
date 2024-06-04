@@ -1,0 +1,64 @@
+/************************************ MODAL TOKEN EXPIRED ************************************/
+
+button.btn-modal-token-expired {
+    display: none;
+}
+
+div.modal-token-expired {
+    font-family: Ubuntu, Poppins;
+    font-size: 14px;
+    z-index: 50000000;
+}
+
+div.modal-token-expired div.modal-content {
+    border-radius: 7px;
+    width: 447px;
+}
+
+div.modal-token-expired div.error-header {
+    background-color: #FF5C5C;
+    color: #fff;
+    text-align: center;
+    justify-content: center;
+}
+
+div.modal-token-expired div.error-header div i {
+    font-size: 64px;
+    color: #fff;
+}
+
+div.modal-token-expired div.modal-body {
+    font-size: 13px;
+    line-height: 20px;
+    color: #666666;
+}
+
+div.modal-token-expired div.modal-body h6 {
+    font-size: 25px;
+    line-height: 21px;
+    color: #666666;
+    font-weight: bold;
+}
+
+div.modal-token-expired div.modal-body p {
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: bold;
+}
+
+div.modal-token-expired div.modal-body div.info-contact-us p {
+    font-size: 14px;
+    line-height: 24px;
+}
+
+div.modal-token-expired div.modal-body button.btn-close {
+    background-color: #00aeef;
+    border-color: #00aeef;
+    color: #fff;
+    border-radius: 25px;
+    padding: 5px 20px;
+    outline: 0px;
+    font-family: Ubuntu, Poppins;
+    font-size: 14px;
+    line-height: 21px;
+}

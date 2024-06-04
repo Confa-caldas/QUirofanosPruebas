@@ -1,0 +1,36 @@
+/**
+* Styles for widget 1
+*/
+.cf-widget-1 {
+    .cf-widget-body {
+        display: flex;
+        align-items: center;
+        .cf-widget-content {
+            margin-left: 15px;
+        }
+    }
+    .ct-widget-footer {
+        .cf-widget-buttons {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .cf-widget-buttons {
+        display: block !important;
+    }
+}
+@media screen and (max-width: 490px) {
+    .cf-widget-body {
+        display: block !important;
+        .cf-widget-thumbnail {
+            margin-bottom: 20px !important;
+        }
+        .cf-widget-content {
+            margin-left: 0px !important;
+        }
+    }
+}

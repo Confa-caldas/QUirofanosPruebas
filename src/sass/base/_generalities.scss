@@ -1,0 +1,117 @@
+//Padding
+.p-5 {
+  padding: 5px !important;
+}
+
+.p-10 {
+  padding: 10px;
+}
+
+.p-20 {
+  padding: 20px;
+}
+
+.p-30 {
+  padding: 30px;
+}
+
+.p-40 {
+  padding: 40px;
+}
+
+.p-50 {
+  padding: 50px;
+}
+
+.p-10-20 {
+  padding: 10px 20px;
+}
+
+.p-0-20 {
+  padding: 0 10px;
+}
+
+.p-10-0 {
+  padding: 10px 0;
+}
+
+//Height
+.h-100-vh {
+  height: 100vh;
+}
+
+//Background colors
+.bg-white {
+  background-color: #fff;
+}
+
+//Box utilities
+.box {
+  border-radius: $border-box;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.soft-box {
+  border-radius: $border-box;
+  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.24);
+}
+
+//Titles
+.title {
+  font-size: 25px;
+  margin: 0px;
+  text-transform: uppercase;
+}
+
+//Images
+.img-responsive {
+  height: auto;
+  max-width: 100%;
+}
+
+//spacers
+.spacer10 {
+  height: 10px;
+}
+
+.spacer20 {
+  height: 20px;
+}
+
+.spacer30 {
+  height: 30px;
+}
+
+.spacer40 {
+  height: 40px;
+}
+
+.spacer50 {
+  height: 50px;
+}
+
+.spacer100 {
+  height: 100px;
+}
+
+//Buttons
+.btn {
+  border-radius: $btn-border-radius;
+}
+
+//Fonts
+.f-size-14 {
+  font-size: 14px;
+}
+
+//Forms
+.form-control {
+  border-radius: $btn-border-radius;
+}
+
+//Lists
+ul {
+  list-style: none;
+  margin: 0px;
+  padding-left: 0px;
+}

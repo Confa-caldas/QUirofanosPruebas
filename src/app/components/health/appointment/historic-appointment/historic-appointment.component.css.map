@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,UAAU,CAAC,EAAE,CAAA;EACT,WAAW,EAAE,IAAI;CACpB",
+    "sources": [
+        "historic-appointment.component.scss"
+    ],
+    "names": [],
+    "file": "historic-appointment.component.css"
+}

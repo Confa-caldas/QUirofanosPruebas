@@ -1,0 +1,208 @@
+/**
+* Styles for buttons form
+*/
+
+.cf-btn {
+  @extend %cf-btn-base;
+  &.cf-btn-primary {
+    background-color: $bg-blue !important;
+    border: 1px solid $bg-blue !important;
+    color: $bg-white !important;
+    &:hover {
+      background-color: rgba($bg-blue, 0.8) !important;
+      border-color: rgba($bg-blue, 0.8) !important;
+    }
+  }
+  &.cf-btn-primary-outline {
+    background-color: #ffffff !important;
+    border: 2px solid $bg-blue !important;
+    color: $bg-blue !important;
+    &:hover {
+      color: $bg-white !important;
+      background-color: rgba($bg-blue, 1) !important;
+      border-color: rgba($bg-blue, 1) !important;
+    }
+  }
+  &.cf-btn-secondary {
+    background-color: $bg-white !important;
+    border: 1px solid $bg-white !important;
+    color: $bg-blue !important;
+    &:hover {
+      color: $bg-white !important;
+      background-color: rgba($bg-blue, 1) !important;
+      border-color: rgba($bg-blue, 1) !important;
+    }
+  }
+  &.cf-btn-secondary-1 {
+    background-color: $bg-gray-1 !important;
+    border: 1px solid $bg-gray-1 !important;
+    color: $bg-blue !important;
+    &:hover {
+      color: $bg-white !important;
+      background-color: rgba($bg-blue, 1) !important;
+      border-color: rgba($bg-blue, 1) !important;
+    }
+  }
+  &.cf-btn-secondary-2 {
+    background-color: $bg-gray-1 !important;
+    border: 1px solid $bg-gray-1 !important;
+    color: $bg-blue !important;
+    &:hover {
+      color: $bg-white !important;
+      background-color: rgba($bg-blue, 1) !important;
+      border-color: rgba($bg-blue, 1) !important;
+    }
+  }
+  &.cf-btn-secondary-3 {
+    background-color: $bg-white !important;
+    border: 1px solid $bg-white !important;
+    color: $bg-blue !important;
+    &:hover {
+      color: $bg-blue !important;
+      background-color: rgba($bg-gray, 1) !important;
+      border-color: rgba($bg-gray, 1) !important;
+    }
+  }
+  &.cf-btn-secondary-4 {
+    background-color: $bg-gray-4 !important;
+    border: 1px solid $bg-gray-4 !important;
+    color: $bg-blue !important;
+    &:hover {
+      color: $bg-white !important;
+      background-color: rgba($bg-blue, 1) !important;
+      border-color: rgba($bg-blue, 1) !important;
+    }
+  }
+  &.cf-btn-secondary-5 {
+    background-color: $bg-gray-4 !important;
+    border: 1px solid $bg-gray-4 !important;
+    color: $bg-gray-6 !important;
+    i {
+      color: $bg-blue !important;
+    }
+    &:hover {
+      color: $bg-white !important;
+      background-color: rgba($bg-blue, 1) !important;
+      border-color: rgba($bg-blue, 1) !important;
+      i {
+        color: $bg-white !important;
+      }
+    }
+  }
+  &.cf-btn-block {
+    display: block;
+    width: 100%;
+  }
+}
+
+%cf-btn-base {
+  border-radius: 25px;
+  padding: 10px 20px;
+  outline: none;
+  font-family: $f-main;
+  //text-transform: uppercase;
+  font-size: 14px;
+  &.cf-btn-bolder {
+    font-weight: 700;
+  }
+  &.cf-btn-large-text {
+    padding: 10px 10px;
+  }
+  &:focus {
+    box-shadow: none !important;
+  }
+  &:active {
+    &:focus {
+      box-shadow: none !important;
+    }
+  }
+}
+
+.cf-buttons-inline {
+  .cf-btn {
+    margin-left: 10px;
+    margin-right: 10px;
+    &:first-child {
+      margin-left: 0px;
+    }
+    &:last-child {
+      margin-right: 0px;
+    }
+  }
+}
+
+.cf-buttons-inline-mini {
+  .cf-btn {
+    margin-left: 5px;
+    margin-right: 5px;
+    &:first-child {
+      margin-left: 0px;
+    }
+    &:last-child {
+      margin-right: 0px;
+    }
+  }
+}
+
+.cf-buttons-block {
+  .cf-btn {
+    margin-top: 10px;
+    // margin-bottom: 10px;
+    &:first-child {
+      margin-top: 0px;
+    }
+    &:last-child {
+      margin-bottom: 0px;
+    }
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .cf-buttons-block {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .btn {
+    &:not(.cf-btn-not-responsive) {
+      width: 100% !important;
+    }
+  }
+  .cf-buttons-inline {
+    display: block !important;
+    .cf-btn {
+      &:not(.cf-btn-not-responsive) {
+        margin-left: 0px;
+        margin-right: 0px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        &:first-child {
+          margin-top: 0px;
+        }
+        &:last-child {
+          margin-bottom: 0px;
+        }
+      }
+    }
+  }
+
+  .cf-buttons-inline-mini {
+    display: block !important;
+    .cf-btn {
+      &:not(.cf-btn-not-responsive) {
+        margin-left: 0px;
+        margin-right: 0px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        &:first-child {
+          margin-top: 0px;
+        }
+        &:last-child {
+          margin-bottom: 0px;
+        }
+      }
+    }
+  }
+}

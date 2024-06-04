@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "auth-validate-document.component.scss"
+    ],
+    "names": [],
+    "file": "auth-validate-document.component.css"
+}

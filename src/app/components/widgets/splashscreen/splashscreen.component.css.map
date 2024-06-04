@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "splashscreen.component.scss"
+    ],
+    "names": [],
+    "file": "splashscreen.component.css"
+}

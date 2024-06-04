@@ -1,0 +1,334 @@
+{
+	"info": {
+		"_postman_id": "0b86f8a6-8fda-49e1-83dd-74f63772bf23",
+		"name": "Confa",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://app.confa.co:8876/ingresoConfaWSS/rest/confa/metodo11",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIxM2FhMmE5MWU1NmE0NmZkYTBhNTlkNDBmZTZmZTI0MCIsInN1YiI6IkFwcENvbmZhIiwiaXNzIjoiYzcyMTkxYWNlNzk2MDBiMTVjN2ZhNTM3MGYyMmU4NDYiLCJpYXQiOjE1NDM1ODUxMjIsImV4cCI6MTU0NjE3NzEyMn0.iFCbfeScQlGayTu6uw5Ni3ykoIl_rZLa1jkd9zSdkD4",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"documento\": \"1060653310\", \"clave\": \"Stivenv13\"}"
+				},
+				"url": {
+					"raw": "https://app.confa.co:8876/ingresoConfaWSSPortal/rest/confa/metodo11",
+					"protocol": "https",
+					"host": [
+						"app",
+						"confa",
+						"co"
+					],
+					"port": "8876",
+					"path": [
+						"ingresoConfaWSSPortal",
+						"rest",
+						"confa",
+						"metodo11"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://app.confa.co:8876/ingresoConfaWSS/rest/auth  ",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"parametro1\":\"209fb77b7a1b36c8d0139cfa43ed7e29\", \n\t\"parametro2\":\"87c2264a3c4a03c716b012ceac0b0e66\"\n}"
+				},
+				"url": {
+					"raw": "https://app.confa.co:8876/ingresoConfaWSSPortal/rest/auth",
+					"protocol": "https",
+					"host": [
+						"app",
+						"confa",
+						"co"
+					],
+					"port": "8876",
+					"path": [
+						"ingresoConfaWSSPortal",
+						"rest",
+						"auth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Alojamiento",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"fechaIngreso\":\"2018-12-16\",\r\n\"fechaSalida\":\"2018-12-18\",\r\n\"identificadorCentro\":4\r\n}"
+				},
+				"url": {
+					"raw": "https://app.confa.co:8876/alojamientoWS/rest/alojamiento/metodo1",
+					"protocol": "https",
+					"host": [
+						"app",
+						"confa",
+						"co"
+					],
+					"port": "8876",
+					"path": [
+						"alojamientoWS",
+						"rest",
+						"alojamiento",
+						"metodo1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "consultarDiasNoDisponibleCentroVacacionalJson",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"centroVacacionalId\": \"3\"}"
+				},
+				"url": {
+					"raw": "https://app.confa.co:8876/alojamientoWS/rest/alojamiento/metodo4",
+					"protocol": "https",
+					"host": [
+						"app",
+						"confa",
+						"co"
+					],
+					"port": "8876",
+					"path": [
+						"alojamientoWS",
+						"rest",
+						"alojamiento",
+						"metodo4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "consultarTitularReservaJson ",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"documento\": \"1060653310\",\n\t\"tipoDocumento\": \"CC\",\n\t\"centroVacacionalId\":180,\n\t\"unidadHabitacionalId\":978,\n\t\"capacidad\":4,\n\t\"fechaIngreso\": \"2018-12-01\",\n\t\"fechaSalida\": \"2018-12-03\"\n}"
+				},
+				"url": {
+					"raw": "https://app.confa.co:8876/alojamientoWS/rest/alojamiento/metodo2",
+					"protocol": "https",
+					"host": [
+						"app",
+						"confa",
+						"co"
+					],
+					"port": "8876",
+					"path": [
+						"alojamientoWS",
+						"rest",
+						"alojamiento",
+						"metodo2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "consultarInvitadoJson",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"documento\": \"686355\",\n\t\"tipoDocumento\": \"C\",\n\t\"centrovacacionalId\":3,\n\t\"unidadHabitacionalId\":135,\n\t\"capacidad\":6,\n\t\"fechaIngreso\": \"2018-10-27\",\n\t\"fechaSalida\": \"2018-10-29\"\n}"
+				},
+				"url": {
+					"raw": "https://app.confa.co:8876/alojamientoWS/rest/alojamiento/metodo3",
+					"protocol": "https",
+					"host": [
+						"app",
+						"confa",
+						"co"
+					],
+					"port": "8876",
+					"path": [
+						"alojamientoWS",
+						"rest",
+						"alojamiento",
+						"metodo3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "confirmarReservaJson",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"reserva\": {\r\n    \"reservaId\": 0,\r\n    \"centroVacacionalId\": 4,\r\n    \"unidadHabitacionalId\": 17,\r\n    \"capacidad\": 5,\r\n    \"fechaIngreso\": \"2018-11-10\",\r\n    \"fechasalida\": \"2018-11-12\",\r\n    \"fechaLimitePago\": \"2018-10-29\",\r\n    \"valor\": 166400,\r\n    \"pago\": \"NO\",\r\n    \"titularReserva\": {\r\n      \"personaId\": 19554791,\r\n      \"documento\": \"1060653310\",\r\n      \"tipoDocumento\": \"C\",\r\n      \"nombre1\": \"VIÃEZ\",\r\n      \"nombre2\": \"MENDIETA\",\r\n      \"apellido1\": \"STIVEN\",\r\n      \"apellido2\": \"ALEJANDRO\",\r\n      \"fechaNacimiento\": \"1994-09-13\",\r\n      \"genero\": \"M\",\r\n      \"categoria\": \"B\",\r\n      \"celular\": \"\",\r\n      \"correo\": \"\",\r\n      \"aceptaHabeasData\": true,\r\n      \"mensaje\": \"\"\r\n    },\r\n    \"asistentes\": [\r\n      {\r\n        \"personaId\": 96385,\r\n        \"documento\": \"24309153\",\r\n        \"tipoDocumento\": \"C\",\r\n        \"nombre1\": \"MARIA\",\r\n        \"nombre2\": \"NOHEMI\",\r\n        \"apellido1\": \"MENDIETA\",\r\n        \"apellido2\": \"RAMIREZ\",\r\n        \"fechaNacimiento\": \"1952-06-21\",\r\n        \"genero\": \"F\",\r\n        \"categoria\": \"B\",\r\n        \"celular\": \"\",\r\n        \"correo\": \"\",\r\n        \"aceptaHabeasData\": false,\r\n        \"mensaje\": \"\"\r\n      },\r\n      {\r\n        \"personaId\": 96384,\r\n        \"documento\": \"10240090\",\r\n        \"tipoDocumento\": \"C\",\r\n        \"nombre1\": \"WILLIAM\",\r\n        \"nombre2\": \"\",\r\n        \"apellido1\": \"VIÑES\",\r\n        \"apellido2\": \"OSORIO\",\r\n        \"fechaNacimiento\": \"1957-05-12\",\r\n        \"genero\": \"M\",\r\n        \"categoria\": \"B\",\r\n        \"celular\": \"\",\r\n        \"correo\": \"\",\r\n        \"aceptaHabeasData\": false,\r\n        \"mensaje\": \"\"\r\n      }\r\n    ],\r\n    \"estado\": \"\",\r\n    \"mensaje\": \"\"\r\n  }\r\n}"
+				},
+				"url": {
+					"raw": "https://app.confa.co:8876/alojamientoWS/rest/alojamiento/metodo5",
+					"protocol": "https",
+					"host": [
+						"app",
+						"confa",
+						"co"
+					],
+					"port": "8876",
+					"path": [
+						"alojamientoWS",
+						"rest",
+						"alojamiento",
+						"metodo5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "consultarReservaJson",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"reservaId\": \"302128\",\r\n\t\"documento\": \"1060653310\"\r\n}"
+				},
+				"url": {
+					"raw": "https://app.confa.co:8876/alojamientoWS/rest/alojamiento/metodo6",
+					"protocol": "https",
+					"host": [
+						"app",
+						"confa",
+						"co"
+					],
+					"port": "8876",
+					"path": [
+						"alojamientoWS",
+						"rest",
+						"alojamiento",
+						"metodo6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "agregarAsistenteReservaJson",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"reservaId\": 302128,\r\n\t \"asistente\": \r\n    {\r\n      \"personaId\": 96385,\r\n      \"documento\": \"24309153\",\r\n      \"tipoDocumento\": \"\",\r\n      \"nombre1\": \"MARIA\",\r\n      \"nombre2\": \"NOHEMY\",\r\n      \"apellido1\": \"MENDIETA\",\r\n      \"apellido2\": \"\",\r\n      \"fechaNacimiento\": \"1952-06-21\",\r\n      \"genero\": \"F\",\r\n      \"categoria\": \"B\",\r\n      \"celular\": \"\",\r\n      \"correo\": \"\",\r\n      \"aceptaHabeasData\": true,\r\n      \"existeCliente\": true,\r\n      \"mensaje\": \"\",\r\n      \"error\": \"\"\r\n    }\r\n} "
+				},
+				"url": {
+					"raw": "https://app.confa.co:8876/alojamientoWS/rest/alojamiento/metodo9",
+					"protocol": "https",
+					"host": [
+						"app",
+						"confa",
+						"co"
+					],
+					"port": "8876",
+					"path": [
+						"alojamientoWS",
+						"rest",
+						"alojamiento",
+						"metodo9"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

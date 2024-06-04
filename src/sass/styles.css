@@ -1,0 +1,44 @@
+/*-----src/sass/styles.scss--------*/
+/* //Bootstrap
+@import "~node_modules/bootstrap/scss/bootstrap";
+
+//Font-awesome
+//@import "~node_modules/font-awesome/scss/font-awesome";
+
+
+@import "./custom-variables";
+
+//Base
+@import "./base/app";
+@import "./base/generalities";
+
+//Components
+@import "./components/forms";
+
+//Base responsive
+@import "./base/responsive";
+
+//Estilos zona confa
+@import "./base/zonaconfa";
+
+//Estilo calendario
+@import "./base/calendars.scss";
+
+//Estilo para el header
+@import "./base/header/main";
+
+//Estilos personalizados
+@import "./custom-styles";
+
+//Estilos componente de salud
+@import "./components/health";
+
+//Estilos ng select
+@import "~@ng-select/ng-select/themes/default.theme.css";
+
+//Toast
+@import "~ngx-toastr/toastr.css";
+@import "~node_modules/ngx-toastr/toastr-bs4-alert";
+ */
+
+/*# sourceMappingURL=styles.css.map */

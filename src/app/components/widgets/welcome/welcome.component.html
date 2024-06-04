@@ -1,0 +1,68 @@
+<div id="_section-3" class="cf-section bg-white">
+  <div class="container">
+    <div class="row d-flex align-items-center">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+        <div class="cf-content-section">
+          <div
+            class="cf-content-header cf-content-header-cflogin d-flex align-items-center justify-content-between"
+          >
+            <div class="cf-content-header-med">
+              <h2>{{ "confa.welcome_to_confa" | translate }}</h2>
+              <p>
+                Queremos que accedas de manera &aacute;gil y oportuna a nuestros
+                servicios. <br />
+                Vive aqu&iacute; tu experiencia Confa.
+              </p>
+              <div class="card-body p-0 pl-2 pr-0">
+                <h2
+                  class="text-education-h4 m-0"
+                  style="color: red; font-size: 40px"
+                >
+                  AMBIENTE DE PRUEBAS
+                </h2>
+              </div>
+            </div>
+            <ng-container *ngIf="showHideUserhealth">
+              <div>
+                <div class="cf-login-info d-flex align-items-center">
+                  <div class="cf-login-data">
+                    <div class="cf-login-name gray-color f-16">
+                      Vas a solicitar una cita para este usuario
+                    </div>
+                    <div class="cf-login-name">
+                      {{ userHealt.user | titlecase }}
+                    </div>
+                    <div class="cf-login-id">
+                      {{ userHealt.tipoDocumento }} {{ userHealt.documento }}
+                    </div>
+                    <button
+                      *ngIf="!showTabs"
+                      class="cf-login-id btn btn-primary cf-btn cf-btn-secondary-4"
+                      href="javascript;"
+                      [routerLink]="['/quirofanos']"
+                      (click)="logout()"
+                    >
+                      Cerrar sesión
+                    </button>
+                  </div>
+                  <div class="cf-login-icon">
+                    <div class="cf-login-inner-icon">
+                      <img
+                        src="../../../../assets/images/co.png"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-container *ngIf="showTabs">
+  <app-tabs-links></app-tabs-links>
+</ng-container>

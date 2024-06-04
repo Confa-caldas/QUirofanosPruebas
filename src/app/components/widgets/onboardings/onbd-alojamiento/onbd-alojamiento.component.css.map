@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,uBAAuB,CAAC;EACtB,MAAM,EAAE,KAAK;CAKd;;AAND,AAGE,uBAHqB,CAGnB,OAAO,CAAC;EACR,MAAM,EAAE,sBAAsB;CAC/B",
+    "sources": [
+        "onbd-alojamiento.component.scss"
+    ],
+    "names": [],
+    "file": "onbd-alojamiento.component.css"
+}

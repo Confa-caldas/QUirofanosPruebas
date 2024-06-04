@@ -1,0 +1,133 @@
+<ng-template #login>
+  <div class="p-40" style="padding: 20px 36px">
+    <button
+      type="button"
+      class="close pull-rigth"
+      aria-label="Close"
+      (click)="closeModal()"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <div class="modal-header">
+      <span
+        class="modal-title text-center"
+        style="
+          text-align: left !important;
+          font-size: 29px;
+          font-weight: 700;
+          line-height: 29px;
+        "
+        >{{ messageModal }}</span
+      >
+    </div>
+    <div class="modal-body text-center">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group" style="text-align: left">
+            <label class="m-0 mb-1">Número de documento</label>
+            <input
+              type="text"
+              autocomplete="off"
+              class="form-control filter"
+              (keydown.enter)="loginUser()"
+              (keyup)="validateDocumentregister()"
+              [(ngModel)]="userlogin.document"
+              name="document"
+              placeholder="* Documento."
+              maxlength="15"
+            />
+            <!--(keyup)="validateDocument()" -->
+          </div>
+        </div>
+        <div class="col-md-12" *ngIf="viewPass">
+          <div class="form-group" class="form-group" style="text-align: left">
+            <label class="m-0 mb-1">Contraseña</label>
+            <input
+              type="password"
+              (keydown.enter)="loginUser()"
+              class="form-control filter"
+              [(ngModel)]="userlogin.password"
+              name="password"
+              placeholder="* Contraseña"
+              autocomplete="off"
+            />
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="form-group" style="text-align: left">
+            <label class="m-0 mb-1"
+              >* Los campos que tienen asterisco con obligatorios.</label
+            >
+            <!--(keyup)="validateDocument()" -->
+          </div>
+        </div>
+        <div class="col">
+          <button
+            id="alojIngresar"
+            href="javascript:;"
+            class="btn btn-primary login-button filter"
+            *ngIf="viewPass"
+            (click)="loginUser()"
+          >
+            <i class="fa fa-spinner fa-spin fa fa-fw" *ngIf="loader"></i>
+            <span class="sr-only"></span>
+            Ingresar
+          </button>
+          <button
+            href="javascript:;"
+            class="btn btn-primary login-button filter"
+            *ngIf="!viewPass"
+            (click)="recoverPass()"
+          >
+            <i class="fa fa-spinner fa-spin fa fa-fw" *ngIf="loader"></i>
+            Continuar
+          </button>
+        </div>
+        <div class="col-md-12" *ngIf="viewPass">
+          <a
+            id="alojOlvidocont"
+            href="javascript:;"
+            class="btn Login-Button"
+            (click)="forgotPassword()"
+            style="color: #ff2d27; margin-top: 20px"
+          >
+            {{ "forms.forgot_password" | translate }}
+          </a>
+        </div>
+        <div class="col-md-12">
+          <div class="spacer20"></div>
+          <a
+            id="alojRegistrarse"
+            href="javascript:;"
+            class="btn btn-secondary login-button"
+            (click)="showValidateDocument()"
+            *ngIf="viewPass"
+            >Registrarse</a
+          >
+
+          <a
+            href="javascript:;"
+            class="btn btn-secondary login-button"
+            (click)="showLogin()"
+            *ngIf="!viewPass"
+            >Volver</a
+          >
+        </div>
+        <div class="col-md-12">
+          <div class="form-group">
+            <label class="m-0 mb-1" style="color: #212529"
+              >Al ingresar estarás aceptando la
+              <a
+                href="javascript:;"
+                (click)="openModal()"
+                style="text-decoration: underline; color: #212529"
+                >Autorización de tratamiento de datos</a
+              ></label
+            >
+            <!--(keyup)="validateDocument()" -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

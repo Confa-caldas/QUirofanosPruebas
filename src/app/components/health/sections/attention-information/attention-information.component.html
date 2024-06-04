@@ -1,0 +1,30 @@
+<div class="cf-list-widgets cf-list-parent-{{parentWidgetStyle}}"
+    [ngClass]="{'mt-md-0 mt-sm-5':parentWidgetStyle == '2'}">
+    <div class="row">
+        <div *ngFor="let item of collection"
+            [ngClass]="{'col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-4': parentWidgetStyle == 1, 'col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-5':parentWidgetStyle == 2}">
+            <div class="cf-widget cf-widget-{{widgetStyle}}">
+                <div class="cf-widget-body">
+                    <div class="cf-widget-thumbnail">
+                        <img src="{{item.image}}" alt="" class="attentions">
+                        <h4 *ngIf="widgetStyle == 2">
+                            {{item.title}}
+                        </h4>
+                    </div>
+                    <div class="cf-widget-content">
+                        <h4 *ngIf="widgetStyle == 1">
+                            {{item.title}}
+                        </h4>
+                        <p *ngIf="widgetStyle == 1">
+                            <span *ngFor="let child of item.items" [innerHTML]="child.value" class="f-14" ></span>
+                        </p>
+
+                        <p *ngIf="widgetStyle == 2">
+                            <span *ngFor="let child of item.items" [innerHTML]="child.value" class="f-14 d-grid" ></span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

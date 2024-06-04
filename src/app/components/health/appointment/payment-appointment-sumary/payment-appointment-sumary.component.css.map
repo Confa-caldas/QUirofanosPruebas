@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,cAAc,CAAA;EACV,MAAM,EAAE,WAAW;CACtB",
+    "sources": [
+        "payment-appointment-sumary.component.scss"
+    ],
+    "names": [],
+    "file": "payment-appointment-sumary.component.css"
+}

@@ -1,0 +1,43 @@
+<div id="_frequentQuestions" class="cf-section bg-gray">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+
+                <div class="cf-content-section">
+
+                    <!-- <div class="cf-content-header mb-5">
+                        <h2>{{'confa.frequent_questions'| translate}}</h2>
+                        <p>{{'confa.frequent_questions_desciption'| translate}}</p>
+                    </div> -->
+                    <div class="cf-content-body">
+                        <ng-container *ngTemplateOutlet="listFrequentQuestions"></ng-container>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #listFrequentQuestions>
+
+    <accordion class="{{customClass}}" [closeOthers]="oneAtATime">
+
+        <accordion-group *ngFor="let item of collection; let i = index" [isOpen]="item.open == true ? true: false">
+            <button class="btn btn-link btn-block d-flex align-items-center justify-content-between cf-accordion-title"
+                accordion-heading>
+                <div class="d-flex align-items-center justify-content-between">
+                    <span class="cf-panel-number">{{i+1}}</span> <span>{{item.title}}</span>
+                </div>
+                <span>
+                    <i class="cf-panel-arrow-down fa fa-angle-down" aria-hidden="true"></i>
+                    <i class="cf-panel-arrow-up fa fa-angle-up" aria-hidden="true"></i>
+                </span>
+            </button>
+            <diV [innerHTML]="item.description"></diV>
+        </accordion-group>
+
+    </accordion>
+
+</ng-template>

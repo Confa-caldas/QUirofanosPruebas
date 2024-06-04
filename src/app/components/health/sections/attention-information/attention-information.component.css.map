@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,WAAW,CAAA;EACP,KAAK,EAAE,IAAI,CAAA,UAAU;CACxB;;AAED,AAAA,KAAK,CAAA;EACD,SAAS,EAAE,IAAI;CAClB;;AAED,AAAA,OAAO,CAAA;EACH,OAAO,EAAE,WAAW,CAAA,UAAU;CACjC;;AAED,AAAA,KAAK,CAAA;EACD,OAAO,EAAE,IAAI,CAAA,UAAU;CAC1B",
+    "sources": [
+        "attention-information.component.scss"
+    ],
+    "names": [],
+    "file": "attention-information.component.css"
+}

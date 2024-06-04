@@ -1,0 +1,27 @@
+<div class="row p-30 content">
+    <div class="col-md-4">
+        <div class="row">
+            <div class="col-md-12 p-10">
+                <select name="resort" id="resort" [(ngModel)]="resortSelect" [ngModelOptions]="{standalone: true}" (change)="onItemSelect()" class="form-control filter">
+					<option value="0" selected>Centro Recreacional</option>
+					<!-- <option  *ngFor="let resort of resortList" value="{{resort.identificadorCentro}}">{{resort.nombre}}</option> -->
+					<option   value="7"> El Bosque</option>
+					<option   value="4"> La Rochela</option>
+					<option   value="3"> Santágueda</option>
+				</select>
+                <i class="fa fa-chevron-down"></i>
+            </div>
+            <div class="col-md-6 p-10">
+                <my-date-picker class="filter" [(ngModel)]="dat1" [options]="dateOptionsInit" [placeholder]="placeholderEntry" (dateChanged)="dateChange($event, 1)"></my-date-picker>
+            </div>
+            <div class="col-md-6 p-10" id="dateout">
+                <my-date-picker #mydp="mydatepicker" [(ngModel)]="dat2" [options]="dateOptionsFinish" [placeholder]="placeholderOut" (dateChanged)="dateChange($event, 0)"></my-date-picker>
+            </div>
+            <div class="col-md-12 p-10">
+                <button class="btn btn-primary filter" (click)="consultar()">Buscar &nbsp; <i class="fa fa-search" aria-hidden="true"></i></button>
+                <div class="spacer20"></div>
+            </div>
+        </div>
+    </div>
+
+</div>

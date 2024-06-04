@@ -1,0 +1,84 @@
+{
+  "authentication": {
+    "login": "Login",
+    "logout": "Logout"
+  },
+  "menu": {
+    "permissions": "Permissions",
+    "users": "Users",
+    "profile": "Profile",
+    "documents": "Documents",
+    "maps": "Maps"
+  },
+  "forms": {
+    "email": "Email",
+    "password": "Password",
+    "remember_me": "Remember me",
+    "forgot_password": "Forgot password?",
+    "login": "Log in",
+    "role_name": "Role name",
+    "permissions": "Permissions",
+    "users": "Users",
+    "name": "Name",
+    "status": "Status",
+    "role": "Role",
+    "last_connection": "Last connection",
+    "rows": "Rows",
+    "select_role": "Select role",
+    "user_form": "User form",
+    "profile": "Profile",
+    "upload_image": "Upload image",
+    "confirm_password": "Confirm password",
+    "documents": "Documents",
+    "title": "Title",
+    "original_name": "Original name",
+    "url_file": "URL file",
+    "click_drag": "Click or drag images here to upload",
+    "maps": "Maps"
+  },
+  "buttons": {
+    "new_role": "New role",
+    "save_role": "Save role",
+    "new_user": "New user",
+    "save": "Save",
+    "cancel": "Cancel",
+    "new_document": "New document",
+    "download_file": "Download file"
+  },
+  "alerts": {
+    "congratulations": "Congratulations!",
+    "confirm": "Confirm",
+    "sure_to_delete": "Are you sure to delete this register?",
+    "yes": "Yes",
+    "cancel": "Cancel"
+  },
+  "links": {
+    "my_reservations": "My reservations"
+  },
+  "health": {
+    "login": {
+      "fields": {
+        "document": "Document",
+        "document_type": "Document type",
+        "birthday": "Birthday"
+      }
+    }
+  },
+  "user": {
+    "my_reservations": "My reservations"
+  },
+  "confa": {
+    "welcome_to_confa": "Welcome to Vive Confa",
+    "my_appointments": "My appointments",
+    "book_accommodation": "Book accommodation",
+    "frequent_questions": "Frequent questions",
+    "frequent_questions_desciption": "Queremos brindarte siempre el mejor servicio.",
+    "buttons": {
+      "schedule_appointments": "Schedule appointments",
+      "schedule_appointment": "Schedule appointment",
+      "show_historical": "Show historical",
+      "cancel_appointment": "Cancel",
+      "pay_appointment": "Pay"
+    }
+  }
+}

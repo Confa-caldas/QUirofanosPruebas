@@ -1,0 +1,182 @@
+<app-breadcrumbs
+  [back]="main_appointments"
+  [backMain]="main_health"
+></app-breadcrumbs>
+
+<div class="cf-section bg-gray">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-12 col-lg-10 col-md-10 col-sm-12">
+        <ng-container *ngTemplateOutlet="mainContent"></ng-container>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-terms-conditions></app-terms-conditions>
+
+<!-- INIT TEMPLATES -->
+<!-- begin:Template for main content -->
+<ng-template #mainContent>
+  <div
+    class="cf-widget cf-widget-4 d-sm-block d-md-flex align-items-center justify-content-between"
+  >
+    <h3 class="blue-color">
+      <strong>{{ "health.payment.transction_sumary" | translate }}</strong>
+    </h3>
+
+    <button class="btn btn-primary cf-btn cf-btn-primary" (click)="goToList()">
+      Ver mis citas
+    </button>
+  </div>
+
+  <div class="cf-frame cf-frame-fill cf-frame-fill-white mt-3">
+    <div class="cf-widget cf-widget-5">
+      <div class="cf-widget-body cf-widget-main-title">
+        <div
+          class="cf-widget-content flex-fill d-sm-block d-md-flex align-content-center justify-content-between "
+        >
+          <div class="cf-widget-content-text">
+            <span class="gray-color">{{
+              "health.payment.bank" | translate
+            }}</span>
+
+            <h4 class="blue-color">
+              <strong> {{ appointmentData.bankname | titlecase }}</strong>
+            </h4>
+          </div>
+
+          <div class="cf-widget-content-text">
+            <span class="gray-color">{{
+              "health.payment.value" | translate
+            }}</span>
+            <h4 class="gray-color pr-5">
+              <strong>${{ appointmentData.value | number }}</strong>
+            </h4>
+          </div>
+
+          <div class="cf-widget-content-text">
+            <span class="gray-color">{{
+              "health.payment.status" | translate
+            }}</span>
+            <h4>{{ code }}</h4>
+          </div>
+
+          <div class="cf-widget-content-text">
+            <span class="gray-color">{{
+              "health.payment.date_time_transaction" | translate
+            }}</span>
+
+            <h4 class="gray-color">{{ appointmentData.date_hour | titlecase}}</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cf-content-p mt-3 mb-4">
+    <div class="row">
+      <div class="col-lx-10 col-lg-10 col-md-12 col-sm-12">
+        <h3 class="gray-color">
+          {{ "health.payment.payment_details" | translate }}
+        </h3>
+      </div>
+    </div>
+  </div>
+
+  <div class="cf-frame cf-frame-fill cf-frame-fill-white mt-3">
+    <div class="cf-widget cf-widget-5 row">
+      <div class="col-md-6 blue-color">
+        <h4>
+          {{ "health.payment.sumary" | translate }}
+        </h4>
+      </div>
+      <div class="col-md-6 gray-color">
+        <h4>
+          {{ "health.payment.details" | translate }}
+        </h4>
+      </div>
+
+      <!-- Sumary data -->
+      <div class="col-md-6 gray-color border-bottom">
+        {{ "health.payment.headline" | translate }}
+      </div>
+      <div class="col-md-6 blue-color border-bottom">
+        {{ appointmentData.name }}
+      </div>
+      <!--  -->
+      <div class="col-md-6 gray-color border-bottom">
+        Documento
+      </div>
+      <div class="col-md-6 blue-color border-bottom">
+        {{ appointmentData.document }}
+      </div>
+      <!--  -->
+
+      <div class="col-md-6 gray-color border-bottom">
+        {{ "health.payment.cellphone" | translate }}
+      </div>
+      <div class="col-md-6 blue-color border-bottom">
+        {{ appointmentData.cellphone }}
+      </div>
+      <!--  -->
+      <div class="col-md-6 gray-color border-bottom">
+        {{ "health.payment.email" | translate }}
+      </div>
+      <div class="col-md-6 blue-color border-bottom">
+        {{ appointmentData.email }}
+      </div>
+      <!--  -->
+      <div class="col-md-6 gray-color border-bottom">
+        {{ "health.payment.address" | translate }}
+      </div>
+      <div class="col-md-6 blue-color border-bottom">
+        {{ appointmentData.address }}
+      </div>
+      <!--  -->
+      <div class="col-md-6 gray-color border-bottom">
+        {{ "health.payment.bank" | translate }}
+      </div>
+      <div class="col-md-6 blue-color border-bottom">
+        {{ appointmentData.bankname }}
+      </div>
+      <!--  -->
+      <div class="col-md-6 gray-color border-bottom">
+        {{ "health.payment.status" | translate }}
+      </div>
+      <div class="col-md-6 blue-color border-bottom">
+        {{ code }}
+      </div>
+      <!--  -->
+      <div class="col-md-6 gray-color border-bottom">
+        {{ "health.payment.reserve_id" | translate }}
+      </div>
+      <div class="col-md-6 blue-color border-bottom">
+        {{ appointmentData.ticketId }}
+      </div>
+      <!--  -->
+      <div class="col-md-6 gray-color border-bottom">
+        {{ "health.payment.No_authorization" | translate }}
+      </div>
+      <div class="col-md-6 blue-color border-bottom">
+        {{ appointmentData.TrazabilityCode }}
+      </div>
+      <!--   -->
+      <div class="col-md-6 gray-color border-bottom">
+        {{ "health.payment.date_time_transaction" | translate }}
+      </div>
+      <div class="col-md-6 blue-color border-bottom">
+        {{ appointmentData.date_hour }}
+      </div>
+      <!--  -->
+      <div class="col-md-6 gray-color">
+        {{ "health.payment.value" | translate }}
+      </div>
+      <div class="col-md-6 blue-color">
+        ${{ appointmentData.value | number }}
+      </div>
+    </div>
+  </div>
+  <div class="spacer30"></div>
+</ng-template>
+<!-- end:Template for main content -->
